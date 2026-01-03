@@ -1,0 +1,898 @@
+/* =========================================
+   ESTILO: 19. LUXURY (PARIS / MILAN)
+   ========================================= */
+:root {
+    --bg-luxury: #080808;
+    --bg-secondary: #111111;
+    --text-main: #f5f5f5; /* Quase branco total */
+    --text-muted: #b0b0b0; /* ANTES ERA #888 (MUITO ESCURO). AGORA É PRATA. */
+    --gold-accent: #D4AF37;
+    --border-thin: 1px solid rgba(255,255,255,0.15); /* Borda um pouco mais visível */
+}
+
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg-luxury);
+    color: var(--text-main);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    line-height: 1.8;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* --- HEADER --- */
+header {
+    padding: 30px 20px;
+    border-bottom: var(--border-thin);
+    background: rgba(8,8,8,0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    height: 45px;
+    filter: grayscale(100%) brightness(300%);
+    opacity: 0.9;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.4s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav a::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 1px;
+    background: var(--gold-accent); transition: 0.4s; transform: translateX(-50%);
+}
+
+nav a:hover, nav a.highlight { color: #fff; }
+nav a:hover::after { width: 100%; }
+nav a.highlight { color: var(--gold-accent); }
+
+/* --- HERO --- */
+.hero {
+    height: 85vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://img.comunidades.net/mis/mises/1225.png');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) contrast(110%) brightness(50%);
+    z-index: 0;
+    transition: 10s ease;
+    animation: zoomIn 20s infinite alternate;
+}
+
+@keyframes zoomIn { from { transform: scale(1); } to { transform: scale(1.1); } }
+
+.hero-content {
+    z-index: 1;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 50px 80px;
+    backdrop-filter: blur(3px);
+    background: rgba(0,0,0,0.2);
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 4rem;
+    color: #fff;
+    margin: 10px 0;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.hero-subtitle {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--gold-accent);
+}
+
+/* --- SEÇÕES GERAIS --- */
+.content-section { padding: 100px 20px; }
+.dark-bg { background-color: var(--bg-secondary); border-top: var(--border-thin); border-bottom: var(--border-thin); }
+.gold-bg { background-color: #fdfbf7; color: #111; }
+
+.container { max-width: 1000px; margin: 0 auto; }
+
+.gold-line { width: 1px; height: 80px; background: var(--gold-accent); margin: 0 auto 40px; }
+.gold-underline { width: 60px; height: 1px; background: var(--gold-accent); margin: 0 auto 50px; }
+.divider-line { width: 1px; height: 60px; background: var(--gold-accent); margin: 0 auto 40px; }
+.dark-line { background: #111; }
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: #fff;
+}
+.section-title.dark-text { color: #111; }
+
+.intro-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #ccc;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.intro-text.dark-text { color: #333; }
+
+/* --- GRIDS --- */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin: 60px 0; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+
+.text-block h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 15px; color: var(--gold-accent); }
+.text-block p { font-size: 0.9rem; color: var(--text-muted); }
+
+/* --- LISTA DE PERTENÇA --- */
+.membership-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 60px;
+    border-top: var(--border-thin);
+    padding-top: 40px;
+}
+
+.membership-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.membership-item strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.membership-item span {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* --- IMAGENS FASHION --- */
+.fashion-img-wrapper {
+    margin: 60px 0;
+    position: relative;
+    padding: 15px;
+    border: 1px solid #333;
+    display: inline-block;
+}
+
+.fashion-img {
+    max-width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+    display: block;
+}
+
+.img-caption {
+    position: absolute;
+    bottom: -10px;
+    right: 30px;
+    background: var(--bg-luxury);
+    padding: 0 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-accent);
+}
+
+/* --- CITAÇÃO --- */
+.quote-box {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #fff;
+    margin: 60px 0 20px;
+    line-height: 1.3;
+}
+.quote-box span { color: var(--gold-accent); font-style: italic; }
+.small-text { font-size: 0.8rem; color: #666; text-transform: uppercase; letter-spacing: 2px; }
+
+/* --- BALUARTES --- */
+.card-baluarte {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 30px;
+    transition: 0.3s;
+}
+.card-baluarte:hover { border-color: var(--gold-accent); background: rgba(255,255,255,0.02); }
+.card-baluarte h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 5px; }
+.card-baluarte p { font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; }
+
+/* --- FUNDADORES --- */
+.founder-card { padding: 20px; }
+.founder-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; margin-bottom: 5px; }
+.founder-card span { display: block; font-size: 0.7rem; text-transform: uppercase; color: var(--gold-accent); margin-bottom: 15px; letter-spacing: 2px; }
+.founder-card p { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: #ccc; }
+.full-width { grid-column: 1 / -1; margin-top: 20px; }
+
+/* --- BENFEITOR --- */
+.donation-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin: 60px 0;
+    background: #fff;
+    padding: 40px;
+    border: 1px solid #ddd;
+}
+
+.qr-code { width: 150px; height: 150px; mix-blend-mode: multiply; }
+
+.bank-details h4 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #111; margin-bottom: 10px; }
+.bank-details p { color: #555; font-family: monospace; margin-bottom: 20px; }
+
+.cta-button {
+    display: inline-block;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 30px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+.cta-button:hover { background: #fff; color: #000; }
+.cta-button.dark { border-color: #111; color: #111; }
+.cta-button.dark:hover { background: #111; color: #fff; }
+
+.vocational-call { margin-top: 40px; }
+.vocational-call p { font-size: 0.8rem; letter-spacing: 2px; color: #555; margin-bottom: 10px; }
+.vocational-call a { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #111; text-decoration: none; border-bottom: 1px solid #111; }
+
+/* --- FOOTER --- */
+footer {
+    padding: 80px 20px;
+    border-top: var(--border-thin);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #555;
+    text-transform: uppercase;
+}
+
+.social-row { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; }
+.social-row a { color: #888; text-decoration: none; transition: 0.3s; }
+.social-row a:hover { color: #fff; }
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-content { padding: 30px 20px; }
+    .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 40px; }
+    .membership-item { flex-direction: column; gap: 5px; }
+    .donation-box { flex-direction: column; text-align: center; }
+    nav { display: none; } /* Pode adicionar um menu mobile depois se quiser */
+}
+
+/* =========================================
+   ESTILO: 19. LUXURY (PARIS / MILAN)
+   ========================================= */
+:root {
+    --bg-luxury: #080808;
+    --bg-secondary: #111111;
+    --text-main: #f0f0f0;
+    --text-muted: #888888;
+    --gold-accent: #D4AF37;
+    --border-thin: 1px solid rgba(255,255,255,0.1);
+}
+
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: var(--bg-luxury);
+    color: var(--text-main);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    line-height: 1.8;
+    overflow-x: hidden;
+    text-align: center;
+}
+
+/* --- HEADER --- */
+header {
+    padding: 30px 20px;
+    border-bottom: var(--border-thin);
+    background: rgba(8,8,8,0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    height: 45px;
+    filter: grayscale(100%) brightness(300%);
+    opacity: 0.9;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.4s ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav a::after {
+    content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 1px;
+    background: var(--gold-accent); transition: 0.4s; transform: translateX(-50%);
+}
+
+nav a:hover, nav a.highlight { color: #fff; }
+nav a:hover::after { width: 100%; }
+nav a.highlight { color: var(--gold-accent); }
+
+/* --- HERO --- */
+.hero {
+    height: 85vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://img.comunidades.net/mis/mises/1225.png');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) contrast(110%) brightness(50%);
+    z-index: 0;
+    transition: 10s ease;
+    animation: zoomIn 20s infinite alternate;
+}
+
+@keyframes zoomIn { from { transform: scale(1); } to { transform: scale(1.1); } }
+
+.hero-content {
+    z-index: 1;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 50px 80px;
+    backdrop-filter: blur(3px);
+    background: rgba(0,0,0,0.2);
+}
+
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 4rem;
+    color: #fff;
+    margin: 10px 0;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.hero-subtitle {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--gold-accent);
+}
+
+/* --- SEÇÕES GERAIS --- */
+.content-section { padding: 80px 20px; }
+.dark-bg { background-color: var(--bg-secondary); border-top: var(--border-thin); border-bottom: var(--border-thin); }
+.gold-bg { background-color: #fdfbf7; color: #111; }
+
+.container { max-width: 1000px; margin: 0 auto; }
+
+.gold-line { width: 1px; height: 80px; background: var(--gold-accent); margin: 0 auto 40px; }
+.gold-underline { width: 60px; height: 1px; background: var(--gold-accent); margin: 0 auto 50px; }
+.divider-line { width: 1px; height: 60px; background: var(--gold-accent); margin: 0 auto 40px; }
+.dark-line { background: #111; }
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: #fff;
+}
+.section-title.dark-text { color: #111; }
+
+.text-justify {
+    text-align: justify;
+    line-height: 1.8;
+    color: #ccc;
+    font-size: 1rem;
+}
+.gold-bg .text-justify { color: #333; }
+
+.intro-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.intro-text.dark-text { color: #333; }
+
+/* --- SOCIAIS --- */
+.social-row { display: flex; justify-content: center; gap: 30px; margin-bottom: 40px; }
+.social-row img { width: 30px; filter: grayscale(100%) invert(1); opacity: 0.7; transition: 0.3s; }
+.social-row a:hover img { opacity: 1; transform: scale(1.1); }
+
+/* --- GRIDS --- */
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+
+.info-card {
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 30px;
+    text-align: left;
+}
+.info-card h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold-accent); margin-bottom: 10px; }
+.info-card p { font-size: 0.9rem; color: #888; }
+
+.quote-box {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #fff;
+    margin: 40px 0;
+    font-style: italic;
+    border-left: 2px solid var(--gold-accent);
+    padding-left: 20px;
+}
+.small-quote { font-size: 1.4rem; text-align: center; border: none; }
+
+/* --- PERTENÇA --- */
+.membership-list { text-align: left; margin-top: 40px; }
+.membership-item-full { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.membership-item-full strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.2rem; color: #fff; margin-bottom: 5px; }
+.membership-item-full p { font-size: 0.9rem; color: #999; }
+
+/* --- IMAGEM FASHION --- */
+.fashion-img-wrapper { margin: 60px 0; position: relative; padding: 15px; border: 1px solid #333; display: inline-block; }
+.fashion-img { max-width: 100%; height: auto; filter: grayscale(100%); display: block; }
+.img-caption { position: absolute; bottom: -10px; right: 30px; background: var(--bg-luxury); padding: 0 15px; font-family: 'Montserrat', sans-serif; font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-accent); }
+
+/* --- BALUARTES --- */
+.baluarte-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.baluarte-item h3 { color: #fff; font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 10px; text-align: center; border-bottom: 1px solid var(--gold-accent); padding-bottom: 5px; display: inline-block; }
+.baluarte-item p { text-align: justify; font-size: 0.9rem; color: #aaa; }
+
+/* --- FUNDADORES --- */
+.founders-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.founder-block { text-align: left; padding: 20px; border: 1px solid #222; }
+.founder-block h3 { color: #fff; font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 10px; }
+.founder-block .quote { color: var(--gold-accent); font-style: italic; font-size: 1rem; margin-bottom: 15px; border-left: 2px solid #333; padding-left: 10px; }
+
+/* --- BENFEITOR & FORMS --- */
+.poem-box { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; color: #333; margin-bottom: 40px; }
+.highlight-text { font-weight: bold; font-size: 1.2rem; margin: 10px 0; }
+.qr-code-large { width: 200px; height: 200px; mix-blend-mode: multiply; margin: 20px 0; }
+
+.cta-button {
+    display: inline-block; background: transparent; color: #fff; border: 1px solid #fff;
+    padding: 12px 30px; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; transition: all 0.4s ease; cursor: pointer;
+}
+.cta-button.dark-btn { border-color: #111; color: #111; font-weight: bold; }
+.cta-button.dark-btn:hover { background: #111; color: #fff; }
+
+/* --- LUXURY FORM STYLING --- */
+.luxury-form-container {
+    margin-top: 60px;
+    padding: 40px;
+    border: 1px solid #d4af37;
+    background: #fff;
+    text-align: left;
+}
+.form-title { font-family: 'Playfair Display', serif; font-size: 2rem; color: #111; text-align: center; margin-bottom: 30px; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: 0.7rem; text-transform: uppercase; color: #555; letter-spacing: 1px; margin-bottom: 5px; }
+
+.lux-input, .lux-select {
+    width: 100%; padding: 10px; border: none; border-bottom: 1px solid #ccc;
+    background: transparent; font-family: 'Montserrat', sans-serif; font-size: 0.9rem;
+    color: #111; outline: none; transition: 0.3s;
+}
+.lux-input:focus, .lux-select:focus { border-bottom-color: var(--gold-accent); }
+
+.row { display: flex; gap: 20px; }
+.row input { flex: 1; }
+.three-col select { flex: 1; }
+
+.radio-group label { display: inline-block; margin-right: 20px; font-size: 0.9rem; color: #333; text-transform: none; }
+
+.captcha-group img { height: 40px; vertical-align: middle; margin-left: 10px; }
+.small { width: 100px; }
+
+.form-submit { text-align: center; margin-top: 30px; }
+
+/* --- FOOTER --- */
+footer { padding-top: 0; background: #080808; }
+.map-container iframe { filter: grayscale(100%) invert(1); }
+.copyright { padding: 40px; border-top: 1px solid #222; font-size: 0.7rem; letter-spacing: 2px; color: #555; text-transform: uppercase; }
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.5rem; }
+    .hero-content { padding: 30px 20px; }
+    .grid-3, .row, .founders-list, .baluarte-grid { flex-direction: column; display: flex; }
+    .row.three-col { flex-direction: column; }
+    .luxury-form-container { padding: 20px; }
+}
+
+/* --- REDES SOCIAIS LUXO (ICONS) --- */
+.social-row {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Espaço generoso entre eles */
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.social-row a {
+    color: rgba(255, 255, 255, 0.4); /* Começa discreto/transparente */
+    font-size: 1.8rem; /* Tamanho elegante */
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Movimento suave */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid transparent; /* Prepara borda invisível */
+}
+
+.social-row a:hover {
+    color: var(--gold-accent); /* Vira DOURADO no hover */
+    border-color: rgba(212, 175, 55, 0.3); /* Borda dourada sutil aparece */
+    transform: translateY(-5px) scale(1.1); /* Sobe um pouquinho */
+    background: rgba(255,255,255,0.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+/* --- HERO IMAGE (TAG IMG DIRETA) --- */
+.hero {
+    position: relative;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Impede que a imagem vaze se for muito grande */
+}
+
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* O SEGREDO: Faz a img se comportar como background */
+    object-fit: cover; 
+    object-position: center 20%;
+    
+    /* EFEITOS DE LUXO (Fantasma) */
+    opacity: 0.3; /* Ajuste aqui: 0.1 (quase invisível) a 1.0 (total) */
+    filter: grayscale(100%) contrast(110%); /* Preto e branco chique */
+    
+    z-index: 0; /* Fica no fundo */
+    
+    /* Animação suave */
+    animation: slowZoom 40s infinite alternate;
+}
+
+/* Mantemos a máscara degradê para escurecer o rodapé da imagem */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(8,8,8,0.1) 0%, #080808 100%);
+    z-index: 1; /* Fica em cima da imagem, mas embaixo do texto */
+    pointer-events: none;
+}
+
+/* Garante que o texto fique na frente de tudo */
+.hero-content {
+    z-index: 2;
+    position: relative;
+    /* Fundo leve para leitura, caso a imagem fique clara demais */
+    background: rgba(0,0,0,0.2); 
+    padding: 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(2px);
+}
+
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.15); }
+}
+
+.text-justify {
+    text-align: justify;
+    line-height: 1.9; /* Mais espaçamento entre linhas ajuda a ler */
+    color: #e0e0e0; /* Cinza bem claro (Quase branco) */
+    font-size: 1.05rem;
+    font-weight: 400; /* Tirei o peso 'leve' demais */
+}
+
+.intro-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem;
+    font-style: italic;
+    color: #ffffff; /* Branco puro para o destaque */
+    line-height: 1.5;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9; /* Leve transparência chique, mas legível */
+}
+
+/* =========================================
+   CARROSSEL INFINITO (STREAM)
+   ========================================= */
+
+.infinite-carousel-section {
+    padding: 80px 0;
+    background-color: var(--bg-luxury); /* Mantém o fundo preto do site */
+    overflow: hidden; /* Garante que não crie barra de rolagem horizontal */
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Altura do carrossel */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* Faixa que se move */
+.carousel-track {
+    display: flex;
+    width: max-content; /* A largura se ajusta ao conteúdo */
+    gap: 30px; /* Espaço entre as imagens */
+    animation: scrollStream 40s linear infinite; /* Animação lenta e contínua */
+}
+
+/* O Card Individual da Imagem */
+.slide {
+    width: 400px; /* Largura da imagem */
+    height: 250px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s ease;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Estilo inicial: Preto e Branco e um pouco escuro (Luxo) */
+    filter: grayscale(100%) brightness(70%);
+    transition: all 0.5s ease;
+}
+
+/* Efeito ao passar o mouse na imagem */
+.slide:hover {
+    border-color: var(--gold-accent);
+    transform: scale(1.02);
+    z-index: 10;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.slide:hover img {
+    filter: grayscale(0%) brightness(100%); /* Fica colorido */
+}
+
+/* Pausa o carrossel se o mouse estiver em cima da FAIXA inteira */
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+/* MÁSCARAS DE FADE (Degradê nas pontas para suavidade) */
+.fade-mask-left, .fade-mask-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none; /* Deixa clicar através do degradê */
+}
+
+.fade-mask-left {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-luxury), transparent);
+}
+
+.fade-mask-right {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-luxury), transparent);
+}
+
+/* A ANIMAÇÃO DO LOOP */
+@keyframes scrollStream {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Move exatamente metade do tamanho total (já que duplicamos os itens) */
+        /* Ajuste esse cálculo se mudar a quantidade de itens ou largura */
+        /* (Largura do Slide 400px + Gap 30px) * 5 Imagens Originais = 2150px */
+        transform: translateX(calc(-1 * (400px + 30px) * 5)); 
+    }
+}
+
+/* Responsividade para Celular */
+@media (max-width: 768px) {
+    .slide {
+        width: 280px;
+        height: 180px;
+    }
+    /* Recalcula a animação para o tamanho mobile */
+    @keyframes scrollStream {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-1 * (280px + 30px) * 5)); }
+    }
+}
+
+/* --- CONFIGURAÇÕES GLOBAIS DE ANIMAÇÃO --- */
+:root {
+  --animate-duration: 0.8s;    /* Duração padrão */
+  --animate-delay: 0s;         /* Atraso padrão */
+  --animate-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Suavização moderna */
+}
+
+/* Classe base necessária para qualquer elemento animado */
+.animate {
+  animation-duration: var(--animate-duration);
+  animation-timing-function: var(--animate-ease);
+  animation-delay: var(--animate-delay);
+  animation-fill-mode: both; /* Mantém o estado final após a animação */
+}
+
+/* --- UTILITÁRIOS DE ATRASO (Opcional) --- */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+/* --- BIBLIOTECA DE KEYFRAMES --- */
+
+/* 1. Fade In (Aparecer suavemente) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in { animation-name: fadeIn; }
+
+/* 2. Fade In Up (Aparecer subindo - Muito usado em heros/títulos) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.fade-in-up { animation-name: fadeInUp; }
+
+/* 3. Fade In Down (Aparecer descendo) */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.fade-in-down { animation-name: fadeInDown; }
+
+/* 4. Zoom In (Crescer do centro) */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.8, 0.8, 0.8);
+  }
+  50% { opacity: 1; }
+}
+.zoom-in { animation-name: zoomIn; }
+
+/* 5. Slide In Right (Entrar pela direita) */
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.slide-in-right { animation-name: slideInRight; }
+
+/* 6. Pulse (Pulsar - Bom para botões de CTA) */
+@keyframes pulse {
+  from { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(1.05, 1.05, 1.05); }
+  to { transform: scale3d(1, 1, 1); }
+}
+.pulse { 
+  animation-name: pulse; 
+  animation-iteration-count: infinite; /* Repete para sempre */
+}
+
+/* --- ACESSIBILIDADE (IMPORTANTE) --- */
+/* Desativa animações para usuários que preferem movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+  .animate {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
