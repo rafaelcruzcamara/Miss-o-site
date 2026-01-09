@@ -1,0 +1,289 @@
+/* --- TEMA ESCURO PROFUNDO --- */
+body.dark-mode {
+    background-color: #050505; /* Preto absoluto */
+    color: var(--white);
+}
+
+/* NAVBAR (Adaptação Dark) */
+.dark-mode .smart-nav {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.dark-mode .nav-links a { color: #aaa; }
+.dark-mode .nav-links a:hover, .dark-mode .nav-links a.active { color: var(--yellow); }
+
+
+/* --- CAPÍTULO 1: HERO EDITORIAL --- */
+.hero-editorial {
+    position: relative;
+    padding-top: 25px;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Fica na frente da imagem */
+    margin-bottom: -80px; /* Sobrepõe a imagem */
+}
+
+.label-gold {
+    color: var(--yellow);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.title-editorial {
+    font-size: 5.5rem;
+    font-weight: 900;
+    line-height: 0.9;
+    color: var(--white);
+    letter-spacing: -3px;
+}
+
+/* Efeito de contorno na palavra São José (Estilo moderno) */
+.text-stroke {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--yellow);
+    display: block;
+}
+
+.hero-image-container {
+    width: 100%;
+    height: 500px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-img {
+    width: 100%; height: 100%; object-fit: cover;
+    filter: brightness(0.6); /* Escurece para dar drama */
+}
+
+/* Degradê para suavizar o corte da imagem */
+.hero-gradient {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 50%;
+    background: linear-gradient(to top, #050505, transparent);
+}
+
+
+/* --- CAPÍTULO 2: ESTATÍSTICAS GIGANTES --- */
+.stats-editorial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 120px;
+    position: relative;
+}
+
+.stat-group { text-align: center; }
+
+.giant-number {
+    font-size: 8rem; /* Gigante */
+    font-weight: 900;
+    line-height: 1;
+    color: #1a1a1a; /* Cinza muito escuro, quase fundo */
+    -webkit-text-stroke: 1px #333; /* Contorno sutil */
+    display: block;
+}
+
+.stat-info h3 {
+    color: var(--yellow); font-size: 1.5rem; margin-top: -20px; font-weight: 800;
+}
+.stat-info p { color: #888; font-size: 0.9rem; }
+
+.stat-divider { width: 1px; height: 100px; background: #222; }
+
+
+/* --- CAPÍTULO 3: STORY FLOW (ZIG-ZAG) --- */
+.story-flow {
+    display: flex; flex-direction: column; gap: 150px;
+    margin-bottom: 150px;
+}
+
+.story-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 40px;
+}
+
+.story-visual img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5); /* Sombra forte */
+}
+
+/* Card de Vidro Flutuante */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03); /* Quase transparente */
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px;
+    border-radius: var(--radius-lg);
+    position: relative;
+}
+
+/* Layout Zig-Zag: Movemos os cards para cima das imagens */
+.story-block.left .glass-card {
+    margin-left: -80px; /* Sobrepõe para a esquerda */
+    z-index: 2;
+}
+
+.story-block.right .glass-card {
+    margin-right: -80px; /* Sobrepõe para a direita */
+    z-index: 2;
+    order: -1; /* Texto vem antes no código, mas visualmente ajustado */
+}
+
+.chapter-num {
+    font-size: 4rem; font-weight: 900; color: rgba(255, 213, 0, 0.1); /* Amarelo transparente */
+    position: absolute; top: 20px; right: 30px;
+}
+
+.glass-card h2 {
+    font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; color: var(--white);
+}
+.glass-card p {
+    font-size: 1.1rem; line-height: 1.7; color: #ccc;
+}
+
+/* Citação no meio do caminho */
+.quote-editorial {
+    text-align: center; margin: 50px auto; max-width: 800px;
+}
+.quote-editorial p {
+    font-family: 'Georgia', serif; font-style: italic; font-size: 2rem;
+    line-height: 1.4; color: var(--white); margin-bottom: 20px;
+}
+.quote-editorial .author {
+    color: var(--yellow); font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+}
+
+
+/* --- CAPÍTULO 4: GEAR (CARDS MODERNOS) --- */
+.gear-section { margin-bottom: 100px; }
+
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-header h2 { font-size: 3rem; font-weight: 900; color: var(--white); }
+.section-header p { color: #666; font-size: 1.2rem; }
+
+.gear-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+}
+
+.gear-card {
+    background: #111;
+    border: 1px solid #222;
+    padding: 40px 20px;
+    border-radius: 24px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.gear-card:hover {
+    background: #1a1a1a;
+    transform: translateY(-10px);
+    border-color: var(--yellow);
+}
+
+.gear-card i {
+    font-size: 2rem; color: #444; margin-bottom: 20px; transition: 0.3s;
+}
+.gear-card:hover i { color: var(--yellow); }
+
+.gear-card h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; color: var(--white); }
+.gear-card p { color: #888; font-size: 0.9rem; }
+
+/* Card Destaque */
+.gear-card.highlight { background: var(--yellow); border: none; }
+.gear-card.highlight h4, .gear-card.highlight p, .gear-card.highlight i { color: var(--black); }
+
+
+/* --- RODAPÉ --- */
+.site-footer {
+    background-color: #000; border-top: 1px solid #1a1a1a;
+}
+
+
+/* --- RESPONSIVO (MOBILE) --- */
+@media (max-width: 900px) {
+    .title-editorial { font-size: 3.5rem; }
+    .hero-content { margin-bottom: 20px; } /* Remove sobreposição no mobile */
+    
+    .stats-editorial { flex-direction: column; gap: 40px; }
+    .stat-divider { width: 100px; height: 1px; }
+    
+    .story-block { grid-template-columns: 1fr; gap: 0; margin-bottom: 80px; }
+    .story-block.left .glass-card, .story-block.right .glass-card { margin: -50px 20px 0; } /* Sobreposição vertical */
+    .story-block.right .glass-card { order: 1; } /* Volta ordem normal */
+    
+    .gear-grid { grid-template-columns: 1fr; }
+}
+
+/* --- ÁLBUM COMPACTO (MASONRY) --- */
+.compact-album-section {
+    margin-bottom: 100px;
+}
+
+.album-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* O Grid Mágico do Pinterest */
+.masonry-gallery {
+    column-count: 4; /* 4 Colunas no Desktop (Bem compacto) */
+    column-gap: 15px; /* Espaço pequeno entre colunas */
+}
+
+.photo-card {
+    break-inside: avoid; /* Não deixa a foto quebrar no meio */
+    margin-bottom: 15px; /* Espaço embaixo de cada foto */
+    border-radius: 16px; /* Borda arredondada menor para ficar delicado */
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.photo-card img {
+    width: 100%;
+    display: block; /* Remove espaços extras */
+    transition: transform 0.5s ease;
+}
+
+/* Efeito Hover */
+.photo-card:hover {
+    transform: translateY(-5px);
+    z-index: 2;
+}
+.photo-card:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+/* --- RESPONSIVIDADE DO ÁLBUM --- */
+@media (max-width: 1024px) {
+    .masonry-gallery {
+        column-count: 3; /* 3 Colunas em Tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .masonry-gallery {
+        column-count: 2; /* 2 Colunas em Celulares (Fica ótimo) */
+        column-gap: 10px;
+    }
+    .photo-card { margin-bottom: 10px; }
+}

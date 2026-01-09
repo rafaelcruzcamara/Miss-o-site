@@ -1,0 +1,966 @@
+/* --- CONFIGURAÇÕES PREMIUM --- */
+:root {
+    --yellow: #FFD500; /* Amarelo Vibrante */
+    --black: #111;
+    --white: #fff;
+    --gray-bg: #FAFAFA; /* Fundo levemente off-white para descanso visual */
+    
+    --radius-lg: 32px; /* Curva suave (Apple style) */
+    --radius-sm: 50px; /* Pílulas */
+    
+    --font: 'Red Hat Display', sans-serif;
+    --ease: cubic-bezier(0.23, 1, 0.32, 1); /* Animação suave */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--gray-bg);
+    color: var(--black);
+    font-family: var(--font);
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.page-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* --- NAVBAR MELHORADA (Glassmorphism) --- */
+.smart-nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr; /* Esquerda - Logo - Direita */
+    align-items: center;
+    padding: 15px 40px;
+    margin-bottom: 40px;
+    
+    /* O Toque Especial: Fundo de vidro */
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 100px;
+    border: 1px solid rgba(0,0,0,0.05);
+    position: sticky; top: 20px; z-index: 100;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.nav-brand {
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+}
+.nav-brand img { width: 100%; height: auto; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+
+.nav-links { display: flex; gap: 40px; align-items: center; }
+.nav-links.right { justify-content: flex-end; }
+.nav-links.left { justify-content: flex-start; }
+
+.nav-links a {
+    text-decoration: none; color: var(--black); font-weight: 500; font-size: 1rem;
+    position: relative; transition: 0.3s;
+}
+
+/* Hover no link: linha amarela aparece */
+.nav-links a:not(.btn-highlight):hover { color: #555; }
+.nav-links a:not(.btn-highlight)::after {
+    content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+    background: var(--yellow); transition: 0.3s var(--ease);
+}
+.nav-links a:not(.btn-highlight):hover::after { width: 100%; }
+
+/* Botão de Destaque */
+.btn-highlight {
+    background: var(--black); color: var(--yellow) !important;
+    padding: 10px 24px; border-radius: var(--radius-sm);
+    font-weight: 700; font-size: 0.9rem;
+    transition: 0.3s var(--ease);
+}
+.btn-highlight:hover { transform: scale(1.05); background: var(--yellow); color: var(--black) !important; }
+
+
+/* --- GRID PRINCIPAL --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: 4fr 6fr; /* Proporção 40% / 60% */
+    gap: 24px;
+    height: 600px; /* Altura fixa para alinhar tudo */
+}
+
+/* --- CLASSE MESTRA DOS CARDS --- */
+.card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: #fff;
+    /* Sombra suave e elegante */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+/* Animação de Zoom na Imagem de Fundo */
+.bg-image {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transition: transform 0.6s var(--ease);
+}
+.card:hover .bg-image { transform: scale(1.08); }
+
+/* Conteúdo sobreposto na imagem */
+.card-content {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent 50%);
+    padding: 40px;
+    display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start;
+}
+
+/* Tipografia dentro dos cards */
+.card h2 {
+    color: var(--white); font-size: 2.2rem; line-height: 1.1; margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.tag {
+    background: rgba(255,255,255,0.2); backdrop-filter: blur(5px);
+    color: var(--white); padding: 5px 12px; border-radius: 20px;
+    font-size: 0.75rem; font-weight: 700; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* --- CARD ESQUERDO (Alto) --- */
+.card-tall { height: 100%; }
+
+.btn-circle {
+    width: 50px; height: 50px; background: var(--yellow); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--black); font-size: 1.2rem; transition: 0.3s;
+}
+.card:hover .btn-circle { transform: rotate(-45deg); background: var(--white); }
+
+/* --- COLUNA DIREITA (Pilha) --- */
+.col-stack {
+    display: flex; flex-direction: column; gap: 24px; height: 100%;
+}
+
+.card-wide { flex: 1; }
+
+.btn-pill {
+    background: var(--white); color: var(--black); padding: 10px 25px; border-radius: 50px;
+    font-weight: 700; text-decoration: none; transition: 0.3s;
+}
+.btn-pill:hover { background: var(--yellow); }
+
+/* --- CARD FEATURE (O "Missionários") --- */
+.card-feature {
+    flex: 1;
+    background: var(--white); /* Fundo Branco Limpo */
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Texto Bolha */
+.feature-text {
+    padding: 40px;
+    z-index: 2;
+    width: 50%;
+}
+.feature-text h2 {
+    color: var(--black); text-shadow: none; font-size: 2rem; margin-bottom: 10px;
+}
+.feature-text p { color: #666; font-size: 1rem; }
+
+/* Imagem Recortada */
+.feature-img {
+    width: 50%; height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+/* Recorte diagonal estiloso */
+.feature-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    clip-path: polygon(20% 0%, 100% 0, 100% 100%, 0% 100%);
+    transition: 0.5s var(--ease);
+}
+.card-feature:hover .feature-img img { transform: scale(1.1); }
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 1024px) {
+    .grid-container { grid-template-columns: 1fr; height: auto; }
+    .card-tall { height: 500px; }
+    .col-stack { height: auto; }
+    .card-wide, .card-feature { height: 350px; }
+}
+
+@media (max-width: 600px) {
+    .smart-nav { grid-template-columns: 1fr; gap: 15px; border-radius: 20px; padding: 20px; top: 10px;}
+    .nav-links { gap: 20px; justify-content: center !important; font-size: 0.9rem; }
+    .nav-brand { margin: 0 auto; order: -1; }
+    
+    .card-feature { flex-direction: column; align-items: flex-start; }
+    .feature-text { width: 100%; }
+    .feature-img { width: 100%; height: 200px; }
+    .feature-img img { clip-path: none; }
+}
+
+/* --- SEÇÃO BENFEITOR (Correção de Grid) --- */
+
+/* Ajuste para o grid de baixo ter altura automática (se adaptar ao texto) 
+   mas manter a largura e colunas IDÊNTICAS ao de cima */
+.grid-auto-height {
+    height: auto !important; /* Sobrescreve os 600px fixos do grid de cima */
+    min-height: 500px;       /* Altura mínima para ficar bonito */
+    margin-top: 24px;        /* Espaço exato entre o grid de cima e este */
+}
+
+/* LADO ESQUERDO (Preto) */
+.card-mission-dark {
+    background-color: var(--black);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+}
+
+.mission-text {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+.mission-text .highlight {
+    color: var(--yellow);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.mission-text .underline {
+    border-bottom: 3px solid var(--yellow);
+    font-weight: 700;
+}
+
+/* LADO DIREITO (Amarelo) */
+.card-mission-yellow {
+    background-color: var(--yellow);
+    color: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px; /* Padding generoso para alinhar o texto */
+}
+
+.card-mission-yellow h1 {
+    font-size: 3.5rem;
+    line-height: 1;
+    font-weight: 900;
+    margin-bottom: 24px;
+    letter-spacing: -1px;
+}
+
+.card-mission-yellow p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    max-width: 450px;
+}
+
+/* Botão Preto Específico desta área */
+.btn-black-action {
+    background: var(--black);
+    color: var(--white);
+    padding: 18px 32px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    width: fit-content;
+    transition: transform 0.2s;
+}
+
+.btn-black-action:hover {
+    transform: scale(1.05);
+}
+
+/* --- ESTILOS DA PÁGINA EVANGELIZAÇÃO --- */
+
+.tags-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha se não couber */
+    gap: 10px;
+}
+
+.mission-tag {
+    background-color: #f0f0f0;
+    color: var(--black);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+    transition: 0.3s;
+    cursor: default;
+}
+
+/* Efeito ao passar o mouse nas tags */
+.mission-tag:hover {
+    background-color: var(--white);
+    border-color: var(--black);
+    transform: translateY(-2px);
+}
+
+/* Ajuste Mobile para o card de citação largo */
+@media (max-width: 900px) {
+    .card[style*="grid-column: span 2"] {
+        grid-column: span 1 !important; /* No celular vira coluna única */
+    }
+}
+
+/* --- PÁGINA MISSÕES --- */
+
+/* Pequenos blocos de estatística no texto */
+.stat-box {
+    border: 1px solid #eee;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+.stat-num { display: block; font-weight: 900; font-size: 1.5rem; color: var(--black); }
+.stat-label { font-size: 0.8rem; text-transform: uppercase; color: #999; font-weight: 700; }
+
+/* --- GALERIA DE 3 COLUNAS --- */
+.missions-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+    gap: 24px; /* Mesmo gap do resto do site */
+    margin-top: 24px;
+}
+
+.mission-card {
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    background-color: #000; /* Fundo padrão */
+}
+
+/* Imagem com Zoom no Hover */
+.mission-img {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transition: transform 0.6s ease;
+    opacity: 0.8;
+}
+.mission-card:hover .mission-img {
+    transform: scale(1.1);
+    opacity: 0.6; /* Escurece um pouco pra ler o texto */
+}
+
+/* Texto sobre a imagem */
+.mission-overlay {
+    position: absolute; inset: 0;
+    padding: 30px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    color: var(--white);
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.mission-overlay h3 {
+    font-size: 1.8rem; font-weight: 800; margin-bottom: 5px;
+}
+.mission-overlay p {
+    font-size: 1rem; opacity: 0.8; margin-bottom: 0;
+}
+
+/* Botãozinho no canto */
+.btn-icon-corner {
+    position: absolute; top: 20px; right: 20px;
+    width: 40px; height: 40px;
+    background: var(--white); color: var(--black);
+    border: none; border-radius: 50%;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.3s;
+}
+.mission-card:hover .btn-icon-corner {
+    background: var(--yellow); transform: rotate(-45deg);
+}
+
+/* Card Amarelo de Chamado */
+.join-mission {
+    height: 100%;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 30px;
+    color: var(--black);
+}
+.join-mission h2 { font-size: 2.2rem; line-height: 1; font-weight: 900; margin-bottom: 15px; }
+.join-mission p { margin-bottom: 30px; font-weight: 500; }
+
+.btn-black-outline {
+    border: 2px solid var(--black);
+    color: var(--black);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.btn-black-outline:hover {
+    background: var(--black); color: var(--white);
+}
+
+/* Responsivo Mobile */
+@media (max-width: 900px) {
+    .missions-grid { grid-template-columns: 1fr; } /* Vira pilha no celular */
+    .mission-card { height: 300px; }
+}
+
+/* Classe para cards que são apenas imagem de fundo */
+.card-visual {
+    position: relative;
+    overflow: hidden;
+    border-radius: 32px;
+    
+    /* AQUI ESTÁ A CORREÇÃO DA ALTURA: */
+    height: 100%;         /* Ocupa a altura total disponível na linha do grid */
+    min-height: 300px;    /* Altura mínima de segurança (bem menor que antes) */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Garante que a imagem cubra tudo sem esticar */
+.bg-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;    /* Corta as bordas para encaixar */
+    object-position: center;
+    z-index: 0;
+    transition: transform 0.7s ease;
+}
+
+/* Efeito de Zoom leve */
+.card-visual:hover .bg-img {
+    transform: scale(1.05);
+}
+
+/* --- PÁGINA LIVES & DIGITAL --- */
+
+/* Badge "Ao Vivo" Pulsante */
+.live-badge {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; color: #ff4444; letter-spacing: 1px;
+    margin-bottom: 20px; font-size: 0.8rem;
+}
+.dot {
+    width: 10px; height: 10px; background-color: #ff4444;
+    border-radius: 50%;
+    animation: pulse-red 1.5s infinite;
+}
+@keyframes pulse-red {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Botão Outline Amarelo */
+.btn-yellow-outline {
+    border: 2px solid var(--yellow); color: var(--yellow);
+    padding: 12px 30px; border-radius: 50px;
+    text-decoration: none; font-weight: 700; width: fit-content;
+    display: flex; gap: 10px; align-items: center; transition: 0.3s;
+}
+.btn-yellow-outline:hover {
+    background: var(--yellow); color: var(--black);
+}
+
+/* Faixa de Estatísticas */
+.stats-row {
+    display: flex; justify-content: space-around; align-items: center;
+    flex-wrap: wrap; gap: 20px; text-align: center;
+}
+.stat-item { display: flex; flex-direction: column; }
+.stat-big { font-size: 3.5rem; font-weight: 900; line-height: 1; letter-spacing: -2px; }
+.stat-desc { font-weight: 600; text-transform: uppercase; font-size: 0.9rem; opacity: 0.8; margin-top: 5px; }
+
+.stat-divider {
+    width: 2px; height: 50px; background-color: var(--black); opacity: 0.1;
+}
+
+/* Galeria de Lives (Grid de 3) */
+.lives-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+
+.live-card {
+    height: 280px; position: relative; overflow: hidden; border-radius: 24px;
+    cursor: pointer;
+}
+
+/* Overlay Escuro Fixo na base */
+.live-info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: var(--white); z-index: 2;
+}
+.live-tag {
+    background: var(--yellow); color: var(--black); padding: 4px 10px;
+    border-radius: 4px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+}
+.live-info h4 { font-size: 1.2rem; margin-top: 10px; font-weight: 700; }
+
+/* Botão de Play no Meio */
+.play-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 1; opacity: 0; transition: 0.3s;
+    background: rgba(0,0,0,0.3);
+}
+.play-btn {
+    width: 60px; height: 60px; background: var(--white); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--black); font-size: 1.2rem; transform: scale(0.8); transition: 0.3s;
+}
+
+.live-card:hover .play-overlay { opacity: 1; }
+.live-card:hover .play-btn { transform: scale(1); }
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .stats-row { flex-direction: column; gap: 40px; }
+    .stat-divider { width: 50px; height: 2px; }
+    .lives-grid { grid-template-columns: 1fr; }
+}
+
+/* --- BOTÕES FLUTUANTES --- */
+.floating-social-bar {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000; /* Garante que fique acima de tudo */
+}
+
+.float-btn {
+    width: 50px;
+    height: 50px;
+    background-color: var(--black);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efeito elástico */
+    position: relative;
+}
+
+/* Tooltip (Texto que aparece ao passar o mouse) */
+.float-btn::after {
+    content: attr(title);
+    position: absolute;
+    right: 60px; /* Joga para a esquerda do botão */
+    background: var(--black);
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    transform: translateX(10px);
+}
+
+.float-btn:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Cores Individuais no Hover */
+.float-btn:hover { transform: scale(1.15); color: var(--white); }
+.float-btn.instagram:hover { background: #E1306C; }
+.float-btn.facebook:hover { background: #1877F2; }
+.float-btn.youtube:hover { background: #FF0000; }
+.float-btn.location:hover { background: var(--yellow); color: var(--black); }
+
+
+/* --- RODAPÉ (FOOTER) --- */
+.site-footer {
+    background-color: var(--black);
+    color: var(--white);
+    margin-top: 80px; /* Espaço para desgrudar do conteúdo */
+    border-radius: 40px 40px 0 0; /* Arredonda só em cima */
+    padding: 80px 40px 20px;
+    position: relative;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr; /* Colunas assimétricas */
+    gap: 40px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Marca */
+.footer-logo {
+    font-family: var(--font);
+    font-weight: 900;
+    font-size: 2.5rem;
+    letter-spacing: -2px;
+    color: var(--yellow);
+    margin-bottom: 15px;
+}
+.brand-col p { opacity: 0.7; line-height: 1.6; }
+
+/* Títulos das Colunas */
+.footer-col h4 {
+    font-size: 1.1rem; margin-bottom: 25px;
+    color: var(--white);
+}
+
+/* Links */
+.footer-col ul { list-style: none; padding: 0; }
+.footer-col ul li { margin-bottom: 15px; }
+
+.footer-col ul li a {
+    color: #999; text-decoration: none; transition: 0.3s;
+    font-size: 0.95rem;
+}
+.footer-col ul li a:hover {
+    color: var(--yellow); padding-left: 5px; /* Efeito de mover pro lado */
+}
+
+/* Lista de Contato */
+.contact-list li {
+    display: flex; gap: 10px; align-items: center; color: #999;
+}
+.contact-list i { color: var(--yellow); }
+
+/* Barra final */
+.footer-bottom {
+    max-width: 1200px; margin: 20px auto 0;
+    display: flex; justify-content: space-between;
+    font-size: 0.8rem; color: #555;
+}
+
+/* Responsivo para Celular */
+@media (max-width: 900px) {
+    .floating-social-bar {
+        bottom: 20px; top: auto; right: 20px; transform: none;
+        flex-direction: row; /* Vira horizontal no celular */
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr; /* Tudo em uma coluna */
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .contact-list li { justify-content: center; }
+    
+    .footer-bottom {
+        flex-direction: column; align-items: center; gap: 10px;
+    }
+}
+
+/* --- CARD MISSIONÁRIOS (Estilo Clean) --- */
+
+.card-clean {
+    background-color: #fff; /* Fundo Branco Puro */
+    display: flex; /* Coloca texto e imagem lado a lado */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between;
+    padding: 0; /* Remove padding padrão para a imagem encostar na borda */
+    border: 1px solid rgba(0,0,0,0.05); /* Borda muito sutil */
+    overflow: hidden; /* Garante que nada saia das bordas arredondadas */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-clean:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08); /* Sombra suave ao passar o mouse */
+}
+
+/* Área de Texto */
+.feature-content {
+    flex: 1; /* Ocupa o espaço que sobrar */
+    padding: 40px; /* Bastante espaço interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 2;
+}
+
+.label-tiny {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #999; /* Cinza claro */
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.feature-content h2 {
+    font-size: 1.8rem;
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--black);
+    margin-bottom: 15px;
+}
+
+.feature-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666; /* Texto cinza para não pesar */
+    margin-bottom: 25px;
+    max-width: 250px; /* Limita largura para não ficar muito comprido */
+}
+
+/* Botão Link com Seta */
+.btn-link-arrow {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex; align-items: center; gap: 10px;
+    transition: 0.3s;
+    border-bottom: 2px solid transparent; /* Prepara para o sublinhado */
+}
+
+.btn-link-arrow i {
+    color: var(--yellow); /* Seta amarela */
+    transition: transform 0.3s;
+}
+
+.btn-link-arrow:hover {
+    border-bottom: 2px solid var(--yellow); /* Sublinhado amarelo ao passar o mouse */
+}
+.btn-link-arrow:hover i {
+    transform: translateX(5px); /* Seta move para direita */
+}
+
+
+/* Área da Imagem */
+.feature-image-box {
+    width: 45%; /* A imagem ocupa 45% do card */
+    height: 100%; /* Altura total do card */
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Corta e preenche perfeitamente */
+    object-position: center;
+    transition: transform 0.7s ease;
+}
+
+/* Efeito Zoom na foto ao passar o mouse no card */
+.card-clean:hover .feature-image-box img {
+    transform: scale(1.08);
+}
+
+
+/* --- RESPONSIVO --- */
+@media (max-width: 768px) {
+    .card-clean {
+        flex-direction: column-reverse; /* Foto em cima, texto em baixo no celular */
+        height: auto !important; /* Reseta altura fixa se houver */
+        text-align: left;
+    }
+    
+    .feature-image-box {
+        width: 100%;
+        height: 200px; /* Altura fixa para a foto no celular */
+    }
+    
+    .feature-content {
+        width: 100%;
+        padding: 30px;
+    }
+}
+
+/* --- AJUSTE PARA FICAR IGUAL AOS OUTROS --- */
+
+/* Garante que o card ocupe o espaço e tenha bordas arredondadas */
+.card-visual {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    /* Se estiver na pilha (stack), garante que preencha a altura */
+    flex: 1; 
+    min-height: 300px; 
+}
+
+/* O Gradiente padrão dos cards (já deve ter no seu CSS, mas reforçando) */
+.card-content {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: #fff;
+    z-index: 2;
+    display: flex; flex-direction: column; justify-content: flex-end;
+}
+
+.card-content h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #fff;
+    margin: 10px 0;
+}
+
+/* O Botão Amarelo no Canto Inferior Direito */
+.btn-circle-corner {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--yellow);
+    color: var(--black);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    z-index: 10; /* Fica acima do texto e da imagem */
+    transition: transform 0.3s ease;
+}
+
+.btn-circle-corner:hover {
+    transform: scale(1.1) rotate(-45deg);
+    background-color: #fff;
+}
+
+
+/* --- EFEITO DEGRADÊ COM RUÍDO (IGUAL REFERÊNCIA) --- */
+
+.bg-yellow-gradient {
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo fique por cima */
+    overflow: hidden; /* Para o ruído não vazar */
+    
+    /* 1. O Degradê (Laranja suave para Amarelo Vibrante) */
+    background: linear-gradient(110deg, #FFAA00 0%, var(--yellow) 100%) !important;
+    color: var(--black);
+}
+
+/* 2. A Textura de Ruído (Noise) via Pseudo-elemento */
+.bg-yellow-gradient::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* Ocupa todo o card */
+    z-index: -1; /* Fica atrás do texto, mas na frente do fundo */
+    
+    /* Geração do Ruído via SVG (Não precisa baixar imagem) */
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+    
+    /* Mistura o ruído com o amarelo */
+    opacity: 0.25; /* Controla a intensidade da "sujeira/grão" */
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+/* --- gran finale --- */
+
+
+/* --- ENGINE DE ANIMAÇÃO --- */
+
+/* Estado Inicial (Invisível e deslocado para baixo) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform; /* Otimização de performance */
+}
+
+/* Estado Final (Quando o JS adiciona a classe .in-view) */
+.animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Delays para criar efeito cascata (um card depois do outro) */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+
+/* --- TEXT REVEAL --- */
+
+/* Wrapper necessário para mascarar o texto */
+.text-mask {
+    overflow: hidden; /* O segredo: esconde o que está "fora" da caixa */
+    display: block;
+}
+
+.text-reveal {
+    display: block;
+    transform: translateY(100%); /* Começa escondido lá embaixo */
+    opacity: 0;
+    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 1s ease;
+}
+
+/* Quando entra na tela */
+.in-view .text-reveal {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Adicione isso para animar o ruído estático */
+@keyframes noise-move {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-5%, -5%); }
+    20% { transform: translate(-10%, 5%); }
+    30% { transform: translate(5%, -10%); }
+    40% { transform: translate(-5%, 15%); }
+    50% { transform: translate(-10%, 5%); }
+    60% { transform: translate(15%, 0); }
+    70% { transform: translate(0, 10%); }
+    80% { transform: translate(-15%, 0); }
+    90% { transform: translate(10%, 5%); }
+    100% { transform: translate(5%, 0); }
+}
+
+/* Atualize sua classe .bg-yellow-gradient::before com isso: */
+.bg-yellow-gradient::before {
+    /* ... mantenha o código anterior (background-image, etc) ... */
+    
+    /* ADICIONE ISSO: */
+    animation: noise-move 0.5s steps(10) infinite; /* Steps faz parecer frame-a-frame */
+}
+
+/* linha amarela --- */
+.nav-links a.active {
+    color: var(--black);
+    font-weight: 800; /* Negrito */
+}
+
+/* Faz o traço amarelo ficar fixo (100% de largura) */
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* linha amarela --- */

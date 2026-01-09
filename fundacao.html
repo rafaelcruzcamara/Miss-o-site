@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundação | Missão Servos</title>
+    <link rel="stylesheet" href="fundacao.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <nav class="smart-nav">
+            <div class="nav-links left">
+                <a href="index.html">Inicio</a>
+                <a href="fundacao.html" class="active">Fundação</a>
+                <a href="caminho.html">Caminho de São José</a>
+                
+            </div>
+
+            <div class="nav-brand">
+                <img src="./img/download-removebg-preview.png" alt="Logo">
+            </div>
+
+            <div class="nav-links right">
+                <a href="#">missão</a>
+                <a href="socio.html" class="btn-highlight">Ajude a Obra</a>
+            </div>
+        </nav>
+
+
+    <div class="page-wrapper">
+        
+        <header class="header-section">
+            <span class="label-tiny">Nossa Origem</span>
+            <h1 class="headline-giant animate-on-scroll">A Fundação</h1>
+        </header>
+
+        <div class="card-story animate-on-scroll">
+            <div class="story-content">
+                <p><strong>A Missão Servos</strong> nasceu de um "sim" improvável. Um pequeno vaso que parecia não comportar tamanha graça, mas que se deixou moldar pelo Oleiro.</p>
+                <p>Tudo começou com reuniões simples, orações em casas e um ardor que não cabia no peito. O Carisma foi se desenhando não em papéis, mas na vida ofertada daqueles que acreditaram primeiro. Não é obra humana, mas um sonho de Deus que atravessa gerações.</p>
+            </div>
+        </div>
+
+        <div class="founders-grid">
+
+            <article class="card-profile bg-yellow animate-on-scroll delay-1">
+                <div class="profile-info">
+                    <span class="role-pill">Fundador</span>
+                    <h2>Robson<br>Mialho</h2>
+                    <p class="quote-small">“Um pequeno vaso que parece não comportar tamanha graça.”</p>
+                </div>
+                <div class="profile-img-box">
+                    <img src="./img/download-removebg-preview (5).png" class="profile-img" alt="Robson">
+                </div>
+            </article>
+
+            <article class="card-profile bg-black animate-on-scroll delay-2">
+                <div class="profile-info">
+                    <span class="role-pill">Cofundadora</span>
+                    <h2>Irany<br>Cruz</h2>
+                    <p class="quote-small">“Ajuda adequada nos momentos de decisão. O sim materno.”</p>
+                </div>
+                <div class="profile-img-box">
+                    <img src="./img/irany_2-removebg-preview.png" class="profile-img" alt="Irany">
+                </div>
+            </article>
+
+            <article class="card-profile bg-white animate-on-scroll delay-3">
+                <div class="profile-info">
+                    <span class="role-pill">Cofundadora</span>
+                    <h2>Dona<br>Cila</h2>
+                    <p class="quote-small">“O silêncio da intercessão de uma mulher doada a Deus.”</p>
+                </div>
+                <div class="profile-img-box">
+                    <img src="./img/tarcila_2-removebg-preview.png" class="profile-img" alt="Cila">
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            
+            <div class="footer-col brand-col">
+                <div class="footer-logo">ms.</div>
+                <p>Uma resposta de amor ao<br>mandato do Senhor.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>A Missão</h4>
+                <ul>
+                    <li><a href="sobre.html">Quem Somos</a></li>
+                    <li><a href="fundacao.html">Fundadores</a></li>
+                    <li><a href="carisma.html">Carisma</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Participe</h4>
+                <ul>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="vocacional.html">Vocacional</a></li>
+                    <li><a href="benfeitor.html">Seja Benfeitor</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Fale Conosco</h4>
+                <ul class="contact-list">
+                    <li><i class="fa-brands fa-whatsapp"></i> (00) 99999-9999</li>
+                    <li><i class="fa-regular fa-envelope"></i> contato@missaoservos.com</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 Missão Servos. Todos os direitos reservados.</p>
+            <p>Deus Proverá.</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>

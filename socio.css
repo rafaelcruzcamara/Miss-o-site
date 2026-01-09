@@ -1,0 +1,295 @@
+/* --- CONFIGURAÇÕES GLOBAIS --- */
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&family=Georgia:ital@0;1&display=swap');
+
+:root {
+    --brand-yellow: #FFD500;
+    --brand-black: #111;
+    --brand-white: #fff;
+    --bg-color: #FAFAFA;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --border-light: #f0f0f0;
+    
+    --radius-card: 32px;
+    --radius-input: 16px;
+    --radius-pill: 50px;
+    
+    /* CORREÇÃO: Largura igual ao style.css / foundation.css */
+    --container-width: 1280px;
+    
+    --shadow-card: 0 20px 40px rgba(0,0,0,0.04);
+    --shadow-hover: 0 25px 50px rgba(0,0,0,0.08);
+    --shadow-focus: 0 0 0 4px rgba(255, 213, 0, 0.15);
+
+    --font-sans: 'Red Hat Display', sans-serif;
+    --font-serif: 'Georgia', serif;
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* --- RESET --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+.page-wrapper {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 20px 80px; /* Ajustado padding lateral para 20px igual padrão */
+}
+
+/* --- NAVBAR (CÓPIA EXATA DO PADRÃO) --- */
+.smart-nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    
+    /* Medidas Originais do style.css */
+    padding: 15px 40px;
+    
+    /* Largura e Centralização */
+    max-width: 1280px; /* Forçado 1280px */
+    width: 95%; /* Margem de segurança */
+    margin: 20px auto 40px;
+    
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 100px;
+    border: 1px solid rgba(0,0,0,0.05);
+    position: sticky; top: 20px; z-index: 1000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.nav-brand {
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto;
+}
+.nav-brand img { 
+    width: 100%; height: auto; 
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); 
+}
+
+.nav-links { display: flex; gap: 40px; align-items: center; }
+.nav-links.right { justify-content: flex-end; }
+.nav-links.left { justify-content: flex-start; }
+
+.nav-links a {
+    text-decoration: none; color: var(--brand-black); font-weight: 500; font-size: 1rem;
+    position: relative; transition: 0.3s;
+}
+
+/* Hover e Active */
+.nav-links a:not(.btn-highlight):hover { color: #555; }
+.nav-links a:not(.btn-highlight)::after {
+    content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+    background: var(--brand-yellow); transition: 0.3s var(--ease);
+}
+.nav-links a:not(.btn-highlight):hover::after { width: 100%; }
+
+.btn-highlight {
+    background: var(--brand-black); color: var(--brand-yellow) !important;
+    padding: 10px 24px; border-radius: var(--radius-pill);
+    font-weight: 700; font-size: 0.9rem;
+    transition: 0.3s var(--ease);
+}
+.btn-highlight:hover { transform: scale(1.05); background: var(--brand-yellow); color: var(--brand-black) !important; }
+
+
+/* --- LAYOUT SPLIT --- */
+.hero-split {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 60px;
+    margin-top: 60px;
+    align-items: start;
+}
+
+.donation-info { position: sticky; top: 120px; }
+
+.label-tiny {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: #aaa; margin-bottom: 16px; display: block;
+}
+
+.headline-donation {
+    font-size: 3.5rem; font-weight: 900; line-height: 1; letter-spacing: -1.5px;
+    color: var(--brand-black); margin-bottom: 24px;
+}
+
+.donation-text {
+    font-size: 1.15rem; line-height: 1.7; color: var(--text-secondary);
+    margin-bottom: 40px; max-width: 480px; font-weight: 400;
+}
+
+/* Carrossel de Imagens */
+.impact-img-box.carousel-container {
+    width: 100%; height: 320px;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-card);
+}
+
+.impact-img {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0; transition: opacity 1s ease-in-out, transform 0.8s ease;
+    z-index: 0;
+}
+.impact-img.active { opacity: 1; z-index: 1; }
+.carousel-container:hover .impact-img.active { transform: scale(1.05); }
+
+/* Citação */
+.quote-box {
+    margin-top: 30px; padding: 24px; background: #fff;
+    border-radius: var(--radius-input);
+    border-left: 3px solid var(--brand-yellow);
+    box-shadow: var(--shadow-card);
+}
+.quote-box p { font-family: var(--font-serif); font-style: italic; color: var(--text-secondary); }
+
+
+/* --- WRAPPER DA DIREITA --- */
+.form-wrapper { display: flex; flex-direction: column; gap: 30px; }
+
+
+/* --- CARD DO FORMULÁRIO --- */
+.donation-card {
+    background: var(--brand-white);
+    padding: 48px;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+}
+
+.form-title {
+    font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px;
+    margin-bottom: 10px; color: var(--brand-black);
+}
+
+.input-group { margin-bottom: 24px; }
+
+.input-label {
+    display: block; font-size: 0.85rem; font-weight: 600;
+    margin-bottom: 8px; color: var(--text-secondary); margin-left: 5px;
+}
+
+.form-control {
+    width: 100%; padding: 16px 20px; font-size: 1rem;
+    color: var(--brand-black); background-color: #F4F4F4;
+    border: 1px solid transparent; border-radius: var(--radius-input);
+    transition: all 0.2s ease; font-weight: 500;
+}
+.form-control::placeholder { color: #BBB; font-weight: 400; }
+.form-control:focus { background-color: #fff; box-shadow: var(--shadow-focus); outline: none; }
+
+/* Grids do Form */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+.date-grid { display: grid; grid-template-columns: 80px 1fr 100px; gap: 10px; }
+
+/* Radio Buttons */
+.radio-group { display: flex; gap: 20px; padding: 10px 0; }
+.radio-option { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; color: var(--text-secondary); cursor: pointer; }
+.radio-option input[type="radio"] { accent-color: var(--brand-black); width: 18px; height: 18px; }
+
+/* Textarea */
+textarea.form-control { resize: vertical; min-height: 80px; }
+
+/* Botão Enviar */
+.btn-submit {
+    width: 100%; padding: 18px; margin-top: 15px;
+    background: var(--brand-yellow); color: var(--brand-black);
+    font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;
+    border: none; border-radius: var(--radius-pill); cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 213, 0, 0.3); }
+
+
+/* --- CARD PIX --- */
+.pix-container {
+    background: #fff; border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card); overflow: hidden; position: relative;
+}
+
+.pix-header {
+    background: #FAFAFA; padding: 20px;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.pix-header h3 { color: #32BCAD; font-size: 1.1rem; font-weight: 800; }
+.pix-header i { font-size: 1.4rem; color: #32BCAD; }
+
+.pix-body { padding: 40px 30px; display: flex; flex-direction: column; align-items: center; gap: 25px; }
+
+.qr-box {
+    width: 180px; height: 180px; background: #fff;
+    border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    display: flex; align-items: center; justify-content: center;
+    padding: 10px; border: 1px solid #f0f0f0;
+}
+.qr-img { width: 100%; height: 100%; object-fit: contain; opacity: 0.9; }
+
+.pix-key-box {
+    width: 100%; background: #F4F4F4; border-radius: 16px;
+    padding: 15px 20px; display: flex; flex-direction: column; align-items: center; gap: 8px;
+}
+.key-label { font-size: 0.7rem; text-transform: uppercase; font-weight: 700; color: #999; }
+.key-value { font-size: 1.1rem; font-weight: 700; color: var(--brand-black); font-family: monospace; letter-spacing: 0.5px; }
+
+.btn-copy {
+    background: var(--brand-black); color: var(--brand-white);
+    border: none; padding: 8px 20px; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 700; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
+}
+.btn-copy:hover { transform: scale(1.05); }
+
+.pix-footer {
+    text-align: center; font-size: 0.85rem; color: #888;
+    padding: 15px; background: #fafafa; border-top: 1px solid #f0f0f0;
+}
+
+/* --- RODAPÉ (Padrão) --- */
+.site-footer {
+    background-color: var(--brand-black); color: var(--brand-white);
+    margin-top: 100px; border-radius: 40px 40px 0 0; padding: 80px 40px 20px; width: 100%;
+}
+.footer-container {
+    max-width: var(--container-width); margin: 0 auto;
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px;
+    padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-logo { font-weight: 900; font-size: 2.5rem; letter-spacing: -2px; color: var(--brand-yellow); margin-bottom: 16px; }
+.footer-col h4 { font-size: 1rem; margin-bottom: 24px; opacity: 0.9; color: var(--brand-white); }
+.footer-col ul { list-style: none; }
+.footer-col ul li a { color: #888; font-size: 0.95rem; text-decoration: none; transition: 0.2s; }
+.footer-col ul li a:hover { color: var(--brand-yellow); }
+.contact-list li { display: flex; gap: 10px; color: #888; }
+.footer-bottom { max-width: var(--container-width); margin: 24px auto 0; display: flex; justify-content: space-between; font-size: 0.85rem; color: #555; }
+
+/* ANIMAÇÕES */
+.animate-on-scroll { opacity: 0; transform: translateY(20px); transition: 0.6s ease-out; }
+.animate-on-scroll.in-view { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .smart-nav { display: flex; flex-direction: column; gap: 15px; padding: 20px; border-radius: 20px; width: 95%; margin: 10px auto 30px; }
+    .nav-links { gap: 20px; justify-content: center !important; font-size: 0.9rem; width: 100%; }
+    .nav-brand { order: -1; margin-bottom: 5px; }
+    
+    .hero-split { grid-template-columns: 1fr; gap: 40px; }
+    .donation-info { position: static; }
+    .form-row, .date-grid { grid-template-columns: 1fr; }
+    
+    .footer-container { grid-template-columns: 1fr; text-align: center; }
+    .footer-bottom { flex-direction: column; align-items: center; gap: 10px; }
+}
