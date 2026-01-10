@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HALLEL 2026 </title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="hallel.css"> </head>
+<body>
+
+    <nav class="smart-nav" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); border:none;">
+        <div class="nav-links left">
+            <a href="index.html" class=""></a>
+            <a href="index.html" class="btn-circle"
+              ><i class="fa-solid fa-arrow-left" style="color: #000;"></i
+            ></a>
+            
+        </div>
+        <div class="nav-brand">
+            <img src="./img/download-removebg-preview.png" alt="Logo" style="filter: brightness(100);">
+        </div>
+        
+    </nav>
+
+    <header class="urban-hero">
+        <div class="hero-bg"></div>
+        
+        <div class="tape-strip tape-bg">
+            <span>HALLEL 2026 /// HALLEL 2026 /// HALLEL 2026 ///</span>
+        </div>
+
+        <div class="hero-content">
+            <h1 class="glitch-title" data-text="HALLEL">HALLEL</h1>
+            <h2 class="outline-subtitle">O RESGATE</h2>
+            
+            <p class="hero-desc">
+                Três dias de acampamento, som no talo e <br>uma experiência que vai explodir sua mente.
+            </p>
+
+            <a href="#galeria" class="btn-urban">
+                VER A VIBE <i class="fa-solid fa-arrow-down"></i>
+            </a>
+        </div>
+
+        <div class="tape-strip tape-cross">
+            <span>JUVENTUDE SENTINELA /// OUSADIA /// FOGO ///</span>
+        </div>
+    </header>
+
+    <div class="marquee-container">
+        <div class="marquee-content">
+            MÚSICA • ADORAÇÃO • CAMPING • AMIZADE • FOGO DO ESPÍRITO • MÚSICA • ADORAÇÃO • CAMPING • AMIZADE • FOGO DO ESPÍRITO • MÚSICA • ADORAÇÃO • CAMPING • AMIZADE • FOGO DO ESPÍRITO • MÚSICA • ADORAÇÃO • CAMPING • AMIZADE • FOGO DO ESPÍRITO • MÚSICA • ADORAÇÃO • CAMPING • AMIZADE • FOGO DO ESPÍRITO • MÚSICA • ADORAÇÃO • CAMPING • AMIZADE • FOGO DO ESPÍRITO • MÚSICA • ADORAÇÃO • CAMPING • AMIZADE • FOGO DO ESPÍRITO • MÚSICA • ADORAÇÃO • CAMPING • AMIZADE • FOGO DO ESPÍRITO • MÚSICA • ADORAÇÃO • CAMPING • AMIZADE • FOGO DO ESPÍRITO • MÚSICA • ADORAÇÃO • CAMPING • AMIZADE • FOGO DO ESPÍRITO •
+        </div>
+    </div>
+
+    <section class="mixed-gallery" id="galeria">
+        
+        <div class="gallery-header animate-on-scroll">
+            <h2 class="gallery-title">MOMENTOS <span style="color:var(--yellow)">REAIS</span></h2>
+            <p>Se liga no que rola quando a gente se encontra.</p>
+        </div>
+
+        <div class="bento-grid animate-on-scroll">
+            
+            <div class="media-card big">
+                <img src="./img/hallel.jpg" alt="Hallel Palco">
+                <div class="card-overlay">
+                    <span class="label-tape">youth 2025</span>
+                </div>
+            </div>
+
+            <div class="media-card tall video-card">
+                <video src="./hallel/lual.mp4" muted loop autoplay playsinline></video> 
+                
+                <div class="card-overlay">
+                    <span class="label-tape">Lual</span>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <img src="./hallel/abraço.jpeg" alt="Galera">
+            </div>
+
+            <div class="media-card video-card">
+                <video src="./hallel/WhatsApp Video 2026-01-10 at 5.36.56 PM.mp4" muted loop autoplay playsinline></video>
+                
+            </div>
+
+            <div class="media-card wide">
+                <img src="./hallel/felipe poster.png" alt="Show Luzes">
+                <div class="card-overlay">
+                    <span class="label-tape">Adoração e alegria</span>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <img src="./hallel/abarço2.jpeg" alt="Oração">
+            </div>
+
+             <div class="media-card video-card">
+                <img src="./hallel/cruz.jpeg" alt="cruz">
+            </div>
+
+        </div>
+
+        <div class="cta-section animate-on-scroll">
+            <div class="tape-box">
+                <h2>VAI FICAR DE FORA?</h2>
+                <a href="inscricao.html?id=hallel" class="btn-urban btn-big">
+                    GARANTIR MINHA VAGA
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+    <footer style="background: #000; color: #555; text-align: center; padding: 40px; border-top: 2px solid var(--yellow);">
+        <p style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">Missão Servos do Espírito Santo • 2026</p>
+    </footer>
+
+    <script>
+        // Animação ao rolar
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in-view')});
+        });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        
+    </script>
+</body>
+</html>

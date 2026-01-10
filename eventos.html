@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos | Missão Servos</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="eventos.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="page-wrapper">
+        
+        <nav class="smart-nav">
+            <div class="nav-links left">
+                <a href="index.html">Inicio</a>
+                <a href="fundacao.html">Fundação</a>
+                <a href="caminho.html">Caminho de São José</a>
+                
+            </div>
+
+            <div class="nav-brand">
+                <img src="./img/download-removebg-preview.png" alt="Logo">
+            </div>
+
+            <div class="nav-links right">
+                <a href="sobre.html">Quem Somos</a>
+                <a href="eventos.html" class="active">Agenda e Eventos</a>
+                <a href="socio.html" class="btn-highlight">Ajude a Obra</a>
+            </div>
+        </nav>
+
+        <header class="events-hero animate-on-scroll">
+            <div class="hero-bg-img" style="background-image: url('./img/Captura\ de\ tela\ 2026-01-06\ 131201.png');"></div>
+            
+            <div class="hero-content ">
+                <span class="label-yellow">Próximo Encontro</span>
+                <h1 class="hero-title">ENCONTRO VOCACIONAL<br><span style="color: var(--yellow);">um chamado para a alegria.</span></h1>
+                
+                <div class="countdown-wrapper" id="countdown">
+                    <div class="time-box">
+                        <span class="time-num" id="dias">00</span>
+                        <span class="time-label">Dias</span>
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-box">
+                        <span class="time-num" id="horas">00</span>
+                        <span class="time-label">Horas</span>
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-box">
+                        <span class="time-num" id="minutos">00</span>
+                        <span class="time-label">Min</span>
+                    </div>
+                    <div class="separator">:</div>
+                    <div class="time-box">
+                        <span class="time-num" id="segundos">00</span>
+                        <span class="time-label">Seg</span>
+                    </div>
+                </div>
+
+                <a href="inscricao.html?id=carnaval" class="btn-black-action">Garantir Vaga <i class="fa-solid fa-arrow-right" style="color: var(--yellow);"></i></a>
+            </div>
+        </header>
+
+
+        <section class="grid-container animate-on-scroll delay-1" style="margin-bottom: 80px;">
+            
+            <article class="card card-tall" id="halle">
+                <div class="bg-image" style="background-image: url('./img/hallel.jpg');"></div>
+                <div  class="card-content">
+                    <span class="tag">Em breve</span>
+                    <h2>Hallel 2026</h2>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">09 a 12 de Junho • Chácara São José</p>
+                    <a href="inscricao.html?id=hallel" class="btn-circle"><i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <div class="col-stack">
+                
+                <article class="card card-wide">
+
+    <div class="bg-image" style="background-image: url('./imgcaminho/kids2.jpg'); filter: brightness(0.6);"></div>
+
+    <div class="card-content">
+        <h2 style="margin-bottom: 10px; color: #fff;">Caminho S.J. KIDS</h2>
+        <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px;">Passos de fé e diversão.</p>
+        
+        <a href="inscricao.html?id=caminhokd" class="btn-black-action" style="background: var(--yellow); color: var(--black); width: fit-content;">
+            Em breve
+        </a>
+    </div>
+
+                </article>
+
+                <article class="card card-wide locked-card">
+                    <div class="bg-image" style="background-image: url('./imgcaminho/14.jpg'); filter: grayscale(100%);"></div>
+                    <div class="card-content">
+                        <span class="tag" style="background: #333; border: none;">Esgotado</span>
+                        <h2>Caminho de<br>São José</h2>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+
+        <section class="calendar-wrapper animate-on-scroll">
+    <div style="text-align: center; margin-bottom: 40px;">
+        <span class="label-yellow">Planejamento</span>
+        <h2 class="headline-giant">Agenda 2026</h2>
+    </div>
+
+    <div class="banner-recurrent" style="background-image: url('./img/são\ josé3.png');">
+        
+        <div class="banner-overlay"></div> <div class="banner-content">
+            <div class="icon-box-big">
+                <i class="fa-solid fa-church"></i>
+            </div>
+            <div class="banner-text">
+                <h3>Missa Solene de São José</h3>
+                <p>Todo dia 19 de cada mês • Na Capela da Missão</p>
+            </div>
+        </div>
+        
+        <div class="banner-tag">
+            <i class="fa-regular fa-calendar-check"></i> Mensal
+        </div>
+    </div>
+
+    <div class="agenda-grid">
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Janeiro</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">10-11</span>
+                    <span class="event-desc">Preparação para o Caminho</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">16-18</span>
+                    <span class="event-desc">Caminho de São José</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">23-25</span>
+                    <span class="event-desc">ENF (Encontro Nacional)</span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Fevereiro</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">06-08</span>
+                    <span class="event-desc">Retiro Geral</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">21-22</span>
+                    <span class="event-desc">Encontro Vocacional</span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Março</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">07-15</span>
+                    <span class="event-desc">Novena de São José</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">15</span>
+                    <span class="event-desc"><strong>Festa de São José</strong></span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">27-29</span>
+                    <span class="event-desc">Congresso Doutrina Católica</span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Abril</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">03</span>
+                    <span class="event-desc">Sexta-feira Santa</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">05</span>
+                    <span class="event-desc"><strong>Páscoa</strong></span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">18-19</span>
+                    <span class="event-desc">Retiro p/ Ministros</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">25-26</span>
+                    <span class="event-desc">Prep. Caminho</span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Maio</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">01-03</span>
+                    <span class="event-desc">Caminho de São José</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">15-17</span>
+                    <span class="event-desc">Congresso Peregrinos</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">24</span>
+                    <span class="event-desc"><strong>Pentecostes</strong></span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Junho</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">04-07</span>
+                    <span class="event-desc">Acampamento Paroquial</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">12</span>
+                    <span class="event-desc">Sagrado Coração de Jesus</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">20-21</span>
+                    <span class="event-desc">Jornada Diocesana (JDJ)</span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Julho</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">09-12</span>
+                    <span class="event-desc">Hallel</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">24-26</span>
+                    <span class="event-desc">Caminho de São José</span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Agosto</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">26-03</span>
+                    <span class="event-desc">Novena N.S. Livramento</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">27-30</span>
+                    <span class="event-desc">Escola Formação (CN)</span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Setembro</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">05-06</span>
+                    <span class="event-desc">Festa N.S. Livramento</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">17</span>
+                    <span class="event-desc">N.S. Pentecostes</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">26-27</span>
+                    <span class="event-desc">Retiro Catequistas</span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Outubro</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">03</span>
+                    <span class="event-desc">Caminho S.J. <strong>KIDS</strong></span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">24-25</span>
+                    <span class="event-desc">JOAM</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">30-01</span>
+                    <span class="event-desc">Caminho S.J. (Feminino)</span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Novembro</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">08</span>
+                    <span class="event-desc" style="color: #d4ac0d;">15 Anos Comunidade</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">13-15</span>
+                    <span class="event-desc">Congresso Novas Com.</span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="month-card">
+            <div class="month-header"><span class="month-name">Dezembro</span></div>
+            <ul class="event-list">
+                <li class="event-item">
+                    <span class="event-day">04-06</span>
+                    <span class="event-desc">Retiro Geral</span>
+                </li>
+                <li class="event-item">
+                    <span class="event-day">24</span>
+                    <span class="event-desc"><strong>Natal na Missão</strong></span>
+                </li>
+            </ul>
+        </article>
+
+    </div>
+</section>
+
+
+
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            
+            <div class="footer-col brand-col">
+                <div class="footer-logo">mises.</div>
+                <p>Anunciar o evangelho com alegria<br>para que Cristo seja tudo em todos.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>A Missão</h4>
+                <ul>
+                    <li><a href="sobre.html">Quem Somos</a></li>
+                    <li><a href="fundacao.html">Fundadores</a></li>
+                    <li><a href="sobre.html">Carisma</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Participe</h4>
+                <ul>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="caminho.html">Caminho de São José</a></li>
+                    <li><a href="socio.html">Seja Benfeitor</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Fale Conosco</h4>
+                <ul class="contact-list">
+                    <li><i class="fa-brands fa-whatsapp"></i> (65) 99223-7716</li>
+                    <li><i class="fa-regular fa-envelope"></i> missaoservosdoespiritosanto@gmail.com</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Missão Servos. Todos os direitos reservados.</p>
+            <p>Deus provê Deus Proverá.</p>
+        </div>
+    </footer>
+
+
+
+
+    <script>
+        // Animação de Scroll (Padrão)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // SCRIPT DE CONTAGEM REGRESSIVA (NOVO)
+        function startCountdown() {
+            // Defina a data do evento aqui (Ano, Mês [0-11], Dia, Hora)
+            // Ex: 14 de Fevereiro de 2026 às 19:00
+            const eventDate = new Date('2026-02-21T07:00:00').getTime();
+
+            const timer = setInterval(function() {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById("countdown").innerHTML = "<div class='time-box'><span class='time-num'>CHEGOU!</span></div>";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById("dias").innerText = days < 10 ? "0" + days : days;
+                document.getElementById("horas").innerText = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutos").innerText = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("segundos").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            }, 1000);
+        }
+
+        startCountdown();
+
+        document.addEventListener("DOMContentLoaded", () => {
+        // Seleciona todos os elementos com a classe .card
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            // Procura o primeiro link (<a>) dentro desse card
+            const link = card.querySelector('a'); 
+            
+            // Se existir um link, transforma o card inteiro em botão
+            if(link) {
+                card.style.cursor = 'pointer'; // Muda o mouse para a mãozinha
+                
+                card.addEventListener('click', (e) => {
+                    // Se a pessoa não estiver apenas selecionando texto...
+                    const isTextSelection = window.getSelection().toString();
+                    
+                    // E se o clique não foi exatamente em cima do botão (pra não clicar 2x)
+                    if (e.target !== link && !link.contains(e.target) && !isTextSelection) {
+                        link.click(); // Dispara o clique do link original
+                    }
+                });
+            }
+        });
+    });
+    
+    </script>
+
+</body>
+</html>

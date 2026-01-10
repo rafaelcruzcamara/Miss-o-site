@@ -1,0 +1,145 @@
+/* --- MOBILE.CSS (ULTRA COMPACTO) --- */
+
+/* 1. Limpeza de Desktop */
+.hamburger-menu, .close-menu-btn, .mobile-overlay {
+    display: none !important;
+}
+
+/* =========================================
+   REGRAS PARA CELULAR (Telas até 900px)
+   ========================================= */
+@media only screen and (max-width: 900px) {
+
+    /* --- 1. NAVBAR MAIS FINA --- */
+    .smart-nav {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 15px !important; /* Muito fino */
+        height: 60px; /* Altura fixa pequena */
+        position: sticky; top: 0; z-index: 9999;
+        background: rgba(255,255,255,0.98);
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-brand img { height: 35px; width: auto; }
+    .smart-nav .nav-links { display: none !important; }
+    
+    .hamburger-menu {
+        display: block !important;
+        font-size: 1.4rem; color: #111; background: none; border: none;
+    }
+
+    /* Menu Gaveta */
+    .nav-menu-wrapper {
+        position: fixed; top: 0; left: -100%; width: 85%; height: 100vh;
+        background: #fff; z-index: 10000; padding: 60px 20px;
+        transition: left 0.3s ease; display: flex !important; flex-direction: column;
+    }
+    .nav-menu-wrapper.active { left: 0; }
+    .nav-menu-wrapper .nav-links { display: flex !important; flex-direction: column; width: 100%; }
+    .nav-links a { font-size: 1rem; padding: 12px 0; border-bottom: 1px solid #f0f0f0; width: 100%; display: block; }
+    .close-menu-btn { display: block !important; position: absolute; top: 15px; right: 15px; font-size: 1.5rem; border: none; background: none;}
+    .mobile-overlay.active { display: block !important; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9998; }
+
+    /* --- 2. LAYOUT GERAL (Tudo empilhado e apertado) --- */
+    .page-wrapper { padding: 0 10px; width: 100%; overflow-x: hidden; }
+
+    /* Força coluna única */
+    .grid-container, .missions-grid, .lives-grid, .footer-container, .col-stack {
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important;
+        gap: 15px !important; /* Gap reduzido */
+    }
+
+    /* --- 3. CARDS (REDUÇÃO MÁXIMA) --- */
+    .card, .card-tall, .card-wide, .card-feature, .card-visual, .mission-card, .card-mission-dark, .card-mission-yellow {
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+        padding: 20px !important; /* Padding mínimo */
+        border-radius: 16px !important; /* Bordas menos arredondadas */
+    }
+
+    /* Títulos dentro dos cards */
+    .card h2, .card-content h2, .mission-overlay h3 {
+        font-size: 1.4rem !important; /* Fonte bem menor */
+        line-height: 1.1;
+        margin-bottom: 10px;
+    }
+    
+    /* Tags e Textos */
+    .tag { font-size: 0.7rem; padding: 4px 10px; }
+    p { font-size: 0.9rem !important; line-height: 1.4; }
+
+    /* Imagens de fundo ajustadas */
+    .bg-image, .bg-img, .mission-img {
+        position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important;
+    }
+
+    /* CARD MISSIONÁRIOS (FOTO + TEXTO) - O que quebrou antes */
+    .card-feature, .card-clean {
+        flex-direction: column !important;
+        padding: 0 !important; /* Remove padding do container para foto colar na borda */
+        overflow: hidden;
+    }
+    .feature-img, .feature-image-box {
+        width: 100% !important; 
+        height: 180px !important; /* Foto mais baixa */
+        position: relative !important;
+    }
+    .feature-content, .feature-text {
+        width: 100% !important;
+        padding: 20px !important;
+    }
+    
+    /* CARD LIVES / VIDEOS */
+    .live-card, .mission-card { height: 220px !important; }
+
+    /* CARD BENFEITOR (Amarelo) */
+    .card-mission-yellow { padding: 30px 20px !important; text-align: center; }
+    .card-mission-yellow h1 { font-size: 1.8rem !important; margin-bottom: 15px; }
+
+    /* CARD CITAÇÃO (Preto) */
+    .card-mission-dark { padding: 30px 20px !important; }
+    .mission-text { font-size: 1.1rem !important; }
+
+    /* --- 4. TÍTULOS GIGANTES DA PÁGINA --- */
+    .hero-title, .headline-giant {
+        font-size: 2rem !important; /* Reduzido de 3rem */
+        margin-top: 10px;
+    }
+    .hero-editorial .title-editorial { font-size: 2.5rem !important; }
+    
+    /* --- 5. ESTATÍSTICAS (Lado a lado se der) --- */
+    .stats-row {
+        flex-direction: row !important; flex-wrap: wrap; justify-content: center; gap: 15px;
+    }
+    .stat-item { width: 45%; } /* Dois por linha */
+    .stat-big { font-size: 1.8rem !important; }
+    .stat-divider { display: none; }
+
+    /* --- 6. RODAPÉ COMPACTO --- */
+    .footer-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* 2 colunas */
+        gap: 20px 10px !important;
+        text-align: left !important;
+        padding-bottom: 20px;
+    }
+    .brand-col { grid-column: span 2; text-align: center; margin-bottom: 10px; }
+    .site-footer { padding: 30px 15px !important; margin-top: 30px; }
+    .footer-logo { font-size: 1.8rem; }
+    .footer-col h4 { font-size: 0.95rem; margin-bottom: 10px; color: var(--yellow); }
+    .footer-col ul li a { font-size: 0.85rem; }
+
+    /* --- 7. BOTÕES --- */
+    .btn-circle, .btn-circle-corner {
+        width: 40px; height: 40px; font-size: 1rem; bottom: 15px; right: 15px;
+    }
+    .btn-black-action, .btn-pill, .btn-submit-large {
+        padding: 12px 25px !important; font-size: 0.9rem !important; width: 100%; justify-content: center;
+    }
+
+}

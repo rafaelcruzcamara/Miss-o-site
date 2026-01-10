@@ -1,455 +1,625 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Missão Servos | Bento Refined</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="mobile.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <nav class="smart-nav">
+        <div class="nav-links left">
+          <a href="index.html" class="active">Inicio</a>
+          <a href="fundacao.html">Fundação</a>
+          <a href="caminho.html">Caminho de São José</a>
+        </div>
 
-    <div class="page-wrapper ">
+        <div class="nav-brand">
+          <img src="./img/download-removebg-preview.png" alt="Logo" />
+        </div>
+
+        <button class="hamburger-menu" aria-label="Abrir Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div class="nav-links right">
+            <a href="sobre.html">Quem Somos</a>
+          <a href="eventos.html">Agenda e Eventos</a>
+          <a href="socio.html" class="btn-highlight">Ajude a Obra</a>
+        </div>
+      </nav>
+      <div
+        class="grid-container grid-auto-height animate-on-scroll"
+        style="margin-bottom: 40px; display: block"
+      >
+        <article class="card banner-slim">
+          <img src="./img/edsd.png" alt="Anúncio" class="video-bg" />
+
+          
+        </article>
+
         
-        <nav class="smart-nav">
-            <div class="nav-links left">
-                <a href="index.html" class="active">Inicio</a>
-                <a href="fundacao.html">Fundação</a>
-                <a href="caminho.html">Caminho de São José</a>
-                
+      </div>
+      <main class="grid-container animate-on-scroll delay-1">
+        <article class="card card-tall">
+          <div
+            class="bg-image"
+            style="background-image: url('/img/download.jpg')"
+          ></div>
+          <div class="card-content">
+            <span class="tag">Passos de conversão</span>
+            <h2>Caminho de<br />São José</h2>
+            <a href="caminho.html" class="btn-circle"
+              ><i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
+
+        <div class="col-stack">
+          <article class="card card-wide">
+            <div
+              class="bg-image"
+              style="background-image: url('./img/missionario\ 3.jpg')"
+            ></div>
+            <div class="card-content">
+              <h2>Como é a vida<br />na missão?</h2>
+              <a href="https://www.instagram.com/stories/highlights/17958444134217497/" target="_blank" class="btn-pill">descubra agora</a>
+            </div>
+          </article>
+
+          <article class="card card-feature card-visual">
+            <img
+              src="./img/missionarios veternaros.jpg"
+              class="bg-img"
+              alt="Missionários"
+            />
+
+            <div class="card-content">
+              <span class="tag">Quem Somos</span>
+              <h2>Conheça os<br />missionários</h2>
+              <p
+                style="
+                  margin-top: 5px;
+                  opacity: 0.8;
+                  font-size: 0.9rem;
+                  color: #fff;
+                "
+              >
+                Rostos de uma entrega total.
+              </p>
             </div>
 
-            <div class="nav-brand">
-                <img src="./img/download-removebg-preview.png" alt="Logo">
-            </div>
+            <a href="https://www.instagram.com/p/DSNX-UqgKSB/" target="_blank" class="btn-circle-corner">
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+        </div>
+      </main>
 
-            <div class="nav-links right">
-                <a href="#">missão</a>
-                <a href="socio.html" class="btn-highlight">Ajude a Obra</a>
-            </div>
-        </nav>
+      <div
+        class="grid-container grid-auto-height animate-on-scroll delay-2"
+        style="margin-bottom: 24px"
+      >
+        <article
+          class="card card-tall"
+          style="
+            background-color: var(--white);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+        >
+          <span class="pill-badge-black">Nossa Missão</span>
 
-        <main class="grid-container animate-on-scroll delay-1">
-            
-            <article class="card card-tall">
-                <div class="bg-image" style="background-image: url('/img/download.jpg');"></div>
-                <div class="card-content">
-                    <span class="tag">Passos de conversão</span>
-                    <h2>Caminho de<br>São José</h2>
-                    <a href="caminho.html" class="btn-circle"><i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </article>
+          <h1
+            style="
+              font-size: 3rem;
+              line-height: 0.95;
+              font-weight: 900;
+              margin: 20px 0;
+              letter-spacing: -1px;
+            "
+          >
+            Aonde<br />Mandar<br />Eu irei.
+          </h1>
 
-            <div class="col-stack">
-                
-                <article class="card card-wide">
-                    <div class="bg-image" style="background-image: url('./img/Captura\ de\ tela\ 2026-01-06\ 131201.png');"></div>
-                    <div class="card-content">
-                        <h2>Como é a vida<br>na missão?</h2>
-                        <a href="#" class="btn-pill">descubra agora</a>
-                    </div>
-                </article>
+          <p
+            style="
+              font-size: 1.1rem;
+              line-height: 1.5;
+              color: #666;
+              margin-bottom: 30px;
+            "
+          >
+            A ordem dada aos doze, "Ide por tudo mundo, anunciai a Boa Nova a
+            toda criatura” (Mc 16,15), nos impulsiona, a inspirados pelo
+            Espírito Santo, respondera esse mandato do Senhor através de: grupos
+            de oração, retiros, encontros, atendimento de oração, oração nas
+            casas, evangelização nas escolas, projetos com crianças e adultos
+            etc.
+          </p>
+        </article>
 
-                <article class="card card-feature card-visual">
+        <article class="card card-tall card-visual">
+          <img src="./img/grupo.jpg" class="bg-img" alt="Grupo Missão" />
 
-    <img src="./img/missionarios veternaros.jpg" class="bg-img" alt="Missionários">
+          <div class="card-content">
+            <span class="tag">Grupo de Oração</span>
+            <h2>Evangelizando os que mais<br />Necessitam.</h2>
+            <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MzU1ODQyNDQyMDIwNDUy?story_media_id=3785252547443355528&igsh=MW1pZ2JmYWdzNGd5dg%3D%3D" target="_blank" style="display:none;">Ver mais</a>
+          </div>
+        </article>
+      </div>
 
-    <div class="card-content">
-        <span class="tag">Quem Somos</span>
-        <h2>Conheça os<br>missionários</h2>
-        <p style="margin-top: 5px; opacity: 0.8; font-size: 0.9rem; color: #fff;">
-            Rostos de uma entrega total.
-        </p>
-    </div>
-
-    <a href="missionarios.html" class="btn-circle-corner">
-        <i class="fa-solid fa-arrow-right"></i>
-    </a>
-
-                </article>
-
-            </div>
-
-        </main>
-        
-        <div class="grid-container grid-auto-height animate-on-scroll delay-2" style="margin-bottom: 24px;">
-
-    <article class="card card-tall " style="background-color: var(--white); padding: 50px; display: flex; flex-direction: column; justify-content: center;">
-        <span class="pill-badge-black">Nossa Missão</span>
-        
-        <h1 style="font-size: 3rem; line-height: 0.95; font-weight: 900; margin: 20px 0; letter-spacing: -1px;">
-            Aonde<br>Mandar<br>Eu irei.
-        </h1>
-        
-        <p style="font-size: 1.1rem; line-height: 1.5; color: #666; margin-bottom: 30px;">
-            A ordem dada aos doze, "Ide por tudo mundo, anunciai a Boa Nova a toda criatura” (Mc 16,15), nos impulsiona, a inspirados pelo Espírito Santo, respondera esse mandato do Senhor através de: grupos de oração, retiros, encontros, atendimento de oração, oração nas casas, evangelização nas escolas, projetos com crianças e adultos etc.
-        </p>
-    </article>
-
-    <article class="card card-tall card-visual">
-    
-    <img src="./img/grupo.jpg" class="bg-img" alt="Grupo Missão">
-    
-    <div class="card-content">
-        <span class="tag">Grupo de Oração</span>
-        <h2>Evangelizando os que mais<br>Necessitam.</h2>
-    </div>
-
-</article>
-
-</div>
-
-<div class="missions-grid animate-on-scroll">
-    
-    <article class="card mission-card">
-        <div class="mission-img" style="background-image: url('./img/hallel.jpg');"></div>
-        <div class="mission-overlay">
+      <div class="missions-grid animate-on-scroll">
+        <article class="card mission-card">
+          <div
+            class="mission-img"
+            style="background-image: url('./img/hallel.jpg')"
+          ></div>
+          <div class="mission-overlay">
             <h3>Hallel</h3>
             <p>Resgatando a juventude.</p>
-            <button class="btn-icon-corner"><i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-    </article>
+            <a href="hallel.html" class="btn-icon-corner"
+              ><i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
 
-    <article class="card mission-card">
-        <div class="mission-img" style="background-image: url('./img/caminho.jpg');"></div>
-        <div class="mission-overlay">
+        <article class="card mission-card">
+          <div
+            class="mission-img"
+            style="background-image: url('./img/caminho.jpg')"
+          ></div>
+          <div class="mission-overlay">
             <h3>Caminho de São José</h3>
             <p>Peregrinação de fé e conversão.</p>
-            <button class="btn-icon-corner"><i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-    </article>
+            <a href="caminho.html#inccm" class="btn-icon-corner"
+              ><i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </article>
 
-    <article class="card mission-card bg-yellow-gradient" style="background-color: var(--yellow);">
-        <div class="join-mission">
-            <h2>Quer ser<br>missionário?</h2>
-            <p>Doe suas férias ou um tempo da sua vida.</p>
-            <a href="#" class="btn-black-outline">Saiba como ir</a>
-        </div>
-    </article>
+        <article
+          class="card mission-card bg-yellow-gradient"
+          style="background-color: var(--yellow)"
+        >
+          <div class="join-mission">
+            <h2>Esta com<br />duvidas?</h2>
+            <p>Fale conosco agora mesmo.</p>
+            <a href="contato.html" class="btn-black-outline">Contato</a>
+            
+          </div>
+        </article>
+      </div>
 
-</div>
+      <div
+        class="grid-container grid-auto-height animate-on-scroll"
+        style="margin-bottom: 24px"
+      >
+        <article
+          class="card card-tall"
+          style="
+            background-color: var(--black);
+            color: var(--white);
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          "
+        >
+          <div class="live-badge"><span class="dot"></span> EM TEMPO REAL</div>
 
+          <h1
+            style="
+              font-size: 3rem;
+              line-height: 1;
+              font-weight: 900;
+              margin: 20px 0;
+              letter-spacing: -1px;
+            "
+          >
+            O continente<br />digital tem<br /><span
+              style="color: var(--yellow)"
+              >sede de Deus.</span
+            >
+          </h1>
 
+          <p
+            style="
+              font-size: 1.1rem;
+              line-height: 1.5;
+              opacity: 0.8;
+              margin-bottom: 30px;
+            "
+          >
+            A internet não é apenas uma ferramenta, é um território de missão.
+            Através das telas, entramos em lares onde os pés não conseguem
+            chegar.
+          </p>
 
-<div class="grid-container grid-auto-height animate-on-scroll" style="margin-bottom: 24px;">
-
-    <article class="card card-tall" style="background-color: var(--black); color: var(--white); padding: 50px; display: flex; flex-direction: column; justify-content: center;">
-        
-        <div class="live-badge">
-            <span class="dot"></span> EM TEMPO REAL
-        </div>
-
-        <h1 style="font-size: 3rem; line-height: 1; font-weight: 900; margin: 20px 0; letter-spacing: -1px;">
-            O continente<br>digital tem<br><span style="color: var(--yellow);">sede de Deus.</span>
-        </h1>
-        
-        <p style="font-size: 1.1rem; line-height: 1.5; opacity: 0.8; margin-bottom: 30px;">
-            A internet não é apenas uma ferramenta, é um território de missão. Através das telas, entramos em lares onde os pés não conseguem chegar.
-        </p>
-
-        <a href="https://www.youtube.com/c/missaoservosdoespiritosanto" target="_blank" class="btn-yellow-outline">
+          <a
+            href="https://www.youtube.com/c/missaoservosdoespiritosanto"
+            target="_blank"
+            class="btn-yellow-outline"
+          >
             <i class="fa-brands fa-youtube"></i> Acessar Canal
-        </a>
-    </article>
+          </a>
+        </article>
 
-    <article class="card card-tall card-visual">
-        <img src="./img/live niver.jpg" class="bg-img" alt="Bastidores da Live">
-        <div class="card-content">
+        <article class="card card-tall card-visual">
+          <img
+            src="./img/live niver.jpg"
+            class="bg-img"
+            alt="Bastidores da Live"
+          />
+          <div class="card-content">
             <span class="tag">Bastidores</span>
-            <h2>Levando a Palavra<br>aos confins da rede.</h2>
-        </div>
-    </article>
+            <h2>Levando a Palavra<br />aos confins da rede.</h2>
+            <a href="https://www.facebook.com/missaoservosdoespiritosanto/reels/" target="_blank" style="display:none;">Ver mais</a>
+          </div>
+        </article>
+      </div>
 
-</div>
-
-<div class="grid-container animate-on-scroll" style="display: block; height: auto; margin-bottom: 24px;">
-    
-    <article class="card bg-yellow-gradient" style="padding: 30px; height: auto;">
-        <div class="stats-row">
-            
+      <div
+        class="grid-container animate-on-scroll"
+        style="display: block; height: auto; margin-bottom: 24px"
+      >
+        <article
+          class="card bg-yellow-gradient"
+          style="padding: 30px; height: auto"
+        >
+          <div class="stats-row">
             <div class="stat-item">
-                <span class="stat-big">
-                    <span class="counter" data-target="20">0</span>k+
-                </span>
-                <span class="stat-desc">Almas Alcançadas</span>
+              <span class="stat-big">
+                <span class="counter" data-target="20">0</span>k+
+              </span>
+              <span class="stat-desc">Almas Alcançadas</span>
             </div>
-            
+
             <div class="stat-divider"></div>
-            
+
             <div class="stat-item">
-                <span class="stat-big">
-                    <span class="counter" data-target="1.2">0</span>M+
-                </span>
-                <span class="stat-desc">Visualizações</span>
+              <span class="stat-big">
+                <span class="counter" data-target="10">0</span>M+
+              </span>
+              <span class="stat-desc">Visualizações</span>
             </div>
-            
+
             <div class="stat-divider"></div>
-            
+
             <div class="stat-item">
-                <span class="stat-big">
-                    <span class="counter" data-target="5">0</span>+
-                </span>
-                <span class="stat-desc">Países Conectados</span>
+              <span class="stat-big">
+                <span class="counter" data-target="5">0</span>+
+              </span>
+              <span class="stat-desc">Países Conectados</span>
             </div>
+          </div>
+        </article>
+      </div>
 
-        </div>
-    </article>
-
-</div>
-
-<div class="lives-grid animate-on-scroll">
-    
-    <article class="card live-card">
-        <img src="./img/bm dia.jpg" class="bg-img" alt="Live de Oração">
-        <div class="play-overlay">
+      <div class="lives-grid animate-on-scroll">
+        <article class="card live-card">
+          <img src="./img/bm dia.jpg" class="bg-img" alt="Live de Oração" />
+          <div class="play-overlay">
             <div class="play-btn"><i class="fa-solid fa-play"></i></div>
-        </div>
-        <div class="live-info">
+          </div>
+          <div class="live-info">
             <span class="live-tag">Toda Terça</span>
             <h4>Bom dia com São Josér</h4>
-        </div>
-    </article>
+            <a href="https://www.youtube.com/c/Miss%C3%A3oServosdoEsp%C3%ADritoSanto/streams" target="_blank" style="display:none;">Ver mais</a>
+          </div>
+        </article>
 
-    <article class="card live-card">
-        <img src="./img/terço.jpg" class="bg-img" alt="Pregação">
-        <div class="play-overlay">
+        <article class="card live-card">
+          <img src="./img/terço.jpg" class="bg-img" alt="Pregação" />
+          <div class="play-overlay">
             <div class="play-btn"><i class="fa-solid fa-play"></i></div>
-        </div>
-        <div class="live-info">
+            
+          </div>
+          <div class="live-info">
             <span class="live-tag">Aos Sábados</span>
             <h4>Terço das Famílias</h4>
-        </div>
-    </article>
+            <a href="https://www.youtube.com/c/Miss%C3%A3oServosdoEsp%C3%ADritoSanto/streams" target="_blank" style="display:none;">Ver mais</a>
+          </div>
+        </article>
 
-    <article class="card live-card">
-        <img src="./img/live especial.jpg" class="bg-img" alt="Podcast">
-        <div class="play-overlay">
+        <article class="card live-card">
+          <img src="./img/live especial.jpg" class="bg-img" alt="Podcast" />
+          <div class="play-overlay">
             <div class="play-btn"><i class="fa-solid fa-play"></i></div>
-        </div>
-        <div class="live-info">
+          </div>
+          <div class="live-info">
             <span class="live-tag">Lives especiais</span>
             <h4>XIII Aniversário</h4>
-        </div>
-    </article>
+            <a href="https://www.youtube.com/watch?v=bMxbhSoSlBM" target="_blank" style="display:none;">Ver mais</a>
+          </div>
+        </article>
+      </div>
 
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="grid-container grid-auto-height animate-on-scroll">
-
-    <article class="card card-mission-dark">
-        <div class="mission-text">
+      <div class="grid-container grid-auto-height animate-on-scroll">
+        <article class="card card-mission-dark">
+          <div class="mission-text">
             <span class="highlight">A missão se faz:</span>
-            Com os pés dos que partem,<br>
-            com a oração dos que ficam<br>
+            Com os pés dos que partem,<br />
+            com a oração dos que ficam<br />
             e com as mãos dos que <span class="underline">contribuem</span>.
-        </div>
-    </article>
+          </div>
+        </article>
 
-    <article class="card card-mission-yellow bg-yellow-gradient ">
-        
-        <span style="font-weight: 700; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 20px; opacity: 0.7;">
+        <article class="card card-mission-yellow bg-yellow-gradient">
+          <span
+            style="
+              font-weight: 700;
+              font-size: 0.8rem;
+              text-transform: uppercase;
+              margin-bottom: 20px;
+              opacity: 0.7;
+            "
+          >
             Sustente a Obra
-        </span>
+          </span>
 
-        <h1>Ajude a levar<br>almas para o céu.</h1>
-        
-        <p>
-            Sua generosidade é o que nos permite continuar evangelizando. 
+          <h1>Ajude a levar<br />almas para o céu.</h1>
+
+          <p>
+            Sua generosidade é o que nos permite continuar evangelizando.
             Torne-se um benfeitor e faça parte dos frutos desta missão.
-        </p>
+          </p>
 
-        <a href="socio.html" class="btn-black-action ">
+          <a href="socio.html" class="btn-black-action">
             Quero ser um Benfeitor
-            <i class="fa-solid fa-arrow-right" style="color: var(--yellow);"></i>
-        </a>
+            <i class="fa-solid fa-arrow-right" style="color: var(--yellow)"></i>
+          </a>
+        </article>
+      </div>
 
-    </article>
+      <div
+        class="grid-container grid-auto-height animate-on-scroll"
+        style="margin-top: 24px"
+      >
+        <article
+          class="card"
+          style="
+            grid-column: span 2;
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px;
+            border-radius: 32px;
+          "
+        >
+          <div style="max-width: 900px; margin: 0 auto; text-align: center">
+            <i
+              class="fa-solid fa-quote-left"
+              style="font-size: 2rem; color: var(--yellow); margin-bottom: 30px"
+            ></i>
 
-        </div>
-
-        <div class="grid-container grid-auto-height animate-on-scroll" style="margin-top: 24px;">
-    
-    <article class="card" style="grid-column: span 2; background-color: var(--black); color: var(--white); padding: 60px; border-radius: 32px;">
-        <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-            <i class="fa-solid fa-quote-left" style="font-size: 2rem; color: var(--yellow); margin-bottom: 30px;"></i>
-            
-            <p style="font-size: 1.25rem; line-height: 1.6; font-weight: 400; margin-bottom: 30px;">
-                "É a salvação dos homens que está em causa; é a beleza da Revelação que ela representa...<br>
-                Ela é capaz, por si mesma, de suscitar a fé, uma fé que se apoia na potência de Deus. <strong style="color: var(--yellow);">Enfim, ela é a Verdade.</strong><br><br>
-                Por isso, bem merece que o apóstolo lhe consagre todo o seu tempo, todas as suas energias e lhe sacrifique, se for necessário, a sua própria vida."
+            <p
+              style="
+                font-size: 1.25rem;
+                line-height: 1.6;
+                font-weight: 400;
+                margin-bottom: 30px;
+              "
+            >
+              "É a salvação dos homens que está em causa; é a beleza da
+              Revelação que ela representa...<br />
+              Ela é capaz, por si mesma, de suscitar a fé, uma fé que se apoia
+              na potência de Deus.
+              <strong style="color: var(--yellow)"
+                >Enfim, ela é a Verdade.</strong
+              ><br /><br />
+              Por isso, bem merece que o apóstolo lhe consagre todo o seu tempo,
+              todas as suas energias e lhe sacrifique, se for necessário, a sua
+              própria vida."
             </p>
 
-            <cite style="font-style: normal; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; opacity: 0.7;">
-                — Evangelii Nuntiandi, 5
+            <cite
+              style="
+                font-style: normal;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 0.9rem;
+                opacity: 0.7;
+              "
+            >
+              — Evangelii Nuntiandi, 5
             </cite>
-        </div>
-    </article>
-
-        </div>
-
-
-
-
-
+          </div>
+        </article>
+      </div>
     </div>
 
+    <div class="floating-social-bar">
+      <a
+        href="https://www.instagram.com/missaoservosdoespiritosanto/"
+        target="_blank"
+        class="float-btn instagram"
+        title="Instagram"
+      >
+        <i class="fa-brands fa-instagram"></i>
+      </a>
 
+      <a
+        href="https://www.facebook.com/missaoservosdoespiritosanto"
+        target="_blank"
+        class="float-btn facebook"
+        title="Facebook"
+      >
+        <i class="fa-brands fa-facebook-f"></i>
+      </a>
 
+      <a
+        href="https://www.youtube.com/c/missaoservosdoespiritosanto"
+        target="_blank"
+        class="float-btn youtube"
+        title="YouTube"
+      >
+        <i class="fa-brands fa-youtube"></i>
+      </a>
 
-
-<div class="floating-social-bar ">
-        
-        <a href="https://www.instagram.com/missaoservosdoespiritosanto/" target="_blank" class="float-btn instagram" title="Instagram">
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-        
-        <a href="https://www.facebook.com/missaoservosdoespiritosanto" target="_blank" class="float-btn facebook" title="Facebook">
-            <i class="fa-brands fa-facebook-f"></i>
-        </a>
-        
-        <a href="https://www.youtube.com/c/missaoservosdoespiritosanto" target="_blank" class="float-btn youtube" title="YouTube">
-            <i class="fa-brands fa-youtube"></i>
-        </a>
-
-        <a href="https://maps.app.goo.gl/YXsdRa7MU31FSX6W7" target="_blank" class="float-btn location" title="Nossa Casa">
-            <i class="fa-solid fa-location-dot"></i>
-        </a>
-
+      <a
+        href="https://maps.app.goo.gl/YXsdRa7MU31FSX6W7"
+        target="_blank"
+        class="float-btn location"
+        title="Nossa Casa"
+      >
+        <i class="fa-solid fa-location-dot"></i>
+      </a>
     </div>
-
 
     <footer class="site-footer">
-        <div class="footer-container">
-            
-            <div class="footer-col brand-col">
-                <div class="footer-logo">ms.</div>
-                <p>Uma resposta de amor ao<br>mandato do Senhor.</p>
-            </div>
-
-            <div class="footer-col">
-                <h4>A Missão</h4>
-                <ul>
-                    <li><a href="sobre.html">Quem Somos</a></li>
-                    <li><a href="fundacao.html">Fundadores</a></li>
-                    <li><a href="carisma.html">Carisma</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Participe</h4>
-                <ul>
-                    <li><a href="eventos.html">Eventos</a></li>
-                    <li><a href="vocacional.html">Vocacional</a></li>
-                    <li><a href="benfeitor.html">Seja Benfeitor</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Fale Conosco</h4>
-                <ul class="contact-list">
-                    <li><i class="fa-brands fa-whatsapp"></i> (00) 99999-9999</li>
-                    <li><i class="fa-regular fa-envelope"></i> contato@missaoservos.com</li>
-                </ul>
-            </div>
-
+      <div class="footer-container">
+        <div class="footer-col brand-col">
+          <div class="footer-logo">mises.</div>
+          <p>
+            Anunciar o evangelho com alegria<br />para que Cristo seja tudo em
+            todos.
+          </p>
         </div>
 
-        <div class="footer-bottom">
-            <p>© 2024 Missão Servos. Todos os direitos reservados.</p>
-            <p>Deus Proverá.</p>
+        <div class="footer-col">
+          <h4>A Missão</h4>
+          <ul>
+            <li><a href="sobre.html">Quem Somos</a></li>
+            <li><a href="fundacao.html">Fundadores</a></li>
+            <li><a href="sobre.html">Carisma</a></li>
+          </ul>
         </div>
+
+        <div class="footer-col">
+          <h4>Participe</h4>
+          <ul>
+            <li><a href="eventos.html">Eventos</a></li>
+            <li><a href="caminho.html">Caminho de São José</a></li>
+            <li><a href="socio.html">Seja Benfeitor</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Fale Conosco</h4>
+          <ul class="contact-list">
+            <li><i class="fa-brands fa-whatsapp"></i> (65) 99223-7716</li>
+            <li>
+              <i class="fa-regular fa-envelope"></i>
+              missaoservosdoespiritosanto@gmail.com
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Missão Servos. Todos os direitos reservados.</p>
+        <p>Deus provê Deus Proverá.</p>
+      </div>
     </footer>
 
-
-
-
-
-
-<script>
-    // Configuração do Observador (Detecta quando o elemento entra na tela)
-    const observerOptions = {
+    <script>
+      // Configuração do Observador (Detecta quando o elemento entra na tela)
+      const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1 // Dispara quando 10% do elemento estiver visível
-    };
+        rootMargin: "0px",
+        threshold: 0.1, // Dispara quando 10% do elemento estiver visível
+      };
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view'); // Adiciona a classe que ativa o CSS
-                observer.unobserve(entry.target); // Para de observar depois que animou (anima só uma vez)
-            }
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view"); // Adiciona a classe que ativa o CSS
+            observer.unobserve(entry.target); // Para de observar depois que animou (anima só uma vez)
+          }
         });
-    }, observerOptions);
+      }, observerOptions);
 
-    // Seleciona tudo que tem a classe .animate-on-scroll
-    const elements = document.querySelectorAll('.animate-on-scroll, .stagger-text h1, .stagger-text p');
-    elements.forEach(el => observer.observe(el));
+      // Seleciona tudo que tem a classe .animate-on-scroll
+      const elements = document.querySelectorAll(
+        ".animate-on-scroll, .stagger-text h1, .stagger-text p"
+      );
+      elements.forEach((el) => observer.observe(el));
 
-    const counters = document.querySelectorAll('.counter');
+      const counters = document.querySelectorAll(".counter");
 
-    // Configura o observador para disparar quando aparecer na tela
-    const statsObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
+      // Configura o observador para disparar quando aparecer na tela
+      const statsObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                const counter = entry.target;
-                const target = +counter.getAttribute('data-target'); // Pega o valor final
-                const duration = 2000; // Duração da animação em milissegundos (2 segundos)
-                const increment = target / (duration / 16); // Calcula quanto aumentar por frame
+              const counter = entry.target;
+              const target = +counter.getAttribute("data-target"); // Pega o valor final
+              const duration = 2000; // Duração da animação em milissegundos (2 segundos)
+              const increment = target / (duration / 16); // Calcula quanto aumentar por frame
 
-                let current = 0;
+              let current = 0;
 
-                const updateCounter = () => {
-                    current += increment;
-                    
-                    if (current < target) {
-                        // Se o número tem decimal (ex: 1.2), usa toFixed(1), senão usa inteiro
-                        if (target % 1 !== 0) {
-                             counter.innerText = current.toFixed(1);
-                        } else {
-                             counter.innerText = Math.ceil(current);
-                        }
-                        requestAnimationFrame(updateCounter); // Continua animando
-                    } else {
-                        counter.innerText = target; // Garante que termine no número exato
-                    }
-                };
+              const updateCounter = () => {
+                current += increment;
 
-                updateCounter();
-                observer.unobserve(counter); // Para de observar depois que animou
+                if (current < target) {
+                  // Se o número tem decimal (ex: 1.2), usa toFixed(1), senão usa inteiro
+                  if (target % 1 !== 0) {
+                    counter.innerText = current.toFixed(1);
+                  } else {
+                    counter.innerText = Math.ceil(current);
+                  }
+                  requestAnimationFrame(updateCounter); // Continua animando
+                } else {
+                  counter.innerText = target; // Garante que termine no número exato
+                }
+              };
+
+              updateCounter();
+              observer.unobserve(counter); // Para de observar depois que animou
             }
-        });
-    }, { threshold: 0.5 }); // Dispara quando 50% do item estiver visível
+          });
+        },
+        { threshold: 0.5 }
+      ); // Dispara quando 50% do item estiver visível
 
-    // Ativa o observador em cada contador
-    counters.forEach(counter => {
+      // Ativa o observador em cada contador
+      counters.forEach((counter) => {
         statsObserver.observe(counter);
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Seleciona todos os elementos com a classe .card
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            // Procura o primeiro link (<a>) dentro desse card
+            const link = card.querySelector('a'); 
+            
+            // Se existir um link, transforma o card inteiro em botão
+            if(link) {
+                card.style.cursor = 'pointer'; // Muda o mouse para a mãozinha
+                
+                card.addEventListener('click', (e) => {
+                    // Se a pessoa não estiver apenas selecionando texto...
+                    const isTextSelection = window.getSelection().toString();
+                    
+                    // E se o clique não foi exatamente em cima do botão (pra não clicar 2x)
+                    if (e.target !== link && !link.contains(e.target) && !isTextSelection) {
+                        link.click(); // Dispara o clique do link original
+                    }
+                });
+            }
+        });
     });
+    </script>
 
-</script>
-
-
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>

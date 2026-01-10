@@ -1,289 +1,759 @@
 /* --- TEMA ESCURO PROFUNDO --- */
 body.dark-mode {
-    background-color: #050505; /* Preto absoluto */
-    color: var(--white);
+  background-color: #050505; /* Preto absoluto */
+  color: var(--white);
 }
 
 /* NAVBAR (Adaptação Dark) */
 .dark-mode .smart-nav {
-    background: rgba(10, 10, 10, 0.8);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
-.dark-mode .nav-links a { color: #aaa; }
-.dark-mode .nav-links a:hover, .dark-mode .nav-links a.active { color: var(--yellow); }
-
+.dark-mode .nav-links a {
+  color: #aaaaaa;
+}
+.dark-mode .nav-links a:hover,
+.dark-mode .nav-links a.active {
+  color: var(--yellow);
+}
 
 /* --- CAPÍTULO 1: HERO EDITORIAL --- */
 .hero-editorial {
-    position: relative;
-    padding-top: 25px;
-    margin-bottom: 100px;
-    text-align: center;
+  position: relative;
+  padding-top: 25px;
+  margin-bottom: 100px;
+  text-align: center;
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2; /* Fica na frente da imagem */
-    margin-bottom: -80px; /* Sobrepõe a imagem */
+  position: relative;
+  z-index: 2; /* Fica na frente da imagem */
+  margin-bottom: -80px; /* Sobrepõe a imagem */
 }
 
 .label-gold {
-    color: var(--yellow);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    font-size: 0.8rem;
-    margin-bottom: 20px;
-    display: block;
+  color: var(--yellow);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+  display: block;
 }
 
 .title-editorial {
-    font-size: 5.5rem;
-    font-weight: 900;
-    line-height: 0.9;
-    color: var(--white);
-    letter-spacing: -3px;
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 0.9;
+  color: var(--white);
+  letter-spacing: -3px;
 }
 
 /* Efeito de contorno na palavra São José (Estilo moderno) */
 .text-stroke {
-    color: transparent;
-    -webkit-text-stroke: 2px var(--yellow);
-    display: block;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--yellow);
+  display: block;
 }
 
 .hero-image-container {
-    width: 100%;
-    height: 500px;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+  width: 100%;
+  height: 500px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-img {
-    width: 100%; height: 100%; object-fit: cover;
-    filter: brightness(0.6); /* Escurece para dar drama */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6); /* Escurece para dar drama */
 }
 
 /* Degradê para suavizar o corte da imagem */
 .hero-gradient {
-    position: absolute; bottom: 0; left: 0; width: 100%; height: 50%;
-    background: linear-gradient(to top, #050505, transparent);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, #050505, transparent);
 }
-
 
 /* --- CAPÍTULO 2: ESTATÍSTICAS GIGANTES --- */
 .stats-editorial {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    margin-bottom: 120px;
-    position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 120px;
+  position: relative;
 }
 
-.stat-group { text-align: center; }
+.stat-group {
+  text-align: center;
+}
 
 .giant-number {
-    font-size: 8rem; /* Gigante */
-    font-weight: 900;
-    line-height: 1;
-    color: #1a1a1a; /* Cinza muito escuro, quase fundo */
-    -webkit-text-stroke: 1px #333; /* Contorno sutil */
-    display: block;
+  font-size: 8rem; /* Gigante */
+  font-weight: 900;
+  line-height: 1;
+  color: #1a1a1a; /* Cinza muito escuro, quase fundo */
+  -webkit-text-stroke: 1px #333; /* Contorno sutil */
+  display: block;
 }
 
 .stat-info h3 {
-    color: var(--yellow); font-size: 1.5rem; margin-top: -20px; font-weight: 800;
+  color: var(--yellow);
+  font-size: 1.5rem;
+  margin-top: -20px;
+  font-weight: 800;
 }
-.stat-info p { color: #888; font-size: 0.9rem; }
+.stat-info p {
+  color: #888;
+  font-size: 0.9rem;
+}
 
-.stat-divider { width: 1px; height: 100px; background: #222; }
-
+.stat-divider {
+  width: 1px;
+  height: 100px;
+  background: #222;
+}
 
 /* --- CAPÍTULO 3: STORY FLOW (ZIG-ZAG) --- */
 .story-flow {
-    display: flex; flex-direction: column; gap: 150px;
-    margin-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 150px;
+  margin-bottom: 150px;
 }
 
 .story-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
 }
 
 .story-visual img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-    border-radius: var(--radius-lg);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5); /* Sombra forte */
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Sombra forte */
 }
 
 /* Card de Vidro Flutuante */
 .glass-card {
-    background: rgba(255, 255, 255, 0.03); /* Quase transparente */
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 60px;
-    border-radius: var(--radius-lg);
-    position: relative;
+  background: rgba(255, 255, 255, 0.03); /* Quase transparente */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 60px;
+  border-radius: var(--radius-lg);
+  position: relative;
 }
 
 /* Layout Zig-Zag: Movemos os cards para cima das imagens */
 .story-block.left .glass-card {
-    margin-left: -80px; /* Sobrepõe para a esquerda */
-    z-index: 2;
+  margin-left: -80px; /* Sobrepõe para a esquerda */
+  z-index: 2;
 }
 
 .story-block.right .glass-card {
-    margin-right: -80px; /* Sobrepõe para a direita */
-    z-index: 2;
-    order: -1; /* Texto vem antes no código, mas visualmente ajustado */
+  margin-right: -80px; /* Sobrepõe para a direita */
+  z-index: 2;
+  order: -1; /* Texto vem antes no código, mas visualmente ajustado */
 }
 
 .chapter-num {
-    font-size: 4rem; font-weight: 900; color: rgba(255, 213, 0, 0.1); /* Amarelo transparente */
-    position: absolute; top: 20px; right: 30px;
+  font-size: 4rem;
+  font-weight: 900;
+  color: rgba(255, 213, 0, 0.1); /* Amarelo transparente */
+  position: absolute;
+  top: 20px;
+  right: 30px;
 }
 
 .glass-card h2 {
-    font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; color: var(--white);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--white);
 }
 .glass-card p {
-    font-size: 1.1rem; line-height: 1.7; color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #ccc;
 }
 
 /* Citação no meio do caminho */
 .quote-editorial {
-    text-align: center; margin: 50px auto; max-width: 800px;
+  text-align: center;
+  margin: 50px auto;
+  max-width: 800px;
 }
 .quote-editorial p {
-    font-family: 'Georgia', serif; font-style: italic; font-size: 2rem;
-    line-height: 1.4; color: var(--white); margin-bottom: 20px;
+  font-family: "Georgia", serif;
+  font-style: italic;
+  font-size: 2rem;
+  line-height: 1.4;
+  color: var(--white);
+  margin-bottom: 20px;
 }
 .quote-editorial .author {
-    color: var(--yellow); font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--yellow);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-
 /* --- CAPÍTULO 4: GEAR (CARDS MODERNOS) --- */
-.gear-section { margin-bottom: 100px; }
+.gear-section {
+  margin-bottom: 100px;
+}
 
-.section-header { text-align: center; margin-bottom: 60px; }
-.section-header h2 { font-size: 3rem; font-weight: 900; color: var(--white); }
-.section-header p { color: #666; font-size: 1.2rem; }
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.section-header h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--white);
+}
+.section-header p {
+  color: #666;
+  font-size: 1.2rem;
+}
 
 .gear-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .gear-card {
-    background: #111;
-    border: 1px solid #222;
-    padding: 40px 20px;
-    border-radius: 24px;
-    text-align: center;
-    transition: 0.3s ease;
+  background: #111;
+  border: 1px solid #222;
+  padding: 40px 20px;
+  border-radius: 24px;
+  text-align: center;
+  transition: 0.3s ease;
 }
 
 .gear-card:hover {
-    background: #1a1a1a;
-    transform: translateY(-10px);
-    border-color: var(--yellow);
+  background: #1a1a1a;
+  transform: translateY(-10px);
+  border-color: var(--yellow);
 }
 
 .gear-card i {
-    font-size: 2rem; color: #444; margin-bottom: 20px; transition: 0.3s;
+  font-size: 2rem;
+  color: #444;
+  margin-bottom: 20px;
+  transition: 0.3s;
 }
-.gear-card:hover i { color: var(--yellow); }
+.gear-card:hover i {
+  color: var(--yellow);
+}
 
-.gear-card h4 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; color: var(--white); }
-.gear-card p { color: #888; font-size: 0.9rem; }
+.gear-card h4 {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+.gear-card p {
+  color: #888;
+  font-size: 0.9rem;
+}
 
 /* Card Destaque */
-.gear-card.highlight { background: var(--yellow); border: none; }
-.gear-card.highlight h4, .gear-card.highlight p, .gear-card.highlight i { color: var(--black); }
-
+.gear-card.highlight {
+  background: var(--yellow);
+  border: none;
+}
+.gear-card.highlight h4,
+.gear-card.highlight p,
+.gear-card.highlight i {
+  color: var(--black);
+}
 
 /* --- RODAPÉ --- */
 .site-footer {
-    background-color: #000; border-top: 1px solid #1a1a1a;
+  background-color: #000;
+  border-top: 1px solid #1a1a1a;
 }
-
 
 /* --- RESPONSIVO (MOBILE) --- */
 @media (max-width: 900px) {
-    .title-editorial { font-size: 3.5rem; }
-    .hero-content { margin-bottom: 20px; } /* Remove sobreposição no mobile */
-    
-    .stats-editorial { flex-direction: column; gap: 40px; }
-    .stat-divider { width: 100px; height: 1px; }
-    
-    .story-block { grid-template-columns: 1fr; gap: 0; margin-bottom: 80px; }
-    .story-block.left .glass-card, .story-block.right .glass-card { margin: -50px 20px 0; } /* Sobreposição vertical */
-    .story-block.right .glass-card { order: 1; } /* Volta ordem normal */
-    
-    .gear-grid { grid-template-columns: 1fr; }
+  .title-editorial {
+    font-size: 3.5rem;
+  }
+  .hero-content {
+    margin-bottom: 20px;
+  } /* Remove sobreposição no mobile */
+
+  .stats-editorial {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .stat-divider {
+    width: 100px;
+    height: 1px;
+  }
+
+  .story-block {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 80px;
+  }
+  .story-block.left .glass-card,
+  .story-block.right .glass-card {
+    margin: -50px 20px 0;
+  } /* Sobreposição vertical */
+  .story-block.right .glass-card {
+    order: 1;
+  } /* Volta ordem normal */
+
+  .gear-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --- ÁLBUM COMPACTO (MASONRY) --- */
 .compact-album-section {
-    margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 .album-header {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 /* O Grid Mágico do Pinterest */
 .masonry-gallery {
-    column-count: 4; /* 4 Colunas no Desktop (Bem compacto) */
-    column-gap: 15px; /* Espaço pequeno entre colunas */
+  column-count: 4; /* 4 Colunas no Desktop (Bem compacto) */
+  column-gap: 15px; /* Espaço pequeno entre colunas */
 }
 
 .photo-card {
-    break-inside: avoid; /* Não deixa a foto quebrar no meio */
-    margin-bottom: 15px; /* Espaço embaixo de cada foto */
-    border-radius: 16px; /* Borda arredondada menor para ficar delicado */
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+  break-inside: avoid; /* Não deixa a foto quebrar no meio */
+  margin-bottom: 15px; /* Espaço embaixo de cada foto */
+  border-radius: 16px; /* Borda arredondada menor para ficar delicado */
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
 .photo-card img {
-    width: 100%;
-    display: block; /* Remove espaços extras */
-    transition: transform 0.5s ease;
+  width: 100%;
+  display: block; /* Remove espaços extras */
+  transition: transform 0.5s ease;
 }
 
 /* Efeito Hover */
 .photo-card:hover {
-    transform: translateY(-5px);
-    z-index: 2;
+  transform: translateY(-5px);
+  z-index: 2;
 }
 .photo-card:hover img {
-    transform: scale(1.1);
-    filter: brightness(1.1);
+  transform: scale(1.1);
+  filter: brightness(1.1);
 }
 
 /* --- RESPONSIVIDADE DO ÁLBUM --- */
 @media (max-width: 1024px) {
-    .masonry-gallery {
-        column-count: 3; /* 3 Colunas em Tablets */
-    }
+  .masonry-gallery {
+    column-count: 3; /* 3 Colunas em Tablets */
+  }
 }
 
 @media (max-width: 600px) {
-    .masonry-gallery {
-        column-count: 2; /* 2 Colunas em Celulares (Fica ótimo) */
-        column-gap: 10px;
-    }
-    .photo-card { margin-bottom: 10px; }
+  .masonry-gallery {
+    column-count: 2; /* 2 Colunas em Celulares (Fica ótimo) */
+    column-gap: 10px;
+  }
+  .photo-card {
+    margin-bottom: 10px;
+  }
+}
+
+/* --- TESTEMUNHOS --- */
+.testimonials-section {
+  margin: 100px 0;
+}
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 50px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsivo */
+  gap: 24px;
+}
+
+.testi-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 24px;
+  padding: 30px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.testi-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--yellow);
+}
+
+.testi-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+.testi-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--yellow);
+}
+.testi-header h4 {
+  font-size: 1.1rem;
+  color: var(--white);
+  font-weight: 700;
+  margin: 0;
+}
+.testi-header span {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.testi-card p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+.quote-icon {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.05); /* Marca d'água */
+}
+
+/* --- BANNER LARGO (TIPO YOUTUBE) --- */
+.banner-wide {
+  position: relative;
+  width: 100%;
+  height: 350px; /* Altura fixa para impacto */
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 80px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.banner-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 9%; /* move a imagem mais para baixo */
+  filter: brightness(0.3);
+  transition: transform 0.8s ease, background-position 0.8s ease;
+}
+.banner-wide:hover .banner-bg {
+  transform: scale(1.05);
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 0 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.banner-tag {
+  background: #ff4444;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.banner-text h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.banner-text p {
+  color: #ccc;
+  font-size: 1.1rem;
+  max-width: 500px;
+}
+
+/* Botão CTA Gigante */
+.btn-cta-giant {
+  background: var(--yellow);
+  color: var(--black);
+  padding: 20px 40px;
+  border-radius: 50px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+.btn-cta-giant:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 213, 0, 0.4);
+}
+
+/* Responsivo do Banner */
+@media (max-width: 900px) {
+  .banner-wide {
+    height: auto;
+    padding: 40px 0;
+  }
+  .banner-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 20px;
+  }
+  .banner-text h2 {
+    font-size: 2.2rem;
+  }
+  .btn-cta-giant {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* --- TESTEMUNHOS "PORTAL" (Design Diferenciado) --- */
+.testimonials-section {
+    margin: 150px 0;
+    position: relative;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px 40px; /* Mais espaço vertical para as fotos flutuantes */
+    padding-top: 40px; /* Espaço para a cabeça da foto */
+}
+
+.portal-card {
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 20px 30px 30px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Sombra neon sutil */
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.8);
+}
+
+/* Efeito Hover no Card */
+.portal-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--yellow);
+    box-shadow: 0 20px 40px -10px rgba(255, 213, 0, 0.15); /* Brilho amarelo */
+}
+
+/* Foto Flutuante (Fora do Card) */
+.portal-img {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: -40px; /* Sobe para fora do card */
+    left: 30px;
+    border-radius: 50%;
+    padding: 4px;
+    background: #111; /* Mesma cor do card para "cortar" a borda */
+    border-top: 1px solid var(--yellow); /* Detalhe amarelo */
+    z-index: 2;
+}
+
+.portal-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(100%); /* Preto e branco chique */
+    transition: 0.4s;
+}
+
+.portal-card:hover .portal-img img {
+    filter: grayscale(0%); /* Fica colorido no hover */
+}
+
+/* Aspas Gigantes de Fundo */
+.quote-mark {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.03);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* --- A MÁGICA DO TEXTO FADE --- */
+.text-scroll-area {
+    margin-top: 30px; /* Espaço para a foto */
+    height: 140px; /* Altura fixa */
+    overflow: hidden; /* Esconde o excesso */
+    position: relative;
+    
+    /* Máscara de Gradiente (Faz o texto sumir suavemente embaixo) */
+    mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+    
+    transition: height 0.5s ease; /* Animação se quisermos expandir */
+}
+
+.text-scroll-area p {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: #ccc;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* No Hover, o texto rola levemente ou fica mais legível */
+.portal-card:hover .text-scroll-area {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+/* Rodapé do Card */
+.portal-footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.portal-footer h4 {
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.portal-footer span {
+    color: var(--yellow);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+
+/* --- BANNER & BOTÃO ENCERRADO --- */
+.closed-tag { background-color: #333 !important; color: #999; }
+
+/* Estilo do Botão Encerrado */
+.btn-cta-giant.closed {
+    background-color: #2a0a0a; /* Vermelho muito escuro/preto */
+    color: #ff4444; /* Texto vermelho */
+    border: 1px solid #ff4444;
+    cursor: not-allowed;
+    opacity: 0.8;
+    pointer-events: none; /* Bloqueia clique real */
+}
+
+.btn-cta-giant.closed:hover {
+    transform: none; /* Remove animação de hover */
+    box-shadow: none;
+}
+
+
+/* --- GEAR (ULTRA MINIMALISTA & MICRO) --- */
+.gear-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Espaçamento leve */
+    margin: 40px auto 120px; /* Margem vertical */
+    max-width: 1000px;
+    border: none; /* Removemos as linhas divisórias */
+}
+
+.gear-card {
+    background: transparent; /* Sem fundo */
+    border: none; /* Sem borda */
+    padding: 0; /* Sem enchimento */
+    text-align: center;
+    width: 140px; /* Largura bem pequena */
+    
+    /* O SEGREDO DO "QUASE IMPERCEPTÍVEL": */
+    opacity: 0.3; 
+    filter: grayscale(100%); /* Deixa preto e branco */
+    transition: all 0.5s ease;
+}
+
+/* Ao passar o mouse, ele "acende" e ganha cor */
+.gear-card:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+    transform: translateY(-5px);
+}
+
+.gear-card i {
+    font-size: 1.1rem; /* Ícone pequeno e delicado */
+    color: var(--yellow);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.gear-card h4 {
+    font-size: 0.75rem; /* Título minúsculo e elegante */
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+.gear-card p {
+    font-size: 0.65rem; /* Texto de apoio quase invisível */
+    color: #888;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* Responsivo: No celular aumentamos um pouco para ser clicável */
+@media (max-width: 900px) {
+    .gear-grid { gap: 30px; }
+    .gear-card { width: 40%; opacity: 0.5; } /* Um pouco mais visível no mobile */
 }

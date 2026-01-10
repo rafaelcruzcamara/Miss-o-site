@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição | Missão Servos</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="inscricao.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="page-wrapper">
+        
+        <nav class="smart-nav" style="margin-bottom: 20px;">
+            <div class="nav-links left">
+                <a href="eventos.html" class="back-link">
+                    <i class="fa-solid fa-arrow-left"></i> Voltar
+                </a>
+            </div>
+            <div class="nav-brand">
+                <img src="./img/download-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="nav-links right"></div>
+        </nav>
+
+        <main class="form-card animate-entry">
+            
+            <div class="banner-area">
+                <img id="eventBanner" src="" alt="Capa do Evento" class="banner-img">
+            </div>
+
+            <div class="form-content">
+                <header class="form-header">
+                    <span class="event-tag">Inscrição Aberta</span>
+                    <h1 id="pageTitle">Carregando Evento...</h1>
+                    
+                    <div id="pageDesc" class="description-box"></div>
+                </header>
+
+                <hr class="divider">
+
+                <form id="dynamicForm" class="registration-grid">
+                    <input type="hidden" id="eventoId" name="evento_id">
+
+                    <h3 class="section-label">Seus Dados</h3>
+                    
+                    <div class="input-group full-width">
+                        <label>Nome Completo</label>
+                        <input type="text" name="nome" placeholder="Digite seu nome completo" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>WhatsApp</label>
+                        <input type="tel" name="whatsapp" placeholder="(00) 00000-0000" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Data de Nascimento</label>
+                        <input type="date" name="nascimento" required>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label>E-mail</label>
+                        <input type="email" name="email" placeholder="seu@email.com" required>
+                    </div>
+
+                    <div id="customFieldsContainer" class="custom-section full-width">
+                        </div>
+
+                    <div class="payment-card full-width">
+                        <div class="pay-header">
+                            <i class="fa-brands fa-pix"></i>
+                            <span>Dados do Pagamento</span>
+                        </div>
+                        <div class="pay-body">
+                            <div class="price-tag">
+                                <small>Valor da Inscrição</small>
+                                <span id="valorPix">R$ 0,00</span>
+                            </div>
+                            <div class="pix-info">
+                                <p>Chave Pix (CNPJ):</p>
+                                <strong id="chavePix" class="copy-key">...</strong>
+                            </div>
+                        </div>
+                        <div class="pay-footer">
+                            <i class="fa-solid fa-circle-info"></i> Envie o comprovante para o WhatsApp da Missão.
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit-large">
+                        Confirmar Minha Inscrição <i class="fa-solid fa-check"></i>
+                    </button>
+
+                </form>
+            </div>
+        </main>
+
+    </div>
+
+    <script src="motor-inscricao.js"></script>
+
+</body>
+</html>
