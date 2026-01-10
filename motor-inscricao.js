@@ -1,7 +1,7 @@
 const eventosConfig = {
     
     'caminho': {
-        status: 'aberto',
+        
         scriptUrl: "https://script.google.com/macros/s/AKfycbwVX6GWcxXUa0btrzT0PGubV13NDthHAtQcirRZCq1VEjBiRmyXoUb89SJEaRh3GObLTQ/exec",
         titulo: "C.S.J - Edição Masculina Jan/2026",
         banner: "./imgcaminho/11.jpg", 
