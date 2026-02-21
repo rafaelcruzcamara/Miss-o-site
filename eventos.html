@@ -38,11 +38,11 @@
         </nav>
 
         <header class="events-hero animate-on-scroll">
-            <div class="hero-bg-img" style="background-image: url('./img/Captura\ de\ tela\ 2026-01-06\ 131201.png');"></div>
+            <div class="hero-bg-img" style="background-image: url('./img/banner\ festa\ são\ jose.png');"></div>
             
             <div class="hero-content ">
-                <span class="label-yellow">Próximo Encontro</span>
-                <h1 class="hero-title">ENCONTRO VOCACIONAL<br><span style="color: var(--yellow);">um chamado para a alegria.</span></h1>
+                <span class="label-yellow">Próximo Evento</span>
+                <h1 class="hero-title">FESTA DE SÃO JOSÉ<br><span style="color: var(--yellow);">venha comemorar conosco.</span></h1>
                 
                 <div class="countdown-wrapper" id="countdown">
                     <div class="time-box">
@@ -65,8 +65,9 @@
                         <span class="time-label">Seg</span>
                     </div>
                 </div>
-
+                <!---- botão de inscrição para o evento específico (descomente quando tiver o link pronto) 
                 <a href="inscricao.html?id=carnaval" class="btn-black-action">Garantir Vaga <i class="fa-solid fa-arrow-right" style="color: var(--yellow);"></i></a>
+                -->
             </div>
         </header>
 
@@ -78,35 +79,43 @@
                 <div  class="card-content">
                     <span class="tag">Em breve</span>
                     <h2>Hallel 2026</h2>
-                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">09 a 12 de Junho • Chácara São José</p>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: 20px;">Na Chácara São José</p>
                     <a href="inscricao.html?id=hallel" class="btn-circle"><i class="fa-solid fa-arrow-right"></i></a>
                 </div>
             </article>
 
             <div class="col-stack">
-                
+                <!-- 
                 <article class="card card-wide">
-
-    <div class="bg-image" style="background-image: url('./imgcaminho/kids2.jpg'); filter: brightness(0.6);"></div>
-
-    <div class="card-content">
+                       
+            <div class="bg-image" style="background-image: url('./imgcaminho/kids2.jpg'); filter: brightness(0.6);"></div>
+            <div class="card-content">
         <h2 style="margin-bottom: 10px; color: #fff;">Caminho S.J. KIDS</h2>
         <p style="color: rgba(255,255,255,0.9); margin-bottom: 20px;">Passos de fé e diversão.</p>
         
         <a href="inscricao.html?id=caminhokd" class="btn-black-action" style="background: var(--yellow); color: var(--black); width: fit-content;">
             Em breve
         </a>
-    </div>
+            </div> 
 
-                </article>
+            </article>-->
 
-                <article class="card card-wide locked-card">
+            <!--cards esgotado em breve-->
+            <article class="card card-wide locked-card">
+                    <div class="bg-image" style="background-image: url('./imgcaminho/kids2.jpg'); filter: grayscale(100%);"></div>
+                    <div class="card-content">
+                        <span class="tag" style="background: #333; border: none;">Em breve</span>
+                        <h2>Caminho de<br>São José KIDS</h2>
+                    </div>
+            </article>
+
+            <article class="card card-wide locked-card">
                     <div class="bg-image" style="background-image: url('./imgcaminho/14.jpg'); filter: grayscale(100%);"></div>
                     <div class="card-content">
-                        <span class="tag" style="background: #333; border: none;">Esgotado</span>
+                        <span class="tag" style="background: #333; border: none;">Em breve</span>
                         <h2>Caminho de<br>São José</h2>
                     </div>
-                </article>
+            </article>
 
             </div>
         </section>
@@ -402,7 +411,7 @@
         function startCountdown() {
             // Defina a data do evento aqui (Ano, Mês [0-11], Dia, Hora)
             // Ex: 14 de Fevereiro de 2026 às 19:00
-            const eventDate = new Date('2026-02-21T07:00:00').getTime();
+            const eventDate = new Date('2026-03-15T07:00:00').getTime();
 
             const timer = setInterval(function() {
                 const now = new Date().getTime();
@@ -410,7 +419,7 @@
 
                 if (distance < 0) {
                     clearInterval(timer);
-                    document.getElementById("countdown").innerHTML = "<div class='time-box'><span class='time-num'>CHEGOU!</span></div>";
+                    document.getElementById("countdown").innerHTML = "<div class='time-box'><span class='time-num'>hoje</span></div>";
                     return;
                 }
 

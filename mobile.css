@@ -1,145 +1,165 @@
-/* --- MOBILE.CSS (ULTRA COMPACTO) --- */
+/* ==========================================================================
+   MOBILE.CSS - RESGATE RESPONSIVO (Até 900px)
+   Este arquivo deve ser chamado DEPOIS do style.css no HTML.
+   ========================================================================== */
 
-/* 1. Limpeza de Desktop */
-.hamburger-menu, .close-menu-btn, .mobile-overlay {
-    display: none !important;
-}
+@media screen and (max-width: 900px) {
 
-/* =========================================
-   REGRAS PARA CELULAR (Telas até 900px)
-   ========================================= */
-@media only screen and (max-width: 900px) {
+    /* 1. TRAVA MESTRA: Impede o scroll horizontal (vazamento) */
+    html, body {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden !important;
+        padding: 0 !important;
+    }
 
-    /* --- 1. NAVBAR MAIS FINA --- */
+    .page-wrapper {
+        padding: 10px 15px !important;
+        overflow-x: hidden !important;
+    }
+
+    /* 2. MENU DE NAVEGAÇÃO (NAVBAR) */
     .smart-nav {
         display: flex !important;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 15px !important; /* Muito fino */
-        height: 60px; /* Altura fixa pequena */
-        position: sticky; top: 0; z-index: 9999;
-        background: rgba(255,255,255,0.98);
-        border-bottom: 1px solid #eee;
+        flex-direction: column !important;
+        padding: 20px !important;
+        border-radius: 20px !important;
+        gap: 15px !important;
+        position: relative !important;
+        top: 0 !important;
     }
-
-    .nav-brand img { height: 35px; width: auto; }
-    .smart-nav .nav-links { display: none !important; }
     
-    .hamburger-menu {
-        display: block !important;
-        font-size: 1.4rem; color: #111; background: none; border: none;
+    .nav-brand { margin: 0 auto; order: -1; } /* Logo sempre no topo */
+    
+    .nav-links {
+        display: flex !important;
+        flex-wrap: wrap !important; /* Permite quebrar linha se não couber */
+        justify-content: center !important;
+        gap: 15px !important;
+        width: 100%;
     }
+    
+    .btn-highlight { width: 100%; text-align: center; } /* Botão "Ajude a Obra" ocupa toda a largura */
 
-    /* Menu Gaveta */
-    .nav-menu-wrapper {
-        position: fixed; top: 0; left: -100%; width: 85%; height: 100vh;
-        background: #fff; z-index: 10000; padding: 60px 20px;
-        transition: left 0.3s ease; display: flex !important; flex-direction: column;
-    }
-    .nav-menu-wrapper.active { left: 0; }
-    .nav-menu-wrapper .nav-links { display: flex !important; flex-direction: column; width: 100%; }
-    .nav-links a { font-size: 1rem; padding: 12px 0; border-bottom: 1px solid #f0f0f0; width: 100%; display: block; }
-    .close-menu-btn { display: block !important; position: absolute; top: 15px; right: 15px; font-size: 1.5rem; border: none; background: none;}
-    .mobile-overlay.active { display: block !important; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 9998; }
 
-    /* --- 2. LAYOUT GERAL (Tudo empilhado e apertado) --- */
-    .page-wrapper { padding: 0 10px; width: 100%; overflow-x: hidden; }
-
-    /* Força coluna única */
-    .grid-container, .missions-grid, .lives-grid, .footer-container, .col-stack {
+    /* 3. DERRUBANDO TODOS OS GRIDS (Tudo vira 1 coluna) */
+    .grid-container,
+    .col-stack,
+    .missions-grid,
+    .lives-grid,
+    .founders-grid,
+    .quick-action-grid,
+    .contact-grid,
+    .bento-grid,
+    .masonry-gallery,
+    .stats-row {
         display: flex !important;
         flex-direction: column !important;
         height: auto !important;
-        gap: 15px !important; /* Gap reduzido */
+        gap: 20px !important;
     }
 
-    /* --- 3. CARDS (REDUÇÃO MÁXIMA) --- */
-    .card, .card-tall, .card-wide, .card-feature, .card-visual, .mission-card, .card-mission-dark, .card-mission-yellow {
+    /* 4. REDIMENSIONAMENTO DE CARDS E IMAGENS */
+    .card, .card-tall, .card-wide, .mission-card, .live-card, .card-profile, .media-card {
         width: 100% !important;
         height: auto !important;
-        min-height: auto !important;
-        padding: 20px !important; /* Padding mínimo */
-        border-radius: 16px !important; /* Bordas menos arredondadas */
+        min-height: 280px !important; /* Altura segura para caber o conteúdo */
     }
 
-    /* Títulos dentro dos cards */
-    .card h2, .card-content h2, .mission-overlay h3 {
-        font-size: 1.4rem !important; /* Fonte bem menor */
-        line-height: 1.1;
-        margin-bottom: 10px;
+    /* Cards com texto e foto lado a lado (Feature, Clean, Story) */
+    .card-feature, .card-clean, .story-block {
+        display: flex !important;
+        flex-direction: column !important; /* Força a foto ficar em cima ou embaixo do texto */
+        height: auto !important;
     }
     
-    /* Tags e Textos */
-    .tag { font-size: 0.7rem; padding: 4px 10px; }
-    p { font-size: 0.9rem !important; line-height: 1.4; }
+    .story-block.left, .story-block.right { flex-direction: column !important; }
 
-    /* Imagens de fundo ajustadas */
-    .bg-image, .bg-img, .mission-img {
-        position: absolute !important; inset: 0 !important; width: 100% !important; height: 100% !important;
-    }
-
-    /* CARD MISSIONÁRIOS (FOTO + TEXTO) - O que quebrou antes */
-    .card-feature, .card-clean {
-        flex-direction: column !important;
-        padding: 0 !important; /* Remove padding do container para foto colar na borda */
-        overflow: hidden;
-    }
-    .feature-img, .feature-image-box {
-        width: 100% !important; 
-        height: 180px !important; /* Foto mais baixa */
-        position: relative !important;
-    }
-    .feature-content, .feature-text {
+    .feature-img, .feature-image-box, .story-visual {
         width: 100% !important;
-        padding: 20px !important;
+        height: 250px !important;
+        clip-path: none !important; /* Tira cortes diagonais que quebram no celular */
+    }
+
+    .feature-text, .feature-content, .story-text {
+        width: 100% !important;
+        padding: 25px !important;
+    }
+
+
+    /* 5. REDUZINDO TEXTOS GIGANTES (Typography) */
+    .headline-giant { font-size: 2.5rem !important; }
+    .card h2 { font-size: 1.8rem !important; }
+    .card-mission-yellow h1 { font-size: 2rem !important; }
+    .mission-text { font-size: 1.3rem !important; }
+    .slim-title { font-size: 2rem !important; }
+    .text-yellow { font-size: 2.2rem !important; }
+    .glitch-title { font-size: 3.5rem !important; }
+    .outline-subtitle { font-size: 1.8rem !important; }
+    .title-editorial { font-size: 3rem !important; line-height: 1 !important; }
+    
+    /* Ajuste de respiro nos blocos de texto */
+    .card-content, .card-mission-dark, .card-mission-yellow, .mission-overlay, .form-box {
+        padding: 25px !important;
+    }
+
+
+    /* 6. CORREÇÃO DOS FORMULÁRIOS (Sócio e Contato) */
+    .double-input, .form-grid-3 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 15px !important;
+    }
+    .form-input { padding: 12px 15px !important; }
+    .card-mission-yellow { padding: 40px 25px !important; }
+
+
+    /* 7. BARRA SOCIAL FLUTUANTE (Vira horizontal no rodapé) */
+    .floating-social-bar {
+        position: fixed !important;
+        top: auto !important;
+        bottom: 20px !important;
+        right: 50% !important;
+        transform: translateX(50%) !important;
+        flex-direction: row !important;
+        background: rgba(0,0,0,0.8);
+        padding: 10px 20px;
+        border-radius: 50px;
+        backdrop-filter: blur(10px);
     }
     
-    /* CARD LIVES / VIDEOS */
-    .live-card, .mission-card { height: 220px !important; }
+    .float-btn::after { display: none !important; } /* Esconde o tooltip no celular */
 
-    /* CARD BENFEITOR (Amarelo) */
-    .card-mission-yellow { padding: 30px 20px !important; text-align: center; }
-    .card-mission-yellow h1 { font-size: 1.8rem !important; margin-bottom: 15px; }
 
-    /* CARD CITAÇÃO (Preto) */
-    .card-mission-dark { padding: 30px 20px !important; }
-    .mission-text { font-size: 1.1rem !important; }
-
-    /* --- 4. TÍTULOS GIGANTES DA PÁGINA --- */
-    .hero-title, .headline-giant {
-        font-size: 2rem !important; /* Reduzido de 3rem */
-        margin-top: 10px;
-    }
-    .hero-editorial .title-editorial { font-size: 2.5rem !important; }
-    
-    /* --- 5. ESTATÍSTICAS (Lado a lado se der) --- */
-    .stats-row {
-        flex-direction: row !important; flex-wrap: wrap; justify-content: center; gap: 15px;
-    }
-    .stat-item { width: 45%; } /* Dois por linha */
-    .stat-big { font-size: 1.8rem !important; }
-    .stat-divider { display: none; }
-
-    /* --- 6. RODAPÉ COMPACTO --- */
+    /* 8. RODAPÉ (FOOTER) */
     .footer-container {
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important; /* 2 colunas */
-        gap: 20px 10px !important;
-        text-align: left !important;
-        padding-bottom: 20px;
+        display: flex !important;
+        flex-direction: column !important;
+        text-align: center;
+        gap: 40px !important;
+        padding: 30px 20px !important;
     }
-    .brand-col { grid-column: span 2; text-align: center; margin-bottom: 10px; }
-    .site-footer { padding: 30px 15px !important; margin-top: 30px; }
-    .footer-logo { font-size: 1.8rem; }
-    .footer-col h4 { font-size: 0.95rem; margin-bottom: 10px; color: var(--yellow); }
-    .footer-col ul li a { font-size: 0.85rem; }
-
-    /* --- 7. BOTÕES --- */
-    .btn-circle, .btn-circle-corner {
-        width: 40px; height: 40px; font-size: 1rem; bottom: 15px; right: 15px;
-    }
-    .btn-black-action, .btn-pill, .btn-submit-large {
-        padding: 12px 25px !important; font-size: 0.9rem !important; width: 100%; justify-content: center;
+    .contact-list li { justify-content: center !important; }
+    .footer-bottom {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
     }
 
+    /* 9. CORREÇÃO DAS FITAS DO HALLEL (Para não dar Scroll) */
+    .tape-strip {
+        width: 150% !important; /* Garante que cubra tudo mesmo girado */
+        left: -25% !important; 
+    }
+    .marquee-container {
+        width: 150% !important;
+        margin-left: -25% !important;
+    }
+    
+    /* 10. BOTÕES E TAGS */
+    .tags-wrapper, .tags-container { justify-content: center !important; }
+    .btn-black-action, .btn-urban, .btn-submit-wide { 
+        width: 100% !important; 
+        justify-content: center !important; 
+    }
 }
