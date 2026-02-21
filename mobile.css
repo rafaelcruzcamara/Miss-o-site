@@ -12,35 +12,89 @@
         overflow-x: hidden !important;
         padding: 0 !important;
     }
+   
+
+    /* --- PREPARA O ÍCONE DO HAMBÚRGUER PARA ANIMAR --- */
+    .hamburger-menu i {
+        display: inline-block; /* Obrigatório para o ícone conseguir girar */
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out !important;
+    }
 
     .page-wrapper {
         padding: 10px 15px !important;
         overflow-x: hidden !important;
     }
 
-    /* 2. MENU DE NAVEGAÇÃO (NAVBAR) */
+   /* 2. MENU DE NAVEGAÇÃO (NAVBAR) - CORRIGIDO */
     .smart-nav {
         display: flex !important;
         flex-direction: column !important;
-        padding: 20px !important;
-        border-radius: 20px !important;
-        gap: 15px !important;
+        padding: 15px 20px !important;
+        border-radius: 16px !important;
         position: relative !important;
-        top: 0 !important;
+        align-items: flex-start !important;
+        background: #ffffff !important; /* Fundo branco pra não misturar com o site */
     }
     
-    .nav-brand { margin: 0 auto; order: -1; } /* Logo sempre no topo */
-    
-    .nav-links {
+    /* Logo na Esquerda */
+    .nav-brand { 
+        margin: 0 !important;
+        padding: 0 !important;
+        order: -1; 
+        align-self: flex-start !important;
+        height: 50px !important; /* Trava a altura para alinhar com o botão */
         display: flex !important;
-        flex-wrap: wrap !important; /* Permite quebrar linha se não couber */
-        justify-content: center !important;
-        gap: 15px !important;
-        width: 100%;
+        align-items: center !important;
     }
-    
-    .btn-highlight { width: 100%; text-align: center; } /* Botão "Ajude a Obra" ocupa toda a largura */
 
+    /* Botão Hambúrguer (Retinho) */
+    .hamburger-menu {
+        display: flex !important;
+        position: absolute !important;
+        top: 15px !important; /* Acompanha o padding da nav */
+        right: 20px !important;
+        height: 50px !important; /* Exatamente a MESMA altura da logo */
+        align-items: center !important; /* O segredo: centraliza o ícone perfeitamente no meio */
+        justify-content: center !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* Oculta os links por padrão e tira os buracos */
+    .nav-links {
+        display: none !important; 
+        flex-direction: column !important;
+        width: 100%;
+        text-align: left !important;
+        align-items: flex-start !important;
+        gap: 15px !important; /* Espaço igual entre todos os links */
+        padding: 0 !important; /* Zera paddings malucos */
+        margin-top: 20px !important; /* Distância da logo */
+    }
+
+    /* Tira a margem do 2º bloco pra ele grudar no 1º e parecer uma lista só */
+    .nav-links.right {
+        margin-top: 0 !important;
+        padding-bottom: 10px !important;
+    }
+
+    /* Quando clicar no botão, eles aparecem */
+    .nav-links.menu-aberto {
+        display: flex !important;
+        animation: fadeIn 0.3s ease forwards;
+    }
+
+    /* Botão Amarelo na largura certa */
+    .btn-highlight { 
+        width: fit-content !important;
+        text-align: left !important; 
+        margin-top: 10px !important;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-5px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
     /* 3. DERRUBANDO TODOS OS GRIDS (Tudo vira 1 coluna) */
     .grid-container,
@@ -161,5 +215,694 @@
     .btn-black-action, .btn-urban, .btn-submit-wide { 
         width: 100% !important; 
         justify-content: center !important; 
+    }
+
+   /* ====================================================
+       CORREÇÃO: BANNER DO INDEX INTEIRO E CARD ESTICADO
+       ==================================================== */
+    
+    /* 1. Faz a imagem do banner (CRISTO) aparecer 100% sem cortar nenhuma letra */
+    .grid-container .banner-slim {
+        display: block !important;
+        min-height: 0 !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .grid-container .banner-slim .video-bg {
+        position: relative !important; /* Tira o efeito de fundo */
+        display: block !important;
+        width: 100% !important;
+        height: auto !important; /* A altura se adapta à foto perfeitamente */
+        object-fit: contain !important; /* Garante que nada seja cortado */
+    }
+
+    /* Reduz aquele buraco branco gigante entre o banner e o card de baixo */
+    div[style*="margin-bottom: 40px"] {
+        margin-bottom: 15px !important; 
+    }
+
+    /* 2. Estica o card "Caminho de São José" para ser o principal da tela */
+    main.grid-container .card-tall {
+        height: 65vh !important; /* Vai ocupar 65% da altura da tela do celular */
+        min-height: 450px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-end !important; /* Mantém o texto lá embaixo */
+    }
+
+    main.grid-container .card-tall .bg-image {
+        height: 100% !important;
+    }
+/* ====================================================
+       MATA O BURACO INVISÍVEL EMBAIXO DO BANNER 
+       ==================================================== */
+    .grid-container.grid-auto-height {
+        min-height: 0 !important; /* O grande culpado do buraco branco */
+        height: auto !important;
+        margin-bottom: 15px !important; /* Esmaga a margem de 40px que estava no HTML */
+    }
+    
+    /* Arredonda as pontas da foto pra ficar elegante e gruda nela */
+    .grid-container .banner-slim .video-bg {
+        border-radius: 16px !important;
+    }
+
+    /* ====================================================
+       AJUSTE DOS CARTÕES DE VIDRO (Página Caminho)
+       ==================================================== */
+    
+    /* 1. Aumenta a altura da foto para ela aparecer mais */
+    .story-visual {
+        height: 350px !important; 
+        border-radius: 20px !important;
+        width: 100% !important;
+    }
+
+    /* 2. Desce o cartão e dá espaço para o texto respirar */
+    .story-text.glass-card {
+        margin-top: -60px !important; /* Desce o bloco (controla o quanto ele sobrepõe a foto) */
+        padding: 40px 30px !important; /* Muito mais espaço interno (tira o espremido) */
+        width: 92% !important; /* Deixa uma margem elegante nas laterais */
+        margin-left: auto !important; /* Centraliza a caixa */
+        margin-right: auto !important;
+        border-radius: 24px !important;
+        backdrop-filter: blur(15px) !important; /* Reforça o efeito de vidro */
+    }
+
+    /* 3. Proporção e leitura do texto perfeitas */
+    .story-text.glass-card h2 {
+        font-size: 2.2rem !important;
+        margin-bottom: 15px !important;
+        line-height: 1.1 !important;
+    }
+
+    .story-text.glass-card p {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important; /* Espaço ideal entre as linhas de texto */
+        opacity: 0.9 !important;
+    }
+
+    /* Ajuste fino daquele número gigante de fundo (ex: 01, 02) */
+    .chapter-num {
+        top: 20px !important;
+        right: 20px !important;
+        font-size: 4rem !important;
+    }
+
+   /* ====================================================
+       DESCOMPRESSÃO DE TEXTOS (Salvando a Leitura)
+       ==================================================== */
+    
+    /* 1. Títulos Gigantes ("O continente digital" e "Aonde Mandar") */
+    /* O !important vai forçar o celular a ignorar o esmagamento que está no HTML */
+    .card-tall h1, .card h1 {
+        font-size: 2.3rem !important;      /* Diminui um pouco para caber bonito na tela */
+        line-height: 1.25 !important;      /* A MÁGICA: Desgruda as linhas de cima e de baixo */
+        letter-spacing: 0px !important;    /* Tira o esmagamento lateral das letras */
+        margin-bottom: 20px !important;
+    }
+
+    /* 2. Parágrafos em geral */
+    .card-tall p, .card p, .card-content p {
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;       /* Dá respiro entre as linhas de texto longo */
+    }
+
+    /* 3. O Cartão de Vidro ("A Partida", etc) */
+    .story-text.glass-card {
+        padding: 35px 25px !important;     /* Ajusta a margem interna */
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .story-text.glass-card h2 {
+        font-size: 2rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+        position: relative !important;
+        z-index: 2 !important;             /* Garante que o texto fique por cima do número */
+    }
+
+    .story-text.glass-card p {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+
+    /* 4. Encolhe o número (01, 02) do fundo pra não sobrepor o texto */
+    .chapter-num {
+        font-size: 3rem !important;
+        top: 20px !important;
+        right: 20px !important;
+        opacity: 0.15 !important;          /* Deixa bem transparente, apenas como marca d'água */
+        z-index: 1 !important;
+    }
+
+    
+
+    
+
+} /* <- Essa chave fecha a regra principal do mobile.css, não apague ela! */
+
+ /* ====================================================
+   CSS DEFINITIVO: PÁGINA QUEM SOMOS (SOBRE.HTML)
+   ==================================================== */
+@media screen and (max-width: 900px) {
+
+    /* 1. HERO: Foto com respiro e bordas */
+    .hero-3d {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0 15px 30px 15px !important; /* Espaçamento padrão nas laterais */
+        gap: 20px !important;
+    }
+
+    .hero-text {
+        padding: 30px 10px !important;
+        text-align: center !important; /* Centralizado combina mais com hero mobile */
+        align-items: center !important;
+    }
+
+    .headline-giant {
+        font-size: 2.2rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 20px !important;
+        letter-spacing: 0px !important;
+    }
+
+    .hero-visual-container {
+        width: 100% !important;
+        height: 420px !important; 
+        position: relative !important;
+        /* Puxa a imagem um pouco para baixo como você pediu */
+        margin-top: 10px !important; 
+        border-radius: 32px !important; /* Devolve as bordas arredondadas */
+        overflow: hidden !important;
+    }
+
+    .hero-cutout-img {
+        height: 100% !important;
+        width: 100% !important;
+        object-fit: cover !important;
+        object-position: top center !important;
+        /* Fade suave para não ficar um corte seco embaixo */
+        mask-image: linear-gradient(to bottom, black 90%, transparent 100%) !important;
+        -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%) !important;
+    }
+/* 1. TOPO DA PÁGINA: Tudo para a esquerda */
+    .hero-text {
+        text-align: left !important;
+        align-items: flex-start !important;
+        padding: 30px 20px !important;
+    }
+
+    .hero-desc {
+        text-align: left !important;
+        margin-left: 0 !important;
+    }
+
+    /* 2. BOTÃO: Texto em uma linha só sem quebra */
+    .btn-glow {
+        white-space: nowrap !important; /* Impede a quebra de linha */
+        width: fit-content !important;  /* Ajusta ao tamanho do texto */
+        padding: 15px 25px !important;
+        font-size: 0.95rem !important;
+    }
+
+    /* 2. MOSAICO: Padronização de Espaços */
+    .identity-mosaic {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px !important; /* Espaçamento padrão entre blocos */
+        padding: 0 15px !important;
+        margin-bottom: 40px !important;
+    }
+
+    .mosaic-card {
+        border-radius: 28px !important; /* Bordas arredondadas padrão */
+        padding: 35px 25px !important;
+        min-height: auto !important;
+    }
+
+    /* 3. PERTENÇAS (VIDA, ELO, AMIGOS): Bordas e Sombras */
+    .life-highlight-card, .elo-highlight-card {
+        display: flex !important;
+        flex-direction: column !important;
+        border-radius: 32px !important; /* Arredondado igual ao PC */
+        margin: 0 15px 25px 15px !important; /* Margem lateral para não encostar na tela */
+        overflow: hidden !important;
+        border: 1px solid rgba(0,0,0,0.05) !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08) !important;
+    }
+
+    .life-content {
+        padding: 35px 25px !important;
+    }
+
+    .life-img {
+        width: 100% !important;
+        height: 320px !important; /* Imagem imponente */
+        object-fit: cover !important;
+        border-radius: 0 0 32px 32px !important; /* Arredonda só a base da foto */
+    }
+
+    /* 4. PASSOS (COMO FUNCIONA) */
+    .how-it-works {
+        padding: 0 15px !important;
+    }
+    
+    .step-card {
+        border-radius: 28px !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* 5. BANNER FINAL: Proporções e Bordas */
+    .cta-visual {
+        margin: 20px 15px 60px 15px !important; /* Espaço do rodapé */
+        border-radius: 32px !important;
+        min-height: 420px !important;
+    }
+    
+    .headline-cta { 
+        font-size: 2.3rem !important; 
+        line-height: 1.1 !important;
+    }
+.life-content p, 
+    .details-text p, 
+    .details-text-dark p {
+        font-size: 0.95rem !important; /* Texto menor para reduzir altura */
+        line-height: 1.5 !important;
+        margin-bottom: 12px !important;
+    }
+
+    /* Diminui o título do card para ganhar espaço */
+    .life-content h2, 
+    .text-dark {
+        font-size: 2.2rem !important;
+        margin: 15px 0 8px !important;
+    }
+
+    /* Diminui a descrição curta (subtítulo) */
+    .big-desc, 
+    .big-desc-dark {
+        font-size: 1.2rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Reduz o preenchimento interno dos cards */
+    .life-content {
+        padding: 30px 20px !important;
+    }
+}
+/* ====================================================
+   CARD DA MISSA: CÓPIA EXATA DO PC (RETO E ALINHADO)
+   ==================================================== */
+@media screen and (max-width: 900px) {
+    
+    /* 1. O Retângulo */
+    .banner-recurrent {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        height: auto !important;
+        min-height: 85px !important; 
+        padding: 12px 15px !important;
+        margin: 0 15px 40px !important;
+        border-radius: 12px !important;
+        background-color: #111 !important; /* Fundo preto pra cobrir qualquer buraco */
+        background-size: 140% !important; /* Aumente para 150% ou 160% se precisar de mais zoom */
+        background-position: right center !important;
+        background-position: right center !important;
+        position: relative !important;
+        overflow: hidden !important;
+    }
+
+    /* 2. Degradê de fundo escuro */
+    .banner-recurrent .banner-overlay {
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(90deg, rgba(17,17,17,1) 45%, rgba(17,17,17,0.85) 65%, transparent 100%) !important;
+        z-index: 1 !important;
+    }
+
+    /* 3. A caixa que segura o Ícone e o Texto */
+    .banner-recurrent .banner-content {
+        position: relative !important;
+        z-index: 2 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 12px !important;
+        flex: 1 !important; 
+        min-width: 0 !important; 
+        padding: 0 !important;
+    }
+
+    /* 4. O Ícone Amarelo */
+    .banner-recurrent .icon-box-big {
+        width: 40px !important;
+        height: 40px !important;
+        min-width: 40px !important; 
+        flex-shrink: 0 !important; 
+        font-size: 1rem !important;
+        background: var(--yellow) !important;
+        color: #000 !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin: 0 !important;
+    }
+
+    /* 5. Os Textos */
+    .banner-recurrent .banner-text {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        text-align: left !important;
+        min-width: 0 !important;
+    }
+
+    .banner-recurrent .banner-text h3 {
+        font-size: 0.9rem !important; 
+        line-height: 1.1 !important;
+        font-weight: 900 !important;
+        color: #fff !important;
+        margin: 0 0 2px 0 !important;
+        white-space: nowrap !important; 
+    }
+
+    .banner-recurrent .banner-text p {
+        font-size: 0.65rem !important;
+        line-height: 1.2 !important;
+        color: #ccc !important;
+        margin: 0 !important;
+        white-space: nowrap !important; 
+    }
+
+    /* 6. Botão "Mensal" (AGORA TRAVADO E PEQUENO) */
+    .banner-recurrent .banner-tag {
+        position: relative !important;
+        z-index: 2 !important;
+        width: max-content !important; /* MATA A LARGURA DE 100% QUE TAVA BUGANDO */
+        max-width: max-content !important; 
+        flex: 0 0 auto !important; /* Impede o botão de esticar */
+        margin-left: auto !important; /* Joga pra direita */
+        font-size: 0.65rem !important;
+        padding: 5px 10px !important;
+        background: rgba(0,0,0,0.6) !important; /* Fundo levemente escuro */
+        border: 1px solid var(--yellow) !important;
+        color: var(--yellow) !important;
+        border-radius: 50px !important;
+        display: flex !important;
+        align-items: center !important;
+        gap: 5px !important;
+    }
+
+    /* ====================================================
+       O BANNER DA FESTA DE SÃO JOSÉ (TEXTOS E RELÓGIO MENORES)
+       ==================================================== */
+    .events-hero {
+        padding: 40px 15px !important;
+        min-height: 350px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    /* Tag "Próximo Evento" reduzida */
+    .label-yellow {
+        font-size: 0.65rem !important;
+        padding: 5px 14px !important;
+        margin-bottom: 15px !important;
+    }
+    
+    /* Texto Branco (Festa de São José) */
+    .hero-title {
+        font-size: 1.5rem !important; /* Texto branco bem menor */
+        line-height: 1.2 !important;
+        margin: 10px 0 25px !important;
+        letter-spacing: 0 !important;
+    }
+    
+    /* Texto Amarelo */
+    .hero-title span {
+        font-size: 1.05rem !important; /* Texto amarelo encolhido */
+        display: block !important;
+        margin-top: 5px !important;
+    }
+
+    /* --- CONTAGEM REGRESSIVA (MINIATURA) --- */
+    .countdown-wrapper {
+        gap: 6px !important; /* Mais juntos para não vazar na tela */
+        margin-bottom: 10px !important;
+    }
+    
+    .time-box {
+        width: 50px !important; /* Caixinha mais estreita */
+        min-width: 50px !important;
+        padding: 8px 4px !important; 
+        border-radius: 12px !important;
+    }
+    
+    .time-num {
+        font-size: 1.2rem !important; /* Número do relógio menor */
+    }
+    
+    .time-label {
+        font-size: 0.55rem !important; /* Dias/Horas bem miudinho */
+        margin-top: 3px !important;
+    }
+    
+    .separator {
+        font-size: 1rem !important;
+        margin-top: -12px !important;
+        margin-left: 2px !important;
+        margin-right: 2px !important;
+    }
+    /* Coluna de Texto (Adicione/Substitua por estas regras) */
+.hero-text {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start !important; /* Força todos os itens para a esquerda */
+    text-align: left !important;        /* Força o texto para a esquerda */
+}
+
+/* Garante que o botãozinho "Nossa Essência" não fique centralizado */
+.pill-label {
+    margin: 0 0 25px 0 !important; 
+}
+
+.headline-giant {
+    text-align: left !important;
+    width: 100%;
+}
+
+}
+
+/* ====================================================
+   PÁGINA HALLEL (MOBILE) - ALTA RESPONSIVIDADE
+   ==================================================== */
+@media screen and (max-width: 900px) {
+    
+    /* 1. HERO URBANO (Capa) */
+    .urban-hero {
+        height: 100vh !important;
+        padding: 0 15px !important;
+    }
+
+    /* MATA O BURACO GIGANTE DO TOPO */
+    .hero-content {
+        padding-top: 0 !important; 
+        margin-top: -40px !important; /* Puxa o título mais pra cima */
+        width: 100% !important;
+    }
+
+    .glitch-title {
+        font-size: 3.5rem !important; 
+        letter-spacing: -1px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .outline-subtitle {
+        font-size: 2rem !important;
+        letter-spacing: 2px !important;
+        -webkit-text-stroke: 1px var(--neon-yellow) !important;
+        margin-bottom: 20px !important;
+    }
+
+    .hero-desc {
+        font-size: 1rem !important;
+        line-height: 1.5 !important;
+        padding: 0 10px !important;
+        margin-bottom: 30px !important;
+    }
+
+    .btn-urban {
+        padding: 15px 30px !important;
+        font-size: 1rem !important;
+        width: 100% !important;
+        max-width: 320px !important;
+        text-align: center !important;
+    }
+
+    /* 2. FITAS E LETREIRO (Antivazamento) */
+    .tape-strip {
+        width: 200% !important; 
+        left: -50% !important;
+        font-size: 0.9rem !important;
+        padding: 8px 0 !important;
+    }
+
+    .marquee-container {
+        width: 200% !important;
+        margin-left: -50% !important;
+        padding: 10px 0 !important;
+    }
+
+    .marquee-content {
+        font-size: 1.1rem !important;
+    }
+
+    /* 3. GALERIA DE FOTOS (DEVOLVENDO AS PROPORÇÕES) */
+    .mixed-gallery {
+        padding: 50px 15px !important;
+    }
+
+    .gallery-title {
+        font-size: 2.2rem !important;
+    }
+
+    /* A Mágica: Recria o Grid no mobile com 2 colunas */
+    .bento-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 colunas para caber na tela */
+        grid-auto-rows: 150px !important; /* Altura base menor pro celular */
+        gap: 10px !important;
+    }
+
+    .media-card {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important; /* Anula o 280px que estava cortando tudo */
+        border-radius: 12px !important;
+    }
+
+    /* Devolve as proporções originais para fotos específicas */
+    .wide { grid-column: span 2 !important; }
+    .tall { grid-row: span 2 !important; }
+    .big  { grid-column: span 2 !important; grid-row: span 2 !important; }
+
+    /* 4. BLOCO FINAL (CTA) */
+    .cta-section {
+        padding: 40px 15px !important;
+        margin-top: 30px !important;
+    }
+
+    .tape-box {
+        padding: 30px 20px !important;
+        width: 100% !important;
+        border-width: 3px !important;
+    }
+
+    .tape-box h2 {
+        font-size: 2rem !important;
+        margin-bottom: 20px !important;
+    }
+
+    .btn-big {
+        font-size: 1rem !important;
+        padding: 15px !important;
+        width: 100% !important;
+    }
+
+    /* 5. FIX: DEVOLVER O BOTÃO AMARELO DE VOLTAR */
+    /* Força a div que segura o botão a aparecer, anulando o bloqueio do menu hambúrguer */
+    .nav-links.left:has(.fa-arrow-left) {
+        display: flex !important;
+        flex-direction: row !important;
+        margin-top: 0 !important;
+        padding: 0 !important;
+        opacity: 1 !important;
+    }
+
+    /* Devolve o visual do botão amarelo redondo */
+    .nav-links.left:has(.fa-arrow-left) .btn-circle {
+        background: var(--neon-yellow) !important;
+        width: 45px !important;
+        height: 45px !important;
+        border-radius: 50% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-decoration: none !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5) !important;
+    }
+
+    /* 6. FIX: ALINHAMENTO PERFEITO DA NAVBAR DO HALLEL */
+    .smart-nav:has(.fa-arrow-left) {
+        flex-direction: row !important; /* Força ficar tudo na mesma linha */
+        justify-content: center !important; /* Prepara para centralizar a logo */
+        align-items: center !important;
+        min-height: 80px !important;
+    }
+
+    /* Trava o botão amarelo na esquerda */
+    .smart-nav:has(.fa-arrow-left) .nav-links.left {
+        position: absolute !important;
+        left: -150px !important; 
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+        margin: 0 !important;
+    }
+
+    /* Traz a logo para o centro exato */
+    .smart-nav:has(.fa-arrow-left) .nav-brand {
+        order: 0 !important; /* Tira a regra antiga que jogava ela pra esquerda */
+        margin: 0 auto !important; /* Centraliza */
+        align-self: center !important;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    /* Navbar padrão (Branca para as outras páginas) */
+    .smart-nav {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 15px 20px !important;
+        border-radius: 16px !important;
+        background: #ffffff !important; 
+        position: relative !important;
+    }
+
+    /* Navbar específica para o Caminho (Efeito Vidro) */
+    .smart-nav.nav-glass {
+        background: rgba(255, 255, 255, 0.1) !important; /* Transparência */
+        backdrop-filter: blur(15px) !important; /* Desfoque */
+        -webkit-backdrop-filter: blur(15px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    /* Garante que os links fiquem brancos apenas na barra de vidro */
+    .nav-glass .nav-links a, 
+    .nav-glass .hamburger-menu {
+        color: #ffffff !important;
+    }
+}
+@media screen and (max-width: 900px) {
+    .banner-slim-rental {
+        height: auto !important;
+        min-height: 350px !important;
+        margin: 0 !important; /* Remove margens que empurram cards vizinhos */
+        padding: 30px 20px !important;
+    }
+    
+    /* Remove qualquer vácuo vindo de sections vizinhas */
+    section[style*="margin-top: 40px"] {
+        margin-top: 20px !important;
     }
 }

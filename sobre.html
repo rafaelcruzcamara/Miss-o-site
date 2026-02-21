@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quem Somos | Missão Servos</title>
-    
+    <title>Quem Somos</title>
+    <link rel="shortcut icon" href="./img/download-removebg-preview.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link rel="stylesheet" href="zom.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="sobre.css">
     <link rel="stylesheet" href="mobile.css">
@@ -30,6 +30,9 @@
         <img src="./img/download-removebg-preview.png" alt="Logo">
     </div>
 
+<button class="hamburger-menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
     <div class="nav-links right">
         <a href="sobre.html" class="active">Quem Somos</a>
         <a href="eventos.html">Agenda e Eventos</a>
@@ -245,21 +248,19 @@
     </footer>
 
     <script>
-        const hamburger = document.querySelector('.hamburger-menu');
-        const wrapper = document.querySelector('.nav-menu-wrapper');
-        const overlay = document.querySelector('.mobile-overlay');
-        const closeBtn = document.querySelector('.close-menu-btn');
+        // 1. SCRIPT DO MENU MOBILE (Blindado contra erros nulos)
+        const btnMobile = document.querySelector('.hamburger-menu');
+        const navLinksLeft = document.querySelector('.nav-links.left');
+        const navLinksRight = document.querySelector('.nav-links.right');
 
-        function toggleMenu() {
-            wrapper.classList.toggle('active');
-            overlay.classList.toggle('active');
-        }
-        if(hamburger) {
-            hamburger.addEventListener('click', toggleMenu);
-            overlay.addEventListener('click', toggleMenu);
-            if(closeBtn) closeBtn.addEventListener('click', toggleMenu);
+        if (btnMobile) {
+            btnMobile.addEventListener('click', () => {
+                if (navLinksLeft) navLinksLeft.classList.toggle('menu-aberto');
+                if (navLinksRight) navLinksRight.classList.toggle('menu-aberto');
+            });
         }
 
+        // 2. SCRIPT DE ANIMAÇÃO (É isso que faz o site deixar de ser invisível!)
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('in-view');
@@ -267,5 +268,6 @@
         });
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
     </script>
+    <script src="nav.js"></script>
 </body>
 </html>

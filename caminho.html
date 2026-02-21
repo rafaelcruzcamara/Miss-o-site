@@ -8,8 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
-    
+    <link rel="stylesheet" href="zom.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/download-removebg-preview.png" type="image/png">
     <link rel="stylesheet" href="caminho.css">
     <link rel="stylesheet" href="mobile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,7 +19,7 @@
 
     <div class="page-wrapper">
         
-        <nav class="smart-nav">
+        <nav class="smart-nav nav-glass">
             <div class="nav-links left">
                 <a href="index.html">Inicio</a>
                 <a href="fundacao.html">Fundação</a>
@@ -27,6 +28,9 @@
             <div class="nav-brand">
                 <img src="./img/download-removebg-preview.png" alt="Logo">
             </div>
+            <button class="hamburger-menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
             <div class="nav-links right">
                 <a href="sobre.html">Quem Somos</a>
                 <a href="eventos.html">Agenda e Eventos</a>
@@ -329,6 +333,6 @@
             window.requestAnimationFrame(step);
         }
     </script>
-
+<script src="nav.js"></script>
 </body>
 </html>

@@ -309,3 +309,13 @@ body {
 }
 
 /* linha amarela --- */
+
+/* Esconde o botão hambúrguer no Computador */
+.hamburger-menu {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--black);
+}

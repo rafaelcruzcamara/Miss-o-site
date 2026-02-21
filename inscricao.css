@@ -13,9 +13,13 @@ body {
 .back-link:hover { color: var(--black); transform: translateX(-5px); }
 
 /* --- O CARTÃO PRINCIPAL (Estilo Bento) --- */
+/* --- O CARTÃO PRINCIPAL (Estilo Bento) --- */
 .form-card {
     max-width: 700px;
-    margin: 20px auto 100px;
+    
+    /* A MÁGICA AQUI: Aumentei o primeiro valor de 20px para 80px */
+    margin: 80px auto 100px; 
+    
     background: #fff;
     border-radius: 32px; /* Identidade Visual 32px */
     box-shadow: 0 20px 40px rgba(0,0,0,0.06);
@@ -31,6 +35,7 @@ body {
 /* --- BANNER DE TOPO --- */
 .banner-area {
     width: 100%;
+   
     height: 240px; /* Altura boa para a foto */
     background-color: #eee;
     position: relative;

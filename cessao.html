@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cessão Onerosa | Retiros e Eventos</title>
+    <link rel="stylesheet" href="cessao.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="zom.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+    <style>
+        .rental-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('./img/chacara-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            border-radius: 0 0 40px 40px;
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .amenity-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .amenity-card i {
+            font-size: 2.5rem;
+            color: var(--yellow);
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <nav class="smart-nav">
+            <div class="nav-links left">
+                <a href="index.html" class="btn-circle">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+            <div class="nav-brand">
+                <img src="./img/download-removebg-preview.png" alt="Logo">
+            </div>
+            <div class="nav-links right">
+                <a href="contato.html" class="btn-highlight">Consultar Datas</a>
+            </div>
+        </nav>
+
+        <header class="rental-hero animate-on-scroll">
+            <div>
+                <span class="tag">Infraestrutura Completa</span>
+                <h1 class="headline-giant" style="color: white;">Espaço São José</h1>
+                <p style="font-size: 1.2rem; opacity: 0.9;">O lugar ideal para o encontro da sua comunidade com Deus.</p>
+            </div>
+        </header>
+
+        <main class="animate-on-scroll" style="padding: 60px 20px;">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 class="slim-title" style="color: var(--black); margin-bottom: 20px;">Tudo o que você precisa</h2>
+                <p>Nossa chácara oferece um ambiente rústico e acolhedor, preparado para receber retiros espirituais, acampamentos e encontros de formação.</p>
+            </div>
+
+            <div class="amenities-grid">
+                <div class="amenity-card">
+                    <i class="fa-solid fa-bed"></i>
+                    <h3>Alojamentos</h3>
+                    <p>Quartos coletivos com beliches para acomodar grandes grupos com conforto.</p>
+                </div>
+                <div class="amenity-card">
+                    <i class="fa-solid fa-utensils"></i>
+                    <h3>Cozinha e Refeitório</h3>
+                    <p>Estrutura industrial completa para preparo de refeições em larga escala.</p>
+                </div>
+                <div class="amenity-card">
+                    <i class="fa-solid fa-cross"></i>
+                    <h3>Capela e Auditório</h3>
+                    <p>Espaços dedicados para missas, adoração e palestras.</p>
+                </div>
+                <div class="amenity-card">
+                    <i class="fa-solid fa-tree"></i>
+                    <h3>Área Verde</h3>
+                    <p>Amplo espaço ao ar livre para dinâmicas, momentos de deserto e lazer.</p>
+                </div>
+            </div>
+
+            <section class="card-mission-yellow bg-yellow-gradient animate-on-scroll" style="border-radius: 32px; padding: 60px; margin-top: 40px;">
+                <h2>Interessado em agendar?</h2>
+                <p>Entre em contato com nossa equipe para verificar a disponibilidade de datas e valores de cessão.</p>
+                <a href="https://wa.me/5565992237716" target="_blank" class="btn-black-action">
+                    Falar no WhatsApp <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-bottom">
+            <p>© 2026 Missão Servos. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="nav.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('in-view');
+            });
+        });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
