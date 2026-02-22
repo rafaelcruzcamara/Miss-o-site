@@ -47,11 +47,33 @@
         class="grid-container grid-auto-height animate-on-scroll"
         style="margin-bottom: 40px; display: block"
       >
-        <article class="card banner-slim">
-          <img src="./img/banner principal site.png" alt="Anúncio" class="video-bg" />
+        <div class="grid-container grid-auto-height animate-on-scroll" style="margin-bottom: 40px; display: block">
+    <article class="card banner-slim carousel-container">
+        
+        <div class="carousel-slides">
+            
+            <a class="carousel-slide active">
+                <img src="./img/banner principal site.png" class="video-bg" alt="Banner 1" />
+            </a>
 
-          
-        </article>
+            <a href="https://www.instagram.com/stories/highlights/17928686050498173/" target="_blank" class="carousel-slide">
+                <img src="./img/MISES LOJA.png" class="video-bg" alt="Banner 2" /> 
+            </a>
+
+            <a href="./hallel.html" target="_blank" class="carousel-slide">
+                <img src="./hallel/hallel 2026 poster.png" class="video-bg" alt="Banner 3" />
+            </a>
+            
+        </div>
+
+        <div class="carousel-dots">
+            <span class="carousel-dot active" onclick="event.stopPropagation(); goToSlide(0)"></span>
+            <span class="carousel-dot" onclick="event.stopPropagation(); goToSlide(1)"></span>
+            <span class="carousel-dot" onclick="event.stopPropagation(); goToSlide(2)"></span>
+        </div>
+
+    </article>
+</div>
 
         
       </div>
@@ -639,6 +661,62 @@
             }
         });
     });
+
+    // ==========================================
+      // MOTOR DO CARROSSEL PRINCIPAL
+      // ==========================================
+      // ==========================================
+      // MOTOR DO CARROSSEL PRINCIPAL
+      // ==========================================
+      const slides = document.querySelectorAll('.carousel-slide');
+      
+      // AQUI: Mudei de '.dot' para '.carousel-dot'
+      const dots = document.querySelectorAll('.carousel-dots .carousel-dot'); 
+      
+      let currentSlide = 0;
+      let slideInterval;
+
+      // Função que muda a imagem
+      function showSlide(index) {
+          // Remove a classe 'active' de todos
+          slides.forEach(slide => slide.classList.remove('active'));
+          dots.forEach(dot => dot.classList.remove('active'));
+
+          // Define o novo índice
+          currentSlide = index;
+          if (currentSlide >= slides.length) currentSlide = 0; // Volta pro começo
+          if (currentSlide < 0) currentSlide = slides.length - 1; // Vai pro final
+
+          // Adiciona a classe 'active' no slide e na bolinha certos
+          slides[currentSlide].classList.add('active');
+          dots[currentSlide].classList.add('active');
+      }
+
+      // Função para avançar automaticamente
+      function nextSlide() {
+          showSlide(currentSlide + 1);
+      }
+
+      // Função quando a pessoa clica na bolinha
+      function goToSlide(index) {
+          showSlide(index);
+          resetInterval(); // Zera o cronômetro se a pessoa clicar
+      }
+
+      // Inicia o temporizador (Muda a cada 3 segundos)
+      function startInterval() {
+          slideInterval = setInterval(nextSlide, 3000); 
+      }
+
+      function resetInterval() {
+          clearInterval(slideInterval);
+          startInterval();
+      }
+
+      // Dá a partida se o carrossel existir na página
+      if(slides.length > 0) {
+          startInterval();
+      }
     </script>
     <script src="nav.js"></script>
     <script src="main.js"></script>
