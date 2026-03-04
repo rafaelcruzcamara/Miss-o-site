@@ -955,3 +955,126 @@
         height: 8px !important;
     }
 }
+
+/* ====================================================
+   RESPONSIVIDADE MOBILE (CELULAR) - CESSÃO ONEROSA
+   ==================================================== */
+@media screen and (max-width: 900px) {
+    
+    /* 1. Ajuste do Banner Principal */
+    .premium-hero {
+        height: 70vh;
+        min-height: 500px;
+        padding: 40px 20px;
+        border-radius: 30px; /* Menos arredondado no celular */
+        margin-top: 15px;
+    }
+    
+    .hero-premium-content h1 {
+        font-size: 2.8rem; /* Texto menor para não quebrar */
+        margin: 10px 0 15px 0;
+    }
+
+    .hero-premium-content p {
+        font-size: 1.05rem !important;
+    }
+
+    /* 2. Seção "A Estrutura" (Split) */
+    .premium-split {
+        grid-template-columns: 1fr !important; /* Força tudo a ficar em 1 coluna */
+        gap: 40px;
+        padding: 60px 20px;
+    }
+
+    .split-image {
+        height: 350px; /* Foto mais baixa no celular */
+        border-radius: 24px;
+        order: -1; /* Opcional: Faz a foto aparecer ANTES do texto no celular */
+    }
+
+    .split-text h2 {
+        font-size: 2.4rem;
+    }
+
+    .mini-cards-grid {
+        grid-template-columns: 1fr 1fr; /* 2 cartõezinhos por linha */
+    }
+
+    /* 3. Galeria e Filtros */
+    .gallery-filters {
+        gap: 8px;
+        padding: 0 10px;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+
+    .premium-gallery-grid {
+        grid-template-columns: 1fr; /* 1 foto por linha, ocupando a tela toda (Fica lindo!) */
+        gap: 15px;
+        padding: 0 15px;
+        margin-bottom: 60px;
+    }
+
+    /* No celular, a legenda preta aparece sempre para a pessoa saber o que é a foto */
+    .gallery-item .overlay {
+        bottom: 0; 
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    .play-indicator {
+        font-size: 2rem; /* Ícone de vídeo ligeiramente menor */
+    }
+
+    /* 4. Dúvidas Frequentes (FAQ) */
+    .premium-faq-section {
+        padding: 0 20px;
+        margin-bottom: 80px;
+    }
+
+    .faq-title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    .faq-question {
+        font-size: 1.1rem;
+    }
+
+    /* 5. Novo CTA Final (Card Imersivo) */
+    .premium-cta-card {
+        padding: 60px 20px;
+        border-radius: 30px;
+        margin: 0 15px 60px 15px;
+    }
+
+    .cta-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+    }
+
+    .cta-info-box {
+        flex-direction: column; /* Endereço fica um em cima do outro */
+        text-align: center;
+        gap: 15px;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .cta-info-box i {
+        font-size: 2.2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column; /* Botões um em cima do outro */
+        gap: 15px;
+    }
+
+    .cta-buttons a {
+        width: 100%; /* Botões ocupam 100% da largura, fácil de clicar */
+        justify-content: center;
+    }
+}

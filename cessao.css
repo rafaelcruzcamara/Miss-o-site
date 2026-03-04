@@ -3,10 +3,12 @@
    ==================================================== */
 
 /* 1. HERO CINEMATOGRÁFICO */
+/* 1. HERO CINEMATOGRÁFICO */
 .premium-hero {
     height: 85vh; 
     min-height: 600px;
-    border-radius: 60px; /* <-- AGORA É ARREDONDADO EM CIMA E EMBAIXO! */
+    border-radius: 60px; 
+    margin-top: 40px; /* <--- AQUI ESTÁ A MAGIA PARA DESGRUDAR DA NAVBAR */
     position: relative;
     overflow: hidden;
     display: flex;
@@ -132,108 +134,112 @@
 }
 
 /* ====================================================
-   3. GALERIA PREMIUM COM FILTROS DE CATEGORIA
+   3. GALERIA PADRONIZADA (PAISAGEM) E LIGHTBOX (FOTOS E VÍDEOS)
    ==================================================== */
 .gallery-filters {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 40px;
-    padding: 0 5%;
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;
+    margin-bottom: 40px; padding: 0 5%;
 }
 
 .filter-btn {
-    padding: 10px 24px;
-    border-radius: 50px;
-    border: 1px solid #ddd;
-    background: transparent;
-    color: var(--black);
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: var(--font);
+    padding: 10px 24px; border-radius: 50px; border: 1px solid #ddd;
+    background: transparent; color: var(--black); font-weight: 700;
+    cursor: pointer; transition: all 0.3s ease;
 }
 
 .filter-btn:hover, .filter-btn.active {
-    background: var(--black);
-    color: #fff;
-    border-color: var(--black);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: var(--black); color: #fff; border-color: var(--black);
+    transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+/* Grid com formato de Paisagem (16:9) */
 .premium-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 280px;
-    gap: 15px;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas padrão */
+    gap: 20px;
     padding: 0 5%;
     max-width: 1400px;
     margin: 0 auto 100px auto;
 }
 
 .gallery-item {
-    border-radius: 24px;
+    border-radius: 16px;
     overflow: hidden;
     position: relative;
     cursor: pointer;
-    transition: transform 0.4s ease, opacity 0.4s ease;
+    aspect-ratio: 16 / 9; /* FORÇA TODAS A FICAREM DEITADAS EXATAMENTE IGUAIS */
+    background: #111; /* Fundo escuro para vídeos/fotos carregando */
 }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.8s ease;
+/* Agora afeta tanto as imagens quanto os vídeos automáticos na galeria */
+.gallery-item img, .gallery-item video {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: 0.5s ease;
+    pointer-events: none; /* Garante que o clique vá para a tela cheia, e não pause o vídeo pequeno */
 }
 
-.gallery-item:hover img {
-    transform: scale(1.1);
+.gallery-item:hover img, .gallery-item:hover video {
+    transform: scale(1.05); 
+    opacity: 0.8;
 }
 
-/* Legenda escura que sobe ao passar o mouse */
+/* Ícone de Play para os vídeos na galeria */
+.play-indicator {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-size: 3rem; color: rgba(255,255,255,0.8); z-index: 2;
+    pointer-events: none; transition: 0.3s;
+}
+.gallery-item:hover .play-indicator { transform: translate(-50%, -50%) scale(1.1); color: var(--yellow); }
+
+/* Legenda Hover */
 .gallery-item .overlay {
-    position: absolute;
-    bottom: -60px; /* Escondido fora do card */
-    left: 0;
-    right: 0;
+    position: absolute; bottom: -60px; left: 0; right: 0;
     background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    color: #fff;
-    padding: 30px 20px 15px 20px;
-    font-weight: 800;
-    font-size: 1.1rem;
-    transition: bottom 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    color: #fff; padding: 30px 20px 15px 20px; font-weight: 800; font-size: 1.1rem;
+    transition: bottom 0.4s ease; z-index: 3;
+}
+.gallery-item:hover .overlay { bottom: 0; }
+.gallery-item.hide { display: none; }
+
+/* --- TELA CHEIA (LIGHTBOX) --- */
+.lightbox-modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95); z-index: 99999;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.lightbox-modal.active { opacity: 1; pointer-events: all; }
+
+.lightbox-content {
+    width: 90%; max-width: 1200px; height: 80vh;
+    display: flex; justify-content: center; align-items: center; position: relative;
 }
 
-.gallery-item:hover .overlay {
-    bottom: 0; /* Aparece! */
+.lightbox-content img, .lightbox-content video, .lightbox-content iframe {
+    max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
 }
 
-/* Tamanhos dinâmicos */
-.gallery-item.wide { grid-column: span 2; }
-.gallery-item.tall { grid-row: span 2; }
-
-/* Classe que o JavaScript usa para esconder as fotos que não são da categoria */
-.gallery-item.hide {
-    display: none;
+/* Botões do Lightbox */
+.lb-btn {
+    position: absolute; background: rgba(255,255,255,0.1); border: none;
+    color: #fff; font-size: 2rem; width: 60px; height: 60px; border-radius: 50%;
+    cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center;
+    backdrop-filter: blur(5px);
 }
+.lb-btn:hover { background: var(--yellow); color: #000; transform: scale(1.1); }
+.lb-close { top: 20px; right: 20px; }
+.lb-prev { left: 5%; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 5%; top: 50%; transform: translateY(-50%); }
 
-/* Responsividade da Galeria */
+/* Mobile Ajustes */
 @media screen and (max-width: 900px) {
-    .premium-gallery-grid {
-        grid-template-columns: 1fr 1fr; /* 2 colunas no celular */
-        grid-auto-rows: 180px;
-        gap: 10px;
-    }
-    .gallery-item.wide { grid-column: span 2; } /* Foto larga ocupa a tela toda no celular */
-    .gallery-item.tall { grid-row: span 1; } /* Desativa fotos muito altas no mobile para não desalinhar */
-    
-    .gallery-filters { gap: 8px; }
-    .filter-btn { padding: 8px 16px; font-size: 0.85rem; }
-    
-    /* No celular a legenda aparece sempre, senão a pessoa não sabe o que é */
-    .gallery-item .overlay { bottom: 0; padding: 20px 15px 10px 15px; font-size: 0.9rem;}
+    .premium-gallery-grid { grid-template-columns: 1fr; gap: 15px; } /* 1 coluna no celular para o formato paisagem brilhar */
+    .lb-btn { width: 45px; height: 45px; font-size: 1.5rem; }
+    .lb-prev { left: 10px; } .lb-next { right: 10px; }
+    .gallery-item .overlay { bottom: 0; } /* Mostra legenda sempre no celular */
 }
 
 /* ====================================================
@@ -333,4 +339,147 @@
         gap: 10px;
         padding: 0 15px;
     }
+}
+
+/* ====================================================
+   5. NOVO CTA FINAL (POSTER IMERSIVO)
+   ==================================================== */
+.premium-cta-card {
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    margin: 0 5% 80px 5%;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+.cta-bg-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 10s ease;
+}
+
+.premium-cta-card:hover .cta-bg-img {
+    transform: scale(1.05); /* Efeito zoom bem lento no fundo */
+}
+
+/* Degrade escuro para o texto ficar bem legível */
+.cta-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5));
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pill-badge-yellow {
+    display: inline-block;
+    background: var(--yellow);
+    color: #000;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cta-content h2 {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+}
+
+/* Caixa com efeito de vidro para o endereço */
+.cta-info-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 25px 40px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.cta-info-box i {
+    font-size: 2.8rem;
+    color: var(--yellow);
+}
+
+.cta-info-box strong {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.cta-info-box p {
+    font-size: 1.05rem;
+    color: #ccc;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.btn-white-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 35px;
+    border: 2px solid rgba(255,255,255,0.3);
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-white-outline:hover {
+    border-color: #fff;
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* Ajustes para Telemóvel / Celular */
+@media screen and (max-width: 900px) {
+    .premium-cta-card { padding: 60px 20px; border-radius: 30px; margin: 0 15px 60px 15px; }
+    .cta-content h2 { font-size: 2.5rem; }
+    .cta-info-box { flex-direction: column; text-align: center; gap: 15px; padding: 25px; }
+    .cta-buttons { flex-direction: column; width: 100%; }
+    .cta-buttons a { justify-content: center; width: 100%; }
 }

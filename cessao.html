@@ -7,10 +7,11 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="zom.css">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
     <link rel="stylesheet" href="cessao.css"> 
+    <link rel="stylesheet" href="zom.css">
 </head>
 <body>
 
@@ -22,7 +23,7 @@
                 </a>
             </div>
             <div class="nav-brand">
-                <img src="./img/text29.png" alt="Logo">
+                <img src="./img/download-removebg-preview.png" alt="Logo">
             </div>
             <div class="nav-links right">
                 <a href="https://wa.me/5565992237716" target="_blank" class="btn-highlight">Reservar Data</a>
@@ -30,14 +31,14 @@
         </nav>
 
         <header class="premium-hero animate-on-scroll">
-            <img src="./img/amigos.jpg" class="bg-video-image" alt="Visão Geral da Chácara">
+            <img src="./chacara/são jose 2.jpg" class="bg-video-image" alt="Visão Geral da Chácara">
             <div class="hero-premium-content">
                 <span class="pill-badge-black" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(10px); color: #fff; border: 1px solid rgba(255,255,255,0.3); padding: 5px 15px; border-radius: 20px; font-weight: bold;">
-                    Locação para Grupos
+                    Locação para Retiros
                 </span>
-                <h1>O refúgio perfeito<br>para a sua comunidade.</h1>
+                <h1>O refúgio perfeito<br>para o seu retiro.</h1>
                 <p style="font-size: 1.25rem; opacity: 0.9; max-width: 600px;">
-                    Desconecte-se do mundo. Uma infraestrutura completa imersa na natureza, desenhada para retiros e encontros de profunda espiritualidade.
+                    Desconecte-se do mundo. Uma infraestrutura completa imersa na natureza, desenhada para retiros de profundo encontro com nosso Senhor Jesus Cristo.
                 </p>
             </div>
         </header>
@@ -47,7 +48,7 @@
                 <div class="split-text">
                     <span class="tag" style="color: var(--black); background: #eee; border: none; padding: 5px 15px; border-radius: 20px; font-weight: bold;">A Estrutura</span>
                     <h2 style="margin-top: 15px;">Tudo o que o seu <br>retiro precisa.</h2>
-                    <p>Nossa chácara em Nossa Senhora do Livramento foi pensada para acolher com conforto e praticidade. Dispomos de refeitório industrial, capela para adoração e auditório para pregações.</p>
+                    <p>Nossa chácara em Nossa Senhora do Livramento foi pensada para acolher com conforto e praticidade. Dispomos de refeitório industrial, capela com Santíssimo e auditório para pregações, além de espaços para dinâmicas.</p>
                     
                     <div class="mini-cards-grid">
                     <div class="mini-card">
@@ -84,56 +85,137 @@
 
             <div class="gallery-filters animate-on-scroll">
                 <button class="filter-btn active" data-filter="all">Todas as Fotos</button>
-                <button class="filter-btn" data-filter="capela">Capela</button>
-                <button class="filter-btn" data-filter="alojamento">Alojamentos</button>
                 <button class="filter-btn" data-filter="refeitorio">Cozinha e Refeitório</button>
-                <button class="filter-btn" data-filter="externa">Área Verde</button>
+                <button class="filter-btn" data-filter="externa">Espaços</button>
+                <button class="filter-btn" data-filter="capela">Capela</button>
+                <button class="filter-btn" data-filter="alojamento">Alojamentos e Banheiros</button>
+                
+                
             </div>
 
             <section class="premium-gallery-grid animate-on-scroll delay-1" id="gallery-grid">
                 
-                <div class="gallery-item externa wide">
-                    <img src="./chacara/grama.jpg" alt="Fachada e Gramado">
-                    <div class="overlay">Área Externa e Gramado</div>
-                </div>
-
-                <div class="gallery-item alojamento tall">
-                    <img src="./chacara/frente tudo.jpg" alt="Alojamento">
-                    <div class="overlay">Alojamento Coletivo</div>
-                </div>
-
-                <div class="gallery-item refeitorio">
-                    <img src="./chacara/entrada sao jose.jpg" alt="Refeitório">
-                    <div class="overlay">Refeitório Espaçoso</div>
-                </div>
-
-                <div class="gallery-item capela">
-                    <img src="./chacara/igreja lado.jpg" alt="Altar">
-                    <div class="overlay">Altar Principal</div>
-                </div>
-
-                <div class="gallery-item capela wide">
-                    <img src="./chacara/caple abosuqe.jpg" alt="Capela Geral">
+                <div class="gallery-item capela" data-src="./chacara/igreja lado 2.jpg" data-type="image">
+                    <img src="./chacara/igreja lado 2.jpg" alt="Igreja Lado">
                     <div class="overlay">Nossa Capela</div>
                 </div>
 
-                <div class="gallery-item externa">
-                    <img src="./chacara/bosuqe auditorio 2.jpg" alt="Lazer">
-                    <div class="overlay">Espaço para Dinâmicas</div>
+                <div class="gallery-item " data-src="./chacara/nossa senhora.jpg" data-type="image">
+                    <img src="./chacara/nossa senhora.jpg" alt="Nossa Senhora">
+                    <div class="overlay">Nossa Senhora</div>
                 </div>
 
-                <div class="gallery-item refeitorio">
-                    <img src="./chacara/adtr.jpg" alt="Cozinha">
-                    <div class="overlay">Cozinha Industrial</div>
+                <div class="gallery-item capela" data-src="./chacara/igreja.mp4" data-type="video">
+                    <video src="./chacara/igreja.mp4" autoplay muted loop playsinline></video>
+                    <div class="overlay">A Igreja</div>
                 </div>
 
-                <div class="gallery-item alojamento">
-                    <img src="./chacara/cpl grama.jpg" alt="Banheiros">
-                    <div class="overlay">Banheiros Modernos</div>
+                <div class="gallery-item externa" data-src="./chacara/são jose grande.jpg" data-type="image">
+                    <img src="./chacara/são jose grande.jpg" alt="São José">
+                    <div class="overlay">São José</div>
+                </div>
+
+                <div class="gallery-item " data-src="./chacara/quadro.jpg" data-type="image">
+                    <img src="./chacara/quadro.jpg" alt="Quadro">
+                    <div class="overlay">Detalhes com Amor</div>
+                </div>
+
+                <div class="gallery-item externa" data-src="./chacara/estrada entrada.jpg" data-type="image">
+                    <img src="./chacara/estrada entrada.jpg" alt="Estrada de Entrada">
+                    <div class="overlay">Estrada de Acesso</div>
+                </div>
+
+                <div class="gallery-item externa" data-src="./chacara/frentre.mp4" data-type="video">
+                    <video src="./chacara/frentre.mp4" autoplay muted loop playsinline></video>
+                    <div class="overlay">Entrada Principal</div>
+                </div>
+
+                <div class="gallery-item externa" data-src="./chacara/bosuqe baixo.mp4" data-type="video">
+                    <video src="./chacara/bosuqe baixo.mp4" autoplay muted loop playsinline></video>
+                    <div class="overlay">Passeio pelo Bosque</div>
+                </div>
+
+                <div class="gallery-item externa" data-src="./chacara/frente bosuqe.jpg" data-type="image">
+                    <img src="./chacara/frente bosuqe.jpg" alt="Frente do Bosque">
+                    <div class="overlay">Área para camping</div>
+                </div>
+
+                <div class="gallery-item externa" data-src="./chacara/praça empe.jpg" data-type="image">
+                    <img src="./chacara/praça empe.jpg" alt="Praça">
+                    <div class="overlay">Praça da Bílbia</div>
+                </div>
+
+                <div class="gallery-item externa" data-src="./chacara/barracao.mp4" data-type="video">
+                    <video src="./chacara/barracao.mp4" autoplay muted loop playsinline></video>
+                    <div class="overlay">Refeitório e Quadra</div>
+                </div>
+
+                <div class="gallery-item externa" data-src="./chacara/barracao dentro.jpg" data-type="image">
+                    <img src="./chacara/barracao dentro.jpg" alt="Interior do Barracão">
+                    <div class="overlay">Barracão Principal</div>
+                </div>
+
+                <div class="gallery-item externa" data-src="./chacara/barracao fora.jpg" data-type="image">
+                    <img src="./chacara/barracao fora.jpg" alt="Fora do Barracão">
+                    <div class="overlay">Área Externa do Barracão</div>
+                </div>
+
+                <div class="gallery-item alojamento" data-src="./chacara/quarto 1.jpg" data-type="image">
+                    <img src="./chacara/quarto 1.jpg" alt="Quarto">
+                    <div class="overlay">Alojamento Coletivo</div>
+                </div>
+
+                <div class="gallery-item alojamento" data-src="./chacara/banheiro.jpg" data-type="image">
+                    <img src="./chacara/banheiro.jpg" alt="Banheiros">
+                    <div class="overlay">Banheiros</div>
+                </div>
+
+                <div class="gallery-item alojamento" data-src="./chacara/pia banheiro.jpg" data-type="image">
+                    <img src="./chacara/pia banheiro.jpg" alt="Pia do Banheiro">
+                    <div class="overlay">Pias Independentes</div>
+                </div>
+
+                <div class="gallery-item refeitorio" data-src="./chacara/cozinha.mp4" data-type="video">
+                    <video src="./chacara/cozinha.mp4" autoplay muted loop playsinline></video>
+                    <div class="overlay">Nossa Cozinha</div>
+                </div>
+
+                <div class="gallery-item refeitorio" data-src="./chacara/mesa cozinha.jpg" data-type="image">
+                    <img src="./chacara/mesa cozinha.jpg" alt="Mesas">
+                    <div class="overlay">Refeitório Interno</div>
+                </div>
+
+                <div class="gallery-item refeitorio" data-src="./chacara/fornos.jpg" data-type="image">
+                    <img src="./chacara/fornos.jpg" alt="Fornos">
+                    <div class="overlay">Estrutura de Fornos</div>
+                </div>
+
+                <div class="gallery-item refeitorio" data-src="./chacara/pia cozinha.jpg" data-type="image">
+                    <img src="./chacara/pia cozinha.jpg" alt="Pia da Cozinha">
+                    <div class="overlay">Pia Industrial</div>
+                </div>
+
+                <div class="gallery-item refeitorio" data-src="./chacara/lanchonete.jpg" data-type="image">
+                    <img src="./chacara/lanchonete.jpg" alt="Lanchonete">
+                    <div class="overlay">Área da Lanchonete</div>
+                </div>
+
+                <div class="gallery-item externa" data-src="./chacara/igreja.mp4" data-type="video">
+                    <video src="./chacara/auditorio.mp4" autoplay muted loop playsinline></video>
+                    <div class="overlay">Auditório</div>
+                </div>
+
+                <div class="gallery-item externa" data-src="./chacara/lanchonete.jpg" data-type="image">
+                    <img src="./chacara/auditorio.jpg" alt="Lanchonete">
+                    <div class="overlay">Auditório para Formações</div>
                 </div>
                 
+                <div class="gallery-item capela" data-src="./chacara/frentre.mp4" data-type="video">
+                    <video src="./chacara/capela bosque.mp4" autoplay muted loop playsinline></video>
+                    <div class="overlay">Bosque 2</div>
+                </div>
+
             </section>
-        
             <section class="premium-faq-section animate-on-scroll">
                 <h2 class="faq-title">Dúvidas Frequentes</h2>
                 
@@ -143,7 +225,7 @@
                         <i class="fa-solid fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        A chácara possui alojamentos equipados com beliches que comportam até <strong>150</strong> pessoas confortavelmente instaladas.
+                        A chácara possui alojamentos equipados com beliches que comportam até <strong>80</strong> pessoas confortavelmente instaladas.
                     </div>
                 </div>
                 
@@ -153,49 +235,49 @@
                         <i class="fa-solid fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        Disponibilizamos toda a estrutura da cozinha industrial (fogões, panelas grandes, freezers) e o refeitório. Os insumos e a preparação das refeições ficam por conta do grupo organizador.
+                        Disponibilizamos toda a estrutura da cozinha industrial (fogões, panelas grandes, freezers) e o refeitório. Os insumos e a preparação das refeições podem ficar por conta nossa.
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <span>É possível alugar apenas para passar o dia (Day Use)?</span>
+                        <span>É possível alugar apenas para passar o dia?</span>
                         <i class="fa-solid fa-plus"></i>
                     </div>
                     <div class="faq-answer">
-                        Sim! Nossa estrutura também atende encontros de um único dia (Day Use) sem pernoite. Consulte a nossa equipe para verificar os valores diferenciados.
+                        Sim! Nossa estrutura também atende encontros de um único dia sem pernoite. <br> Consulte a nossos missionários para verificar os valores diferenciados.
                     </div>
                 </div>
             </section>
 
-            <section class="premium-split reverse animate-on-scroll" style="background: var(--black); border-radius: 60px; padding: 80px 5%; margin: 0 2% 80px 2%; max-width: 96%;">
-                <div class="split-text" style="color: #fff;">
-                    <span class="tag" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 20px; padding: 5px 15px;">Localização</span>
+            <section class="premium-cta-card animate-on-scroll">
+                
+                <img src="./chacara/estrada entrada.jpg" alt="Localização" class="cta-bg-img">
+                <div class="cta-overlay"></div>
+
+                <div class="cta-content">
+                    <span class="pill-badge-yellow">Localização e Reservas</span>
+                    <h2>Entre em contato<br>com a Missão.</h2>
                     
-                    <h2 style="color: #fff; font-size: 3.5rem; margin-top: 20px;">A um passo do<br>seu retiro.</h2>
+                    <div class="cta-info-box">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <div>
+                            <strong>Chácara São José - Santana</strong>
+                            <p>Nossa Senhora do Livramento - MT<br>Estrada de fácil acesso para ônibus e vans.</p>
+                        </div>
+                    </div>
                     
-                    <p style="color: #ccc; font-size: 1.15rem; margin-bottom: 10px;">
-                        <i class="fa-solid fa-location-dot" style="color: var(--yellow); margin-right: 10px; font-size: 1.5rem;"></i> 
-                        <strong>Chácara São José - Santana</strong>
-                    </p>
-                    <p style="color: #ccc; margin-bottom: 40px; padding-left: 35px;">
-                        Nossa Senhora do Livramento - MT<br>
-                        Estrada de fácil acesso para ônibus e vans.
-                    </p>
-                    
-                    <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-                        <a href="https://wa.me/5565992237716" target="_blank" class="btn-highlight" style="padding: 15px 30px; font-size: 1.1rem; border-radius: 50px;">
+                    <div class="cta-buttons">
+                        <a href="https://wa.me/5565992237716" target="_blank" class="btn-highlight" style="padding: 15px 35px; font-size: 1.1rem; border-radius: 50px;">
                             Agendar Data <i class="fa-brands fa-whatsapp" style="margin-left: 5px;"></i>
                         </a>
-                        <a href="https://google.com/maps/place/Missão+Servos+do+Espírito+Santo/@-15.7810688,-56.3707904,28104m/data=!3m1!1e3!4m6!3m5!1s0x939c577ba26a0a8b:0xd16c11e8058ae2aa!8m2!3d-15.7848115!4d-56.3753373!16s%2Fg%2F11fxwq9ntx?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" target="_blank" class="btn-yellow-outline" style="border-color: rgba(255,255,255,0.3); color: #fff;">
-                            Ver no Mapa <i class="fa-solid fa-map-location-dot" style="margin-left: 5px;"></i>
+                        
+                        <a href="https://google.com/maps/place/Missão+Servos+do+Espírito+Santo/@-15.7810688,-56.3707904,28104m/data=!3m1!1e3!4m6!3m5!1s0x939c577ba26a0a8b:0xd16c11e8058ae2aa!8m2!3d-15.7848115!4d-56.3753373!16s%2Fg%2F11fxwq9ntx?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" target="_blank" class="btn-white-outline">
+                            Ver no Mapa <i class="fa-solid fa-location-arrow"></i>
                         </a>
                     </div>
                 </div>
                 
-                <div class="split-image" style="height: 450px; border-radius: 30px;">
-                    <img src="./chacara/entrada sao jose.jpg" alt="Localização da Chácara">
-                </div>
             </section>
 
         </main>
@@ -248,8 +330,21 @@
       </div>
     </footer>
     
+    <div class="lightbox-modal" id="lightbox">
+        <button class="lb-btn lb-close" id="lb-close"><i class="fa-solid fa-xmark"></i></button>
+        <button class="lb-btn lb-prev" id="lb-prev"><i class="fa-solid fa-chevron-left"></i></button>
+        
+        <div class="lightbox-content" id="lb-content"></div>
+
+        <button class="lb-btn lb-next" id="lb-next"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            
+            // --------------------------------------------------------
+            // 1. ANIMAÇÕES DE SCROLL (Surgir suavemente)
+            // --------------------------------------------------------
             const observerOptions = {
                 root: null,
                 rootMargin: "0px",
@@ -267,51 +362,140 @@
 
             const elements = document.querySelectorAll(".animate-on-scroll");
             elements.forEach((el) => observer.observe(el));
-        });
 
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
+            // --------------------------------------------------------
+            // 2. GALERIA: FILTROS E TELA CHEIA (LIGHTBOX)
+            // --------------------------------------------------------
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            const lightbox = document.getElementById('lightbox');
+            const lbContent = document.getElementById('lb-content');
+            const btnClose = document.getElementById('lb-close');
+            const btnNext = document.getElementById('lb-next');
+            const btnPrev = document.getElementById('lb-prev');
+            
+            let currentFilteredItems = Array.from(galleryItems);
+            let currentIndex = 0;
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Tira a cor preta de todos os botões
-                filterBtns.forEach(b => b.classList.remove('active'));
-                // Pinta de preto o botão que foi clicado
-                btn.classList.add('active');
+            // --- A. Lógica dos Filtros ---
+            if (filterBtns.length > 0) {
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
 
-                const filterValue = btn.getAttribute('data-filter');
+                        const filterValue = btn.getAttribute('data-filter');
+                        currentFilteredItems = [];
 
-                galleryItems.forEach(item => {
-                    // Se for "all" ou se a foto tiver a classe do botão clicado
-                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
-                        item.classList.remove('hide'); // Mostra a foto
-                        
-                        // Truque para dar um fade (piscar suave) quando a foto aparece
-                        item.style.opacity = '0';
-                        setTimeout(() => item.style.opacity = '1', 50);
-                    } else {
-                        item.classList.add('hide'); // Esconde a foto
-                    }
+                        galleryItems.forEach(item => {
+                            if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                                item.classList.remove('hide');
+                                currentFilteredItems.push(item);
+                                
+                                item.style.opacity = '0';
+                                setTimeout(() => item.style.opacity = '1', 50);
+                            } else {
+                                item.classList.add('hide');
+                            }
+                        });
+                    });
+                });
+            }
+
+            // --- B. Lógica de Abrir a Tela Cheia ---
+            function openLightbox(index) {
+                if (!lightbox || !lbContent) return;
+
+                currentIndex = index;
+                const item = currentFilteredItems[currentIndex];
+                if (!item) return;
+
+                const src = item.getAttribute('data-src');
+                const type = item.getAttribute('data-type');
+                
+                lbContent.innerHTML = ''; 
+
+                // Carrega a nova mídia (Vídeo agora abre SEM controlo, SEM som e em LOOP)
+                if (type === 'image') {
+                    lbContent.innerHTML = `<img src="${src}" alt="Galeria">`;
+                } else if (type === 'video') {
+                    lbContent.innerHTML = `<video src="${src}" autoplay muted loop playsinline></video>`;
+                } else if (type === 'youtube') {
+                    lbContent.innerHTML = `<iframe src="${src}" frameborder="0" allow="autoplay; fullscreen" style="width:100%; height:100%; border-radius:12px;"></iframe>`;
+                }
+
+                lightbox.classList.add('active');
+            }
+
+            // --- C. Lógica de Fechar a Tela Cheia ---
+            function closeLightbox() {
+                if (!lightbox) return;
+                lightbox.classList.remove('active');
+                setTimeout(() => { if(lbContent) lbContent.innerHTML = ''; }, 300); 
+            }
+
+            // --- D. Lógica de Passar as Fotos ---
+            function nextMedia() {
+                if (currentFilteredItems.length === 0) return;
+                currentIndex = (currentIndex + 1) % currentFilteredItems.length;
+                openLightbox(currentIndex);
+            }
+
+            function prevMedia() {
+                if (currentFilteredItems.length === 0) return;
+                currentIndex = (currentIndex - 1 + currentFilteredItems.length) % currentFilteredItems.length;
+                openLightbox(currentIndex);
+            }
+
+            // --- E. Conectando os Cliques ---
+            galleryItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const index = currentFilteredItems.indexOf(item);
+                    if (index > -1) openLightbox(index);
                 });
             });
-        });
 
-        const faqItems = document.querySelectorAll('.faq-item');
+            if (btnClose) btnClose.addEventListener('click', closeLightbox);
+            if (btnNext) btnNext.addEventListener('click', nextMedia);
+            if (btnPrev) btnPrev.addEventListener('click', prevMedia);
 
-        faqItems.forEach(item => {
-            item.addEventListener('click', () => {
-                // Se a pessoa clicar em um que já está aberto, ele fecha.
-                if(item.classList.contains('active')) {
-                    item.classList.remove('active');
-                } else {
-                    // Primeiro fecha todos os outros
-                    faqItems.forEach(otherItem => otherItem.classList.remove('active'));
-                    // Abre o que foi clicado
-                    item.classList.add('active');
-                }
+            // ---> A MÁGICA DE FECHAR CLICANDO FORA ACONTECE AQUI <---
+            if (lightbox) {
+                lightbox.addEventListener('click', (e) => {
+                    // Se clicou no fundo preto OU no espaço vazio da caixa, fecha!
+                    if (e.target === lightbox || e.target === lbContent) {
+                        closeLightbox();
+                    }
+                });
+            }
+            
+            // Navegação pelo teclado
+            document.addEventListener('keydown', (e) => {
+                if (lightbox && !lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowRight') nextMedia();
+                if (e.key === 'ArrowLeft') prevMedia();
             });
-        });
 
+            // --------------------------------------------------------
+            // 3. FAQ (ACORDEÃO - Dúvidas Frequentes)
+            // --------------------------------------------------------
+            const faqItems = document.querySelectorAll('.faq-item');
+            if (faqItems.length > 0) {
+                faqItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        if (item.classList.contains('active')) {
+                            item.classList.remove('active');
+                        } else {
+                            faqItems.forEach(otherItem => otherItem.classList.remove('active'));
+                            item.classList.add('active');
+                        }
+                    });
+                });
+            }
+
+        }); // Fim do DOMContentLoaded
     </script>
+
 </body>
 </html>
