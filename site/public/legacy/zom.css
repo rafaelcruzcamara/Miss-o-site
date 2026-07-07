@@ -1,0 +1,28 @@
+/* ====================================================
+   ZOOM GLOBAL DE 110% PARA COMPUTADORES (PC/NOTEBOOK)
+   ==================================================== */
+@media screen and (min-width: 901px) {
+    body {
+        zoom: 1.1; /* Aumenta tudo na tela em 10% (Chrome, Edge, Safari) */
+        -moz-transform: scale(1.1); /* Garante o zoom no Firefox */
+        -moz-transform-origin: top center;
+    }
+    
+    /* Trava de segurança para o zoom não criar barra de rolagem horizontal */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100%;
+    }
+}
+
+/* ====================================================
+   NAVBAR INTELIGENTE (ESCONDE AO DESCER, MOSTRA AO SUBIR)
+   ==================================================== */
+.smart-nav {
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), background-color 0.3s !important;
+}
+
+/* Classe que o JavaScript vai injetar para esconder a barra */
+.nav-hidden {
+    transform: translateY(-150%) !important; /* Joga a barra para cima, fora da tela */
+}
