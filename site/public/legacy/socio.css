@@ -1,0 +1,197 @@
+/* --- SOCIO.CSS (Layout Otimizado) --- */
+
+/* 1. HEADER CENTRALIZADO */
+.socio-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 65px auto 60px;
+}
+
+.label-tiny {
+    font-family: var(--font);
+    font-size: 0.8rem; font-weight: 800; letter-spacing: 2px;
+    text-transform: uppercase; color: #999; margin-bottom: 15px; display: block;
+}
+
+.headline-donation {
+    font-family: var(--font);
+    font-size: 3.5rem; font-weight: 900; line-height: 1;
+    color: var(--black); margin-bottom: 20px;
+}
+
+.donation-text {
+    font-family: var(--font);
+    font-size: 1.1rem; line-height: 1.6; color: #555;
+    margin: 0 auto; max-width: 600px;
+}
+
+
+/* --- 2. GRID DE AÇÃO RÁPIDA (ALINHAMENTO AUTOMÁTICO) --- */
+
+.quick-action-grid {
+    display: grid;
+    /* Coluna da Foto um pouco maior que a do Pix */
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 30px;
+    margin-bottom: 80px;
+    /* O SEGREDO: Faz os dois ficarem da mesma altura sempre */
+    align-items: stretch; 
+}
+
+/* Carrossel de Fotos (Agora estica junto com o Pix) */
+.carousel-container {
+    width: 100%; 
+    height: 100%; /* Ocupa toda a altura do grid */
+    min-height: 500px; /* Altura mínima de segurança */
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.impact-img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover;
+    opacity: 0; transition: opacity 1s, transform 5s ease;
+}
+.impact-img.active { opacity: 1; transform: scale(1.05); }
+
+.overlay-caption {
+    position: absolute; bottom: 20px; left: 20px;
+    background: rgba(255,255,255,0.9);
+    padding: 8px 16px; border-radius: 50px;
+    font-weight: 700; font-size: 0.8rem; color: #000;
+    z-index: 2;
+}
+
+/* Card PIX Hero */
+.pix-card-hero {
+    background: #111;
+    color: #fff;
+    border-radius: 32px;
+    overflow: hidden;
+    height: 100%; /* Estica para acompanhar a foto */
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.pix-header {
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.pix-header h3 { font-size: 1.1rem; font-weight: 800; margin: 0; color: var(--yellow); }
+.pix-header i { color: var(--yellow); font-size: 1.3rem; }
+
+.pix-content {
+    padding: 20px 30px;
+    flex: 1; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+
+/* QR Code AUMENTADO */
+.qr-code-wrapper {
+    background: #fff; padding: 10px; border-radius: 20px;
+    width: 250px; height: 250px; /* Aumentado para 250px */
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Sombra para destacar */
+}
+.qr-img { width: 100%; height: 100%; object-fit: contain; }
+
+.pix-desc { font-size: 0.9rem; color: #bbb; line-height: 1.4; max-width: 280px; }
+
+.key-wrapper {
+    width: 100%; background: rgba(255,255,255,0.1);
+    border-radius: 16px; padding: 15px;
+}
+.key-label { font-size: 0.7rem; text-transform: uppercase; color: #888; display: block; margin-bottom: 5px; }
+.key-value { font-size: 1.1rem; font-family: monospace; color: #fff; margin-bottom: 15px; display: block; font-weight: 700;}
+
+.btn-copy-hero {
+    background: var(--yellow); color: #000;
+    border: none; padding: 12px 20px; border-radius: 50px;
+    font-weight: 800; cursor: pointer; width: 100%;
+    transition: 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;
+    text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px;
+}
+.btn-copy-hero:hover { background: #fff; transform: scale(1.02); }
+
+.pix-footer-hero {
+    font-size: 0.75rem; color: #555; text-align: center; padding: 12px; background: #000;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* RESPONSIVO MOBILE */
+@media (max-width: 900px) {
+    .quick-action-grid { 
+        grid-template-columns: 1fr; /* Empilha */
+        height: auto; 
+    }
+    
+    .carousel-container { 
+        height: 300px; /* Menor no celular */
+        min-height: auto;
+    }
+    
+    .pix-card-hero {
+        height: auto; 
+        min-height: auto;
+    }
+}
+
+/* 3. FORMULÁRIO WIDE (Limpo) */
+.form-section {
+    max-width: 900px; margin: 0 auto;
+}
+.form-header { text-align: center; margin-bottom: 40px; }
+.form-header h2 { font-size: 2.5rem; font-weight: 900; margin-bottom: 10px; }
+
+.donation-card-wide {
+    background: #fff; padding: 50px; border-radius: 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+}
+
+.smart-form { display: flex; flex-direction: column; gap: 20px; }
+
+.form-group label {
+    display: block; font-weight: 700; font-size: 0.9rem; color: #333; margin-bottom: 8px; margin-left: 5px;
+}
+
+.form-input {
+    width: 100%; padding: 15px 20px; background: #f8f8f8;
+    border: 1px solid transparent; border-radius: 12px;
+    font-family: var(--font); font-size: 1rem; color: #333;
+    transition: 0.3s;
+}
+.form-input:focus { background: #fff; border-color: var(--yellow); outline: none; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+/* Layouts internos do form */
+.double-input { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+.form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+
+.btn-submit-wide {
+    margin-top: 20px; width: 100%; padding: 20px;
+    background: var(--black); color: var(--yellow);
+    font-weight: 800; font-size: 1rem; text-transform: uppercase; letter-spacing: 1px;
+    border: none; border-radius: 50px; cursor: pointer; transition: 0.3s;
+}
+.btn-submit-wide:hover { background: var(--yellow); color: #000; transform: translateY(-3px); }
+
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .headline-donation { font-size: 2.5rem; }
+    
+    .quick-action-grid { grid-template-columns: 1fr; } /* Empilha Pix e Foto */
+    .carousel-container { height: 300px; }
+    
+    .donation-card-wide { padding: 30px 20px; }
+    .double-input, .form-grid-3 { grid-template-columns: 1fr; gap: 15px; }
+}

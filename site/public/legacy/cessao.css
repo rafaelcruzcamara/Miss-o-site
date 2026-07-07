@@ -1,0 +1,485 @@
+/* ====================================================
+   CESSÃO ONEROSA - VISUAL PREMIUM / BOUTIQUE
+   ==================================================== */
+
+/* 1. HERO CINEMATOGRÁFICO */
+/* 1. HERO CINEMATOGRÁFICO */
+.premium-hero {
+    height: 85vh; 
+    min-height: 600px;
+    border-radius: 60px; 
+    margin-top: 40px; /* <--- AQUI ESTÁ A MAGIA PARA DESGRUDAR DA NAVBAR */
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end; 
+    padding: 80px 5%;
+    background: #000;
+}
+
+.premium-hero .bg-video-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6; 
+    transition: transform 10s ease;
+}
+
+.premium-hero:hover .bg-video-image {
+    transform: scale(1.05); 
+}
+
+.hero-premium-content {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    color: #fff;
+}
+
+.hero-premium-content h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -2px;
+    margin: 15px 0 25px 0;
+}
+
+/* --- ESTILO DOS NOVOS MINI CARDS DE INFRAESTRUTURA --- */
+.mini-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.mini-card {
+    background: #fff;
+    padding: 20px 15px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    transition: all 0.3s ease;
+}
+
+.mini-card:hover {
+    border-color: var(--yellow);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.mini-card i {
+    font-size: 1.8rem;
+    color: var(--yellow);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.mini-card span {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1.2;
+    display: block;
+}
+
+/* 2. SESSÃO SPLIT (TEXTO DE UM LADO, FOTO GIGANTE DO OUTRO) */
+.premium-split {
+    display: grid;
+    grid-template-columns: 4fr 6fr; /* 40% texto / 60% imagem */
+    gap: 80px;
+    padding: 120px 5%;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.premium-split.reverse {
+    grid-template-columns: 6fr 4fr;
+    direction: rtl;
+}
+
+.premium-split.reverse .split-text {
+    direction: ltr;
+}
+
+.split-text h2 {
+    font-size: 3rem;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 30px;
+    color: var(--black);
+}
+
+.split-text p {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.split-image {
+    height: 700px; /* Foto bem alta, estilo editorial */
+    border-radius: 40px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+}
+
+.split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ====================================================
+   3. GALERIA PADRONIZADA (PAISAGEM) E LIGHTBOX (FOTOS E VÍDEOS)
+   ==================================================== */
+.gallery-filters {
+    display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;
+    margin-bottom: 40px; padding: 0 5%;
+}
+
+.filter-btn {
+    padding: 10px 24px; border-radius: 50px; border: 1px solid #ddd;
+    background: transparent; color: var(--black); font-weight: 700;
+    cursor: pointer; transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--black); color: #fff; border-color: var(--black);
+    transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Grid com formato de Paisagem (16:9) */
+.premium-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas padrão */
+    gap: 20px;
+    padding: 0 5%;
+    max-width: 1400px;
+    margin: 0 auto 100px auto;
+}
+
+.gallery-item {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    aspect-ratio: 16 / 9; /* FORÇA TODAS A FICAREM DEITADAS EXATAMENTE IGUAIS */
+    background: #111; /* Fundo escuro para vídeos/fotos carregando */
+}
+
+/* Agora afeta tanto as imagens quanto os vídeos automáticos na galeria */
+.gallery-item img, .gallery-item video {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: 0.5s ease;
+    pointer-events: none; /* Garante que o clique vá para a tela cheia, e não pause o vídeo pequeno */
+}
+
+.gallery-item:hover img, .gallery-item:hover video {
+    transform: scale(1.05); 
+    opacity: 0.8;
+}
+
+/* Ícone de Play para os vídeos na galeria */
+.play-indicator {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-size: 3rem; color: rgba(255,255,255,0.8); z-index: 2;
+    pointer-events: none; transition: 0.3s;
+}
+.gallery-item:hover .play-indicator { transform: translate(-50%, -50%) scale(1.1); color: var(--yellow); }
+
+/* Legenda Hover */
+.gallery-item .overlay {
+    position: absolute; bottom: -60px; left: 0; right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: #fff; padding: 30px 20px 15px 20px; font-weight: 800; font-size: 1.1rem;
+    transition: bottom 0.4s ease; z-index: 3;
+}
+.gallery-item:hover .overlay { bottom: 0; }
+.gallery-item.hide { display: none; }
+
+/* --- TELA CHEIA (LIGHTBOX) --- */
+.lightbox-modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.95); z-index: 99999;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+.lightbox-modal.active { opacity: 1; pointer-events: all; }
+
+.lightbox-content {
+    width: 90%; max-width: 1200px; height: 80vh;
+    display: flex; justify-content: center; align-items: center; position: relative;
+}
+
+.lightbox-content img, .lightbox-content video, .lightbox-content iframe {
+    max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* Botões do Lightbox */
+.lb-btn {
+    position: absolute; background: rgba(255,255,255,0.1); border: none;
+    color: #fff; font-size: 2rem; width: 60px; height: 60px; border-radius: 50%;
+    cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center;
+    backdrop-filter: blur(5px);
+}
+.lb-btn:hover { background: var(--yellow); color: #000; transform: scale(1.1); }
+.lb-close { top: 20px; right: 20px; }
+.lb-prev { left: 5%; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 5%; top: 50%; transform: translateY(-50%); }
+
+/* Mobile Ajustes */
+@media screen and (max-width: 900px) {
+    .premium-gallery-grid { grid-template-columns: 1fr; gap: 15px; } /* 1 coluna no celular para o formato paisagem brilhar */
+    .lb-btn { width: 45px; height: 45px; font-size: 1.5rem; }
+    .lb-prev { left: 10px; } .lb-next { right: 10px; }
+    .gallery-item .overlay { bottom: 0; } /* Mostra legenda sempre no celular */
+}
+
+/* ====================================================
+   4. FAQ PREMIUM E LOCALIZAÇÃO FINAL
+   ==================================================== */
+.premium-faq-section {
+    max-width: 900px;
+    margin: 0 auto 120px auto;
+    padding: 0 5%;
+}
+
+.faq-title {
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eaeaea;
+    padding: 25px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    padding-left: 15px; /* Efeito charmoso de deslizar levemente ao passar o mouse */
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--black);
+}
+
+.faq-question i {
+    color: var(--yellow);
+    font-size: 1.5rem;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, margin-top 0.4s ease;
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* Quando o item está ativo (aberto) */
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    margin-top: 15px;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(45deg); /* O "+" vira um "X" */
+    color: #ff4444; /* Fica vermelho para indicar fechar */
+}
+
+@media screen and (max-width: 900px) {
+    .faq-title { font-size: 2.2rem; }
+    .faq-question { font-size: 1.1rem; }
+    .premium-faq-section { margin-bottom: 80px; }
+}
+
+/* 4. RESPONSIVO MOBILE */
+@media screen and (max-width: 900px) {
+    .premium-hero {
+        height: 70vh;
+        padding: 40px 20px;
+        border-radius: 30px; /* <-- Arredondado no celular */
+    }
+    
+    .hero-premium-content h1 {
+        font-size: 3rem;
+    }
+
+    .premium-split, .premium-split.reverse {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 60px 20px;
+    }
+
+    .split-image {
+        height: 400px;
+        border-radius: 24px;
+    }
+
+    .premium-bento {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 200px;
+        gap: 10px;
+        padding: 0 15px;
+    }
+}
+
+/* ====================================================
+   5. NOVO CTA FINAL (POSTER IMERSIVO)
+   ==================================================== */
+.premium-cta-card {
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    margin: 0 5% 80px 5%;
+    padding: 100px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+.cta-bg-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 10s ease;
+}
+
+.premium-cta-card:hover .cta-bg-img {
+    transform: scale(1.05); /* Efeito zoom bem lento no fundo */
+}
+
+/* Degrade escuro para o texto ficar bem legível */
+.cta-overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5));
+    z-index: 1;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pill-badge-yellow {
+    display: inline-block;
+    background: var(--yellow);
+    color: #000;
+    padding: 8px 24px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cta-content h2 {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+}
+
+/* Caixa com efeito de vidro para o endereço */
+.cta-info-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 25px 40px;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.cta-info-box i {
+    font-size: 2.8rem;
+    color: var(--yellow);
+}
+
+.cta-info-box strong {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.cta-info-box p {
+    font-size: 1.05rem;
+    color: #ccc;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.btn-white-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 35px;
+    border: 2px solid rgba(255,255,255,0.3);
+    color: #fff;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-white-outline:hover {
+    border-color: #fff;
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
+}
+
+/* Ajustes para Telemóvel / Celular */
+@media screen and (max-width: 900px) {
+    .premium-cta-card { padding: 60px 20px; border-radius: 30px; margin: 0 15px 60px 15px; }
+    .cta-content h2 { font-size: 2.5rem; }
+    .cta-info-box { flex-direction: column; text-align: center; gap: 15px; padding: 25px; }
+    .cta-buttons { flex-direction: column; width: 100%; }
+    .cta-buttons a { justify-content: center; width: 100%; }
+}
