@@ -1,5 +1,6 @@
 ﻿---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import ButtonLink from "../components/ui/ButtonLink.astro";
 import "../styles/pages/index.css";
 ---
 
@@ -52,9 +53,16 @@ import "../styles/pages/index.css";
           <div class="card-content">
             <span class="tag">Passos de conversão</span>
             <h2>Caminho de<br />São José</h2>
-            <a href="caminho.html" class="btn-circle"
-              ><i class="fa-solid fa-arrow-right"></i
-            ></a>
+            <ButtonLink
+  href="caminho.html"
+  variant="yellow"
+  size="icon"
+  shape="circle"
+  ariaLabel="Abrir link"
+>
+  <i class="fa-solid fa-arrow-right"></i
+            >
+</ButtonLink>
           </div>
         </article>
 
@@ -643,3 +651,4 @@ import "../styles/pages/index.css";
     
     <script is:inline src="legacy/main.js"></script>
 </SiteLayout>
+

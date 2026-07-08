@@ -7,8 +7,8 @@ interface Props {
   size?: "sm" | "md" | "lg" | "icon";
   shape?: "pill" | "rounded" | "square" | "circle" | "cut";
   external?: boolean;
-  class?: string;
   ariaLabel?: string;
+  class?: string;
 }
 
 const {
@@ -17,8 +17,8 @@ const {
   size = "md",
   shape = "pill",
   external = false,
-  class: className = "",
   ariaLabel,
+  class: className = "",
 } = Astro.props;
 
 const classes = [

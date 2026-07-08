@@ -141,7 +141,6 @@
   );
 }
 
-/* Modificador especial para botão urbano do Hallel, se quisermos usar depois */
 .ui-button--cut.ui-button--yellow {
   text-transform: uppercase;
   letter-spacing: 1px;
