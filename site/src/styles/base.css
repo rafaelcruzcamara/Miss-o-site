@@ -1,0 +1,9 @@
+﻿:root {
+  --mises-yellow: #f2c94c;
+  --mises-black: #111111;
+  --mises-white: #ffffff;
+
+  --nav-max-width: 1180px;
+  --nav-desktop-height: 82px;
+  --nav-mobile-height: 74px;
+}

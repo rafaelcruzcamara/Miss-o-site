@@ -1,4 +1,7 @@
----
+﻿---
+import "../styles/base.css";
+import "../styles/components/header.css";
+
 interface Props {
   active?: "index" | "fundacao" | "caminho" | "sobre" | "eventos" | "socio";
 }
@@ -6,27 +9,29 @@ interface Props {
 const { active } = Astro.props;
 ---
 
-<nav class="smart-nav">
+<nav class="smart-nav" aria-label="Navegação principal">
   <div class="nav-links left">
     <a href="index.html" class={active === "index" ? "active" : ""}>Início</a>
     <a href="fundacao.html" class={active === "fundacao" ? "active" : ""}>Fundação</a>
     <a href="caminho.html" class={active === "caminho" ? "active" : ""}>Caminho de São José</a>
   </div>
 
-  <div class="nav-brand">
+  <a class="nav-brand" href="index.html" aria-label="Ir para a página inicial">
     <img
       src="legacy/img/download-removebg-preview.png"
       alt="Logo Missão Servos"
     />
-  </div>
+  </a>
 
   <div class="nav-links right">
     <a href="sobre.html" class={active === "sobre" ? "active" : ""}>Quem Somos</a>
     <a href="eventos.html" class={active === "eventos" ? "active" : ""}>Agenda e Eventos</a>
-    <a href="socio.html" class={`btn-highlight ${active === "socio" ? "active" : ""}`}>Ajude a Obra</a>
+    <a href="socio.html" class={`btn-highlight ${active === "socio" ? "active" : ""}`}>
+      Ajude a Obra
+    </a>
   </div>
 
-  <button class="hamburger-menu" aria-label="Abrir menu">
+  <button class="hamburger-menu" type="button" aria-label="Abrir menu">
     <i class="fa-solid fa-bars"></i>
   </button>
 </nav>
