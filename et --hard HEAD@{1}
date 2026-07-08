@@ -1,0 +1,10 @@
+[33md0e953e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mrefactor/astro-v2[m[33m)[m HEAD@{0}: reset: moving to HEAD
+[33md0e953e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mrefactor/astro-v2[m[33m)[m HEAD@{1}: reset: moving to HEAD
+[33md0e953e[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mrefactor/astro-v2[m[33m)[m HEAD@{2}: commit: checkpoint: before refactoring home page
+[33me537802[m HEAD@{3}: commit: checkpoint: before converting index buttons
+[33mf3ccfb1[m[33m ([m[1;31morigin/refactor/astro-v2[m[33m, [m[1;32mbackup-bugado-antes-reset[m[33m)[m HEAD@{4}: commit: refactor: extract shared css from migrated pages
+[33m1420c12[m HEAD@{5}: commit: chore: remove legacy root files
+[33m0d9d47b[m HEAD@{6}: commit: checkpoint: before cleaning legacy root files
+[33m23bad6b[m HEAD@{7}: commit: refactor: migrate cessao page away from legacy css
+[33mcaaf961[m HEAD@{8}: commit: refactor: migrate contato page away from legacy css
+[33mb199daf[m HEAD@{9}: commit: refactor: migrate about page away from legacy css

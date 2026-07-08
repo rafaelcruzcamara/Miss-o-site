@@ -1,0 +1,29 @@
+﻿---
+import "../../styles/components/button-link.css";
+
+interface Props {
+  href: string;
+  label: string;
+  external?: boolean;
+  class?: string;
+}
+
+const {
+  href,
+  label,
+  external = false,
+  class: className = "",
+} = Astro.props;
+---
+
+<a
+  href={href}
+  class={`ui-button ui-button--yellow ui-button--icon ui-button--circle ${className}`}
+  aria-label={label}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+>
+  <slot>
+    <i class="fa-solid fa-arrow-right"></i>
+  </slot>
+</a>

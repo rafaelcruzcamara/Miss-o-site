@@ -1,66 +1,196 @@
 ﻿@import "../legacy-shared.css";
 
-/*
-  Página Inicial migrada.
-
-  Este arquivo copia o visual antigo para dentro da estrutura nova.
-  Depois podemos limpar o que não for usado.
-*/
-
-/* ================= INDEX ANTIGO, SE EXISTIR ================= */
-
-
-/* ================= CSS INTERNO DO INDEX.HTML ================= */
-
-
-/* ================= CORREÇÕES PARA O LAYOUT NOVO ================= */
-
-.smart-nav,
-.site-footer {
-  display: none !important;
+.home-page {
+  padding-bottom: 40px;
 }
 
-.mises-nav {
-  display: grid !important;
+.home-carousel-section {
+  margin-bottom: 40px;
 }
 
-.mises-footer {
-  display: block !important;
+.home-section {
+  margin-bottom: 40px;
 }
 
-body {
-  zoom: var(--site-zoom) !important;
+.home-section--small {
+  margin-bottom: 24px;
 }
 
-.page-wrapper {
-  max-width: 1280px;
-  width: 95%;
+.home-single-grid {
+  display: block;
+  height: auto;
+  margin-bottom: 24px;
+}
+
+.home-text-card {
+  background-color: var(--white);
+  padding: 50px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.home-text-card--dark {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.home-title-large {
+  font-size: 3rem;
+  line-height: 0.95;
+  font-weight: 900;
+  margin: 20px 0;
+  letter-spacing: -1px;
+}
+
+.home-description {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.home-description--light {
+  color: var(--white);
+  opacity: 0.8;
+}
+
+.home-small-white {
+  margin-top: 5px;
+  opacity: 0.8;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.home-banner-section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.home-stats-card {
+  padding: 30px;
+  height: auto;
+}
+
+.home-quote-card {
+  grid-column: span 2;
+  background-color: var(--black);
+  color: var(--white);
+  padding: 60px;
+  border-radius: 32px;
+}
+
+.home-quote-inner {
+  max-width: 900px;
   margin: 0 auto;
+  text-align: center;
 }
 
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(40px) scale(0.98);
-  transition:
-    opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
-    transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-  will-change: opacity, transform;
+.home-quote-icon {
+  font-size: 2rem;
+  color: var(--yellow);
+  margin-bottom: 30px;
 }
 
-.animate-on-scroll.in-view {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+.home-quote-text {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  font-weight: 400;
+  margin-bottom: 30px;
 }
 
-.delay-1 {
-  transition-delay: 0.1s;
+.home-quote-highlight {
+  color: var(--yellow);
 }
 
-.delay-2 {
-  transition-delay: 0.2s;
+.home-quote-cite {
+  font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
 
-.delay-3 {
-  transition-delay: 0.3s;
+.home-hidden-link {
+  display: none;
 }
 
+.carousel-dot {
+  border: 0;
+  cursor: pointer;
+}
+
+.carousel-slide {
+  pointer-events: none;
+}
+
+.carousel-slide.active {
+  pointer-events: auto;
+}
+
+.carousel-dots,
+.carousel-dot {
+  pointer-events: auto;
+}
+
+@media screen and (max-width: 900px) {
+  .home-text-card {
+    padding: 35px;
+  }
+
+  .home-title-large {
+    font-size: 2.4rem;
+  }
+
+  .home-quote-card {
+    grid-column: span 1;
+    padding: 40px 25px;
+  }
+}
+
+/* Correção da home refatorada */
+
+/* O CSS antigo da home estava deixando espaço no body */
+html,
+body.mises-layout {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+}
+
+/* Garante que o conteúdo da home não empurre espaço branco depois do footer */
+body.mises-layout {
+  background: var(--gray-bg) !important;
+}
+
+.mises-layout__content {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+  background: var(--gray-bg) !important;
+}
+
+/* Último card: separa do bloco de cima e deixa respiro antes do footer */
+.home-quote-section {
+  margin-top: 48px !important;
+  margin-bottom: 56px !important;
+}
+
+/* Footer sem borda branca dos lados e sem faixa branca embaixo */
+.mises-footer {
+  width: 100% !important;
+  max-width: none !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+
+  border-radius: 0 !important;
+}
+
+/* Caso algum hack antigo de 100vw tenha ficado no footer.css */
+body .mises-footer {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}

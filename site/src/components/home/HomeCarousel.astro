@@ -1,0 +1,99 @@
+﻿---
+interface Slide {
+  image: string;
+  alt: string;
+  href?: string;
+  external?: boolean;
+}
+
+interface Props {
+  slides: Slide[];
+}
+
+const { slides } = Astro.props;
+---
+
+<section class="home-carousel-section animate-on-scroll">
+  <article class="card banner-slim carousel-container" data-home-carousel>
+    <div class="carousel-slides">
+      {
+        slides.map((slide, index) =>
+          slide.href ? (
+            <a
+              href={slide.href}
+              target={slide.external ? "_blank" : undefined}
+              rel={slide.external ? "noopener noreferrer" : undefined}
+              class={`carousel-slide ${index === 0 ? "active" : ""}`}
+            >
+              <img src={slide.image} class="video-bg" alt={slide.alt} />
+            </a>
+          ) : (
+            <div class={`carousel-slide ${index === 0 ? "active" : ""}`}>
+              <img src={slide.image} class="video-bg" alt={slide.alt} />
+            </div>
+          )
+        )
+      }
+    </div>
+
+    <div class="carousel-dots" aria-label="Controle do carrossel">
+      {
+        slides.map((_, index) => (
+          <button
+            type="button"
+            class={`carousel-dot ${index === 0 ? "active" : ""}`}
+            data-slide-index={index}
+            aria-label={`Ir para banner ${index + 1}`}
+          />
+        ))
+      }
+    </div>
+  </article>
+</section>
+
+<script is:inline>
+  document.querySelectorAll("[data-home-carousel]").forEach((carousel) => {
+    const slides = carousel.querySelectorAll(".carousel-slide");
+    const dots = carousel.querySelectorAll(".carousel-dot");
+
+    if (!slides.length || !dots.length) return;
+
+    let currentSlide = 0;
+    let slideInterval;
+
+    const showSlide = (index) => {
+      slides.forEach((slide) => slide.classList.remove("active"));
+      dots.forEach((dot) => dot.classList.remove("active"));
+
+      currentSlide = index;
+
+      if (currentSlide >= slides.length) currentSlide = 0;
+      if (currentSlide < 0) currentSlide = slides.length - 1;
+
+      slides[currentSlide].classList.add("active");
+      dots[currentSlide].classList.add("active");
+    };
+
+    const nextSlide = () => showSlide(currentSlide + 1);
+
+    const startInterval = () => {
+      slideInterval = setInterval(nextSlide, 3000);
+    };
+
+    const resetInterval = () => {
+      clearInterval(slideInterval);
+      startInterval();
+    };
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const index = Number(dot.dataset.slideIndex);
+        showSlide(index);
+        resetInterval();
+      });
+    });
+
+    startInterval();
+  });
+</script>

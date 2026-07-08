@@ -1,0 +1,86 @@
+﻿---
+interface EventItem {
+  month: string;
+  day: string;
+  location: string;
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+  tag: string;
+}
+
+interface Props {
+  events: EventItem[];
+}
+
+const { events } = Astro.props;
+---
+
+<section class="events-spotlight">
+  <article class="events-intro-card">
+    <span class="events-kicker">Agenda MISES</span>
+    <h1>Próximos eventos</h1>
+    <p>
+      Encontros, retiros e experiências da missão.
+    </p>
+  </article>
+
+  <div class="events-spotlight__carousel" data-events-carousel>
+    <button class="events-arrow events-arrow--left" type="button" data-carousel-prev aria-label="Voltar">
+      <i class="fa-solid fa-arrow-left"></i>
+    </button>
+
+    <div class="events-feature-track">
+      {
+        events.map((event) => (
+          <a href={event.href} class="event-feature-card">
+            <div class="event-feature-card__image">
+              <img src={event.image} alt={event.title} />
+            </div>
+
+            <div class="event-feature-card__body">
+              <div class="event-feature-card__date">
+                <span>{event.month}</span>
+                <strong>{event.day}</strong>
+              </div>
+
+              <div class="event-feature-card__content">
+                <h2>{event.title}</h2>
+
+                <span class="event-feature-card__location">
+                  <i class="fa-solid fa-location-dot"></i>
+                  {event.location}
+                </span>
+              </div>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+
+    <button class="events-arrow events-arrow--right" type="button" data-carousel-next aria-label="Avançar">
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </div>
+</section>
+
+<script is:inline>
+  document.querySelectorAll("[data-events-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector(".events-feature-track");
+    const prev = carousel.querySelector("[data-carousel-prev]");
+    const next = carousel.querySelector("[data-carousel-next]");
+
+    if (!track || !prev || !next) return;
+
+    const scrollAmount = 340;
+
+    prev.addEventListener("click", () => {
+      track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+
+    next.addEventListener("click", () => {
+      track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+  });
+</script>

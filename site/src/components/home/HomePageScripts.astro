@@ -1,0 +1,45 @@
+﻿<script is:inline>
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.1,
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+
+      entry.target.classList.add("in-view");
+      observer.unobserve(entry.target);
+    });
+  }, observerOptions);
+
+  document
+    .querySelectorAll(".animate-on-scroll, .stagger-text h1, .stagger-text p")
+    .forEach((element) => revealObserver.observe(element));
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".card").forEach((card) => {
+      if (card.matches("[data-home-carousel]")) return;
+      if (card.closest("[data-home-carousel]")) return;
+
+      const link = card.querySelector("a");
+
+      if (!link) return;
+
+      card.style.cursor = "pointer";
+
+      card.addEventListener("click", (event) => {
+        const isTextSelection = window.getSelection().toString();
+
+        if (
+          event.target !== link &&
+          !link.contains(event.target) &&
+          !isTextSelection
+        ) {
+          link.click();
+        }
+      });
+    });
+  });
+</script>

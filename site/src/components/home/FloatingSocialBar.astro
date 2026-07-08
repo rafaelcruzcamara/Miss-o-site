@@ -1,0 +1,31 @@
+﻿---
+interface SocialLink {
+  href: string;
+  icon: string;
+  label: string;
+  className: string;
+}
+
+interface Props {
+  links: SocialLink[];
+}
+
+const { links } = Astro.props;
+---
+
+<div class="floating-social-bar">
+  {
+    links.map((link) => (
+      <a
+        href={link.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        class={`float-btn ${link.className}`}
+        title={link.label}
+        aria-label={link.label}
+      >
+        <i class={link.icon}></i>
+      </a>
+    ))
+  }
+</div>

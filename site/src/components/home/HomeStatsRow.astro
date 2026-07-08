@@ -1,0 +1,68 @@
+﻿<section class="grid-container home-single-grid animate-on-scroll">
+  <article class="card bg-yellow-gradient home-stats-card">
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-big">
+          <span class="counter" data-target="20">0</span>k+
+        </span>
+        <span class="stat-desc">Almas Alcançadas</span>
+      </div>
+
+      <div class="stat-divider"></div>
+
+      <div class="stat-item">
+        <span class="stat-big">
+          <span class="counter" data-target="10">0</span>M+
+        </span>
+        <span class="stat-desc">Visualizações</span>
+      </div>
+
+      <div class="stat-divider"></div>
+
+      <div class="stat-item">
+        <span class="stat-big">
+          <span class="counter" data-target="5">0</span>+
+        </span>
+        <span class="stat-desc">Países Conectados</span>
+      </div>
+    </div>
+  </article>
+</section>
+
+<script is:inline>
+  const counters = document.querySelectorAll(".counter");
+
+  const statsObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const counter = entry.target;
+        const target = Number(counter.getAttribute("data-target"));
+        const duration = 2000;
+        const increment = target / (duration / 16);
+
+        let current = 0;
+
+        const updateCounter = () => {
+          current += increment;
+
+          if (current < target) {
+            counter.innerText =
+              target % 1 !== 0 ? current.toFixed(1) : String(Math.ceil(current));
+
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.innerText = String(target);
+          }
+        };
+
+        updateCounter();
+        observer.unobserve(counter);
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  counters.forEach((counter) => statsObserver.observe(counter));
+</script>

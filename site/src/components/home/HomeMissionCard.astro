@@ -1,0 +1,23 @@
+﻿---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+}
+
+const { title, description, image, href } = Astro.props;
+---
+
+<article class="card mission-card">
+  <div class="mission-img" style={`background-image: url('${image}')`}></div>
+
+  <div class="mission-overlay">
+    <h3>{title}</h3>
+    <p>{description}</p>
+
+    <a href={href} class="btn-icon-corner" aria-label={`Abrir ${title}`}>
+      <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </div>
+</article>
