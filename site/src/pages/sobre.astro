@@ -1,3 +1,7 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -19,26 +23,7 @@
 
     <div class="page-wrapper">
 
-        <nav class="smart-nav">
-    <div class="nav-links left">
-        <a href="index.html">Inicio</a>
-        <a href="fundacao.html">Fundação</a>
-        <a href="caminho.html">Caminho de São José</a>
-    </div>
-
-    <div class="nav-brand">
-        <img src="legacy/img/download-removebg-preview.png" alt="Logo">
-    </div>
-
-<button class="hamburger-menu">
-          <i class="fa-solid fa-bars"></i>
-        </button>
-    <div class="nav-links right">
-        <a href="sobre.html" class="active">Quem Somos</a>
-        <a href="eventos.html">Agenda e Eventos</a>
-        <a href="socio.html" class="btn-highlight">Ajude a Obra</a>
-    </div>
-</nav>
+        <Header active="sobre" />
         
         <header class="hero-3d animate-on-scroll">
             <div class="hero-text">
@@ -201,51 +186,7 @@
 
     </div>
 
-    <footer class="site-footer">
-      <div class="footer-container">
-        <div class="footer-col brand-col">
-          <div class="footer-logo">mises.</div>
-          <p>
-            Anunciar o evangelho com alegria<br />para que Cristo seja tudo em
-            todos.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h4>A Missão</h4>
-          <ul>
-            <li><a href="sobre.html">Quem Somos</a></li>
-            <li><a href="fundacao.html">Fundadores</a></li>
-            <li><a href="sobre.html">Carisma</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Participe</h4>
-          <ul>
-            <li><a href="eventos.html">Eventos</a></li>
-            <li><a href="caminho.html">Caminho de São José</a></li>
-            <li><a href="socio.html">Seja Benfeitor</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Fale Conosco</h4>
-          <ul class="contact-list">
-            <li><i class="fa-brands fa-whatsapp"></i> (65) 99223-7716</li>
-            <li>
-              <i class="fa-regular fa-envelope"></i>
-              missaoservosdoespiritosanto@gmail.com
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <p>© 2026 Missão Servos. Todos os direitos reservados.</p>
-        <p>Deus provê Deus Proverá.</p>
-      </div>
-    </footer>
+    <Footer />
 
     <script is:inline>
         // 1. SCRIPT DO MENU MOBILE (Blindado contra erros nulos)

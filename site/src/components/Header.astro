@@ -1,0 +1,32 @@
+---
+interface Props {
+  active?: "index" | "fundacao" | "caminho" | "sobre" | "eventos" | "socio";
+}
+
+const { active } = Astro.props;
+---
+
+<nav class="smart-nav">
+  <div class="nav-links left">
+    <a href="index.html" class={active === "index" ? "active" : ""}>Início</a>
+    <a href="fundacao.html" class={active === "fundacao" ? "active" : ""}>Fundação</a>
+    <a href="caminho.html" class={active === "caminho" ? "active" : ""}>Caminho de São José</a>
+  </div>
+
+  <div class="nav-brand">
+    <img
+      src="legacy/img/download-removebg-preview.png"
+      alt="Logo Missão Servos"
+    />
+  </div>
+
+  <div class="nav-links right">
+    <a href="sobre.html" class={active === "sobre" ? "active" : ""}>Quem Somos</a>
+    <a href="eventos.html" class={active === "eventos" ? "active" : ""}>Agenda e Eventos</a>
+    <a href="socio.html" class={`btn-highlight ${active === "socio" ? "active" : ""}`}>Ajude a Obra</a>
+  </div>
+
+  <button class="hamburger-menu" aria-label="Abrir menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</nav>
