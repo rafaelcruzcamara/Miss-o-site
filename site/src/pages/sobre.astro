@@ -1,29 +1,16 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import "../styles/pages/sobre.css";
 ---
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quem Somos</title>
-    <link rel="shortcut icon" href="legacy/img/download-removebg-preview.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="legacy/zom.css">
-    <link rel="stylesheet" href="legacy/style.css">
-    <link rel="stylesheet" href="legacy/sobre.css">
-    <link rel="stylesheet" href="legacy/mobile.css">
-</head>
-<body>
 
-   
+<SiteLayout
+  title="Quem Somos | Missão Servos"
+  active="sobre"
+  legacyStyles={false}
+>
+<div class="page-wrapper">
 
-    <div class="page-wrapper">
-
-        <Header active="sobre" />
+        
         
         <header class="hero-3d animate-on-scroll">
             <div class="hero-text">
@@ -186,29 +173,20 @@ import Footer from "../components/Footer.astro";
 
     </div>
 
-    <Footer />
-
-    <script is:inline>
-        // 1. SCRIPT DO MENU MOBILE (Blindado contra erros nulos)
-        const btnMobile = document.querySelector('.hamburger-menu');
-        const navLinksLeft = document.querySelector('.nav-links.left');
-        const navLinksRight = document.querySelector('.nav-links.right');
-
-        if (btnMobile) {
-            btnMobile.addEventListener('click', () => {
-                if (navLinksLeft) navLinksLeft.classList.toggle('menu-aberto');
-                if (navLinksRight) navLinksRight.classList.toggle('menu-aberto');
-            });
-        }
-
-        // 2. SCRIPT DE ANIMAÇÃO (É isso que faz o site deixar de ser invisível!)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('in-view');
-            });
+  <script is:inline>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+          }
         });
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-    </script>
-    <script is:inline src="legacy/nav.js"></script>
-</body>
-</html>
+      },
+      { threshold: 0.1 },
+    );
+
+    document
+      .querySelectorAll(".animate-on-scroll")
+      .forEach((element) => observer.observe(element));
+  </script>
+</SiteLayout>
