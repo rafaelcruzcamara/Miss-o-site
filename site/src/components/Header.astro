@@ -1,5 +1,4 @@
 ﻿---
-import "../styles/global.css";
 import "../styles/components/header.css";
 
 interface Props {
@@ -35,7 +34,13 @@ const ctaClass =
     <a href="socio.html" class={ctaClass}>Ajude a Obra</a>
   </div>
 
-  <button class="mises-nav__toggle" type="button" data-mises-nav-toggle aria-label="Abrir menu">
+  <button
+    class="mises-nav__toggle"
+    type="button"
+    data-mises-nav-toggle
+    aria-label="Abrir menu"
+    aria-expanded="false"
+  >
     <i class="fa-solid fa-bars"></i>
   </button>
 </nav>
@@ -48,6 +53,7 @@ const ctaClass =
     const nav = toggle.closest("[data-mises-nav]");
     if (!nav) return;
 
-    nav.classList.toggle("is-open");
+    const isOpen = nav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
   });
 </script>

@@ -1,13 +1,14 @@
 ﻿---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
 import "../styles/global.css";
+import "../styles/components/header.css";
+import "../styles/components/footer.css";
 
 interface Props {
   title: string;
   active?: "index" | "fundacao" | "caminho" | "sobre" | "eventos" | "socio";
-  pageCss?: string;
-  legacyStyles?: boolean;
   showHeader?: boolean;
   showFooter?: boolean;
 }
@@ -15,8 +16,6 @@ interface Props {
 const {
   title,
   active,
-  pageCss,
-  legacyStyles = true,
   showHeader = true,
   showFooter = true,
 } = Astro.props;
@@ -49,17 +48,7 @@ const {
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    {
-      legacyStyles && (
-        <>
-          <link rel="stylesheet" href="legacy/zom.css" />
-          <link rel="stylesheet" href="legacy/style.css" />
-          <link rel="stylesheet" href="legacy/mobile.css" />
-
-          {pageCss && <link rel="stylesheet" href={`legacy/${pageCss}`} />}
-        </>
-      )
-    }
+    
   </head>
 
   <body class="mises-layout">
