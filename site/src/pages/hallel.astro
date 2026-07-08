@@ -1,3 +1,7 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,19 +20,7 @@
     
 <body>
 
-    <nav class="smart-nav" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(5px); border:none;">
-        <div class="nav-links left">
-            <a href="index.html" class=""></a>
-            <a href="index.html" class="btn-circle"
-              ><i class="fa-solid fa-arrow-left" style="color: #000;"></i
-            ></a>
-            
-        </div>
-        <div class="nav-brand">
-            <img src="legacy/img/download-removebg-preview.png" alt="Logo" style="filter: brightness(100);">
-        </div>
-        
-    </nav>
+    <Header active="eventos" />
 
     <header class="urban-hero">
         <div class="hero-bg"></div>
