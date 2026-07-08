@@ -1,32 +1,14 @@
+﻿---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import "../styles/pages/index.css";
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
----
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MISES</title>
-    <link rel="stylesheet" href="legacy/mobile.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="shortcut icon" href="./img/download-removebg-preview.png" type="image/png">
 
-    <link rel="stylesheet" href="legacy/zom.css">
-    <link rel="stylesheet" href="legacy/style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div class="page-wrapper">
-      <Header active="index" />
+<SiteLayout
+  title="Missão Servos do Espírito Santo"
+  active="index"
+>
+<div class="page-wrapper">
+      
       <div
         class="grid-container grid-auto-height animate-on-scroll"
         style="margin-bottom: 40px; display: block"
@@ -509,7 +491,7 @@ import Footer from "../components/Footer.astro";
       </a>
     </div>
 
-    <Footer />
+    
 
     <script is:inline>
       // Configuração do Observador (Detecta quando o elemento entra na tela)
@@ -658,7 +640,6 @@ import Footer from "../components/Footer.astro";
           startInterval();
       }
     </script>
-    <script is:inline src="legacy/nav.js"></script>
+    
     <script is:inline src="legacy/main.js"></script>
-  </body>
-</html>
+</SiteLayout>

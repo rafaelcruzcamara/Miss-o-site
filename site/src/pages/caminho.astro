@@ -1,27 +1,15 @@
+﻿---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import "../styles/pages/caminho.css";
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
----
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Caminho de São José</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="legacy/zom.css">
-    <link rel="stylesheet" href="legacy/style.css">
-    <link rel="shortcut icon" href="legacy/img/download-removebg-preview.png" type="image/png">
-    <link rel="stylesheet" href="legacy/caminho.css">
-    <link rel="stylesheet" href="legacy/mobile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="dark-mode">
 
-    <div class="page-wrapper">
+<SiteLayout
+  title="Caminho de São José | Missão Servos"
+  active="caminho"
+  theme="dark"
+  navVariant="glass-dark"
+>
+<div class="page-wrapper">
         
         <nav class="smart-nav nav-glass">
             <div class="nav-links left">
@@ -248,7 +236,7 @@ import Footer from "../components/Footer.astro";
 
     </div>
 
-    <Footer />
+    
 
         
 
@@ -297,6 +285,4 @@ import Footer from "../components/Footer.astro";
             window.requestAnimationFrame(step);
         }
     </script>
-<script is:inline src="legacy/nav.js"></script>
-</body>
-</html>
+</SiteLayout>

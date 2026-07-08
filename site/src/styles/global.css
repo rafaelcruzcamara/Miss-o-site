@@ -115,3 +115,12 @@ a {
     --site-zoom: 1;
   }
 }
+/* Tema escuro para páginas específicas */
+body.mises-layout--dark {
+  background: #050505 !important;
+  color: var(--white);
+}
+
+body.mises-layout--dark .mises-layout__content {
+  background: #050505 !important;
+}

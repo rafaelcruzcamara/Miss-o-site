@@ -206,3 +206,69 @@
     }
   }
 }
+
+/* ========================================================= */
+/* Glass escuro suave — sem efeito 3D                         */
+/* ========================================================= */
+
+.mises-nav--glass-dark {
+  background: rgba(18, 18, 18, 0.38) !important;
+
+  backdrop-filter: blur(18px) saturate(120%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(120%) !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+
+  box-shadow:
+    0 14px 40px rgba(0, 0, 0, 0.18) !important;
+
+  overflow: visible !important;
+}
+
+/* Remove qualquer brilho artificial */
+.mises-nav--glass-dark::before,
+.mises-nav--glass-dark::after {
+  display: none !important;
+  content: none !important;
+}
+
+.mises-nav--glass-dark .mises-nav__link {
+  color: rgba(255, 255, 255, 0.82) !important;
+  text-shadow: none !important;
+}
+
+.mises-nav--glass-dark .mises-nav__link:hover,
+.mises-nav--glass-dark .mises-nav__link.is-active {
+  color: var(--yellow) !important;
+}
+
+.mises-nav--glass-dark .mises-nav__link::after {
+  background: var(--yellow) !important;
+}
+
+.mises-nav--glass-dark .mises-nav__cta {
+  background: var(--yellow) !important;
+  color: var(--black) !important;
+
+  box-shadow: none !important;
+}
+
+.mises-nav--glass-dark .mises-nav__cta:hover {
+  background: var(--white) !important;
+  color: var(--black) !important;
+}
+
+.mises-nav--glass-dark .mises-nav__brand img {
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25)) !important;
+}
+
+.mises-nav--glass-dark .mises-nav__toggle {
+  color: var(--white) !important;
+}
+
+@media screen and (max-width: 900px) {
+  .mises-nav--glass-dark {
+    background: rgba(18, 18, 18, 0.72) !important;
+    border-radius: 18px !important;
+  }
+}

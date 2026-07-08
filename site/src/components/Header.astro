@@ -3,9 +3,15 @@ import "../styles/components/header.css";
 
 interface Props {
   active?: "index" | "fundacao" | "caminho" | "sobre" | "eventos" | "socio";
+  variant?: "default" | "glass-dark";
 }
 
-const { active } = Astro.props;
+const { active, variant = "default" } = Astro.props;
+
+const navClass =
+  variant === "glass-dark"
+    ? "mises-nav mises-nav--glass-dark"
+    : "mises-nav";
 
 const linkClass = (key: string) =>
   active === key ? "mises-nav__link is-active" : "mises-nav__link";
@@ -14,7 +20,7 @@ const ctaClass =
   active === "socio" ? "mises-nav__cta is-active" : "mises-nav__cta";
 ---
 
-<nav class="mises-nav" data-mises-nav>
+<nav class={navClass} data-mises-nav>
   <div class="mises-nav__links mises-nav__links--left">
     <a href="index.html" class={linkClass("index")}>Início</a>
     <a href="fundacao.html" class={linkClass("fundacao")}>Fundação</a>
