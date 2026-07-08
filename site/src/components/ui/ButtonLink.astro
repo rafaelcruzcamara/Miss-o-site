@@ -1,0 +1,43 @@
+﻿---
+import "../../styles/components/button-link.css";
+
+interface Props {
+  href: string;
+  variant?: "yellow" | "dark" | "light" | "outline" | "ghost";
+  size?: "sm" | "md" | "lg" | "icon";
+  shape?: "pill" | "rounded" | "square" | "circle" | "cut";
+  external?: boolean;
+  class?: string;
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  variant = "dark",
+  size = "md",
+  shape = "pill",
+  external = false,
+  class: className = "",
+  ariaLabel,
+} = Astro.props;
+
+const classes = [
+  "ui-button",
+  `ui-button--${variant}`,
+  `ui-button--${size}`,
+  `ui-button--${shape}`,
+  className,
+]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<a
+  href={href}
+  class={classes}
+  aria-label={ariaLabel}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+>
+  <slot />
+</a>

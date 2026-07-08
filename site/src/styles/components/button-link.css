@@ -1,0 +1,160 @@
+﻿.ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: fit-content;
+
+  border: 2px solid transparent;
+
+  font-family: var(--font);
+  font-weight: 900;
+  text-decoration: none;
+  line-height: 1;
+
+  cursor: pointer;
+  user-select: none;
+
+  transition:
+    transform 0.25s var(--ease),
+    background 0.25s var(--ease),
+    color 0.25s var(--ease),
+    border-color 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+
+.ui-button:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+.ui-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Cores */
+.ui-button--yellow {
+  background: var(--yellow);
+  color: var(--black);
+  border-color: var(--yellow);
+}
+
+.ui-button--yellow:hover {
+  background: var(--black);
+  color: var(--yellow);
+  border-color: var(--black);
+}
+
+.ui-button--dark {
+  background: var(--black);
+  color: var(--yellow);
+  border-color: var(--black);
+}
+
+.ui-button--dark:hover {
+  background: var(--yellow);
+  color: var(--black);
+  border-color: var(--yellow);
+}
+
+.ui-button--light {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+
+.ui-button--light:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+}
+
+.ui-button--outline {
+  background: transparent;
+  color: var(--black);
+  border-color: var(--black);
+}
+
+.ui-button--outline:hover {
+  background: var(--black);
+  color: var(--yellow);
+}
+
+.ui-button--ghost {
+  background: transparent;
+  color: inherit;
+  border-color: transparent;
+}
+
+.ui-button--ghost:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* Tamanhos */
+.ui-button--sm {
+  padding: 10px 18px;
+  font-size: 0.85rem;
+}
+
+.ui-button--md {
+  padding: 14px 28px;
+  font-size: 0.95rem;
+}
+
+.ui-button--lg {
+  padding: 18px 40px;
+  font-size: 1.1rem;
+}
+
+.ui-button--icon {
+  width: 54px;
+  height: 54px;
+  padding: 0;
+  font-size: 1.15rem;
+}
+
+/* Formatos */
+.ui-button--pill {
+  border-radius: 999px;
+}
+
+.ui-button--rounded {
+  border-radius: 18px;
+}
+
+.ui-button--square {
+  border-radius: 0;
+}
+
+.ui-button--circle {
+  border-radius: 50%;
+}
+
+.ui-button--cut {
+  border-radius: 0;
+  clip-path: polygon(
+    10% 0,
+    100% 0,
+    100% 80%,
+    90% 100%,
+    0 100%,
+    0 20%
+  );
+}
+
+/* Modificador especial para botão urbano do Hallel, se quisermos usar depois */
+.ui-button--cut.ui-button--yellow {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 900px) {
+  .ui-button--lg {
+    padding: 16px 30px;
+    font-size: 1rem;
+  }
+
+  .ui-button--icon {
+    width: 48px;
+    height: 48px;
+  }
+}
