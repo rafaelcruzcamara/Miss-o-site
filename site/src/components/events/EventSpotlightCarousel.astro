@@ -15,72 +15,71 @@ interface Props {
 }
 
 const { events } = Astro.props;
+
+const nearestEvent = events[0];
+const nextEvents = events.slice(1, 3);
 ---
 
-<section class="events-spotlight">
-  <article class="events-intro-card">
-    <span class="events-kicker">Agenda MISES</span>
-    <h1>Próximos eventos</h1>
-    <p>
-      Encontros, retiros e experiências da missão.
-    </p>
-  </article>
+<section class="nearest-event-section">
 
-  <div class="events-spotlight__carousel" data-events-carousel>
-    <button class="events-arrow events-arrow--left" type="button" data-carousel-prev aria-label="Voltar">
-      <i class="fa-solid fa-arrow-left"></i>
-    </button>
+  <div class="nearest-event-grid">
+    <a href={nearestEvent.href} class="nearest-event-card">
+      <div class="nearest-event-card__content">
+        <span class="nearest-event-card__tag">{nearestEvent.tag}</span>
 
-    <div class="events-feature-track">
-      {
-        events.map((event) => (
-          <a href={event.href} class="event-feature-card">
-            <div class="event-feature-card__image">
-              <img src={event.image} alt={event.title} />
-            </div>
+        <div>
+          <h2>{nearestEvent.title}</h2>
+          <p>{nearestEvent.description}</p>
+        </div>
 
-            <div class="event-feature-card__body">
-              <div class="event-feature-card__date">
+        <div class="nearest-event-card__footer">
+          <span>
+            <i class="fa-solid fa-location-dot"></i>
+            {nearestEvent.location}
+          </span>
+
+          <strong>
+            Ver detalhes
+            <i class="fa-solid fa-arrow-right"></i>
+          </strong>
+        </div>
+      </div>
+
+      <div class="nearest-event-card__image">
+        <img src={nearestEvent.image} alt={nearestEvent.title} />
+
+        <div class="nearest-event-date">
+          <span>{nearestEvent.month}</span>
+          <strong>{nearestEvent.day}</strong>
+        </div>
+      </div>
+    </a>
+
+    <aside class="next-events-card">
+      <div class="next-events-card__header">
+        <span class="events-kicker">Eventos</span>
+        <h3>Próximos</h3>
+      </div>
+
+      <div class="next-events-list">
+        {
+          nextEvents.map((event) => (
+            <a href={event.href} class="next-event-item">
+              <div class="next-event-date">
                 <span>{event.month}</span>
                 <strong>{event.day}</strong>
               </div>
 
-              <div class="event-feature-card__content">
-                <h2>{event.title}</h2>
-
-                <span class="event-feature-card__location">
-                  <i class="fa-solid fa-location-dot"></i>
-                  {event.location}
-                </span>
+              <div>
+                <h4>{event.title}</h4>
+                <p>{event.location}</p>
               </div>
-            </div>
-          </a>
-        ))
-      }
-    </div>
 
-    <button class="events-arrow events-arrow--right" type="button" data-carousel-next aria-label="Avançar">
-      <i class="fa-solid fa-arrow-right"></i>
-    </button>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          ))
+        }
+      </div>
+    </aside>
   </div>
 </section>
-
-<script is:inline>
-  document.querySelectorAll("[data-events-carousel]").forEach((carousel) => {
-    const track = carousel.querySelector(".events-feature-track");
-    const prev = carousel.querySelector("[data-carousel-prev]");
-    const next = carousel.querySelector("[data-carousel-next]");
-
-    if (!track || !prev || !next) return;
-
-    const scrollAmount = 340;
-
-    prev.addEventListener("click", () => {
-      track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-    });
-
-    next.addEventListener("click", () => {
-      track.scrollBy({ left: scrollAmount, behavior: "smooth" });
-    });
-  });
-</script>
