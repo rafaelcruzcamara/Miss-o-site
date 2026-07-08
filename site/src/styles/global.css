@@ -1,0 +1,117 @@
+﻿:root {
+  --yellow: #ffd500;
+  --black: #111111;
+  --white: #ffffff;
+  --gray-bg: #fafafa;
+
+  --text: #111111;
+  --muted: #666666;
+
+  --radius-sm: 50px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+
+  --font: "Red Hat Display", Arial, sans-serif;
+
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --container: 1280px;
+  
+  --site-zoom: 1.08;
+}
+
+
+/* Base */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+  /*
+    Esse é o "zoom" correto.
+    16px é o normal.
+    17px deixa o site um pouco maior sem usar zoom.
+  */
+  font-size: 17px;
+}
+
+body {
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+
+  background: var(--gray-bg);
+  color: var(--text);
+
+  font-family: var(--font);
+  line-height: 1.5;
+
+  zoom: var(--site-zoom);
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font);
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+/* Layout principal */
+.mises-layout {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.mises-layout__content {
+  flex: 1 0 auto;
+}
+
+.mises-footer {
+  flex-shrink: 0;
+}
+
+/* Container padrão */
+.mises-container {
+  width: min(95%, var(--container));
+  margin-inline: auto;
+}
+
+/* Ajuste para telas menores */
+@media screen and (max-width: 900px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  :root {
+    --site-zoom: 1.03;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  :root {
+    --site-zoom: 1;
+  }
+}

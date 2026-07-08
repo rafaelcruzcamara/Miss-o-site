@@ -1,0 +1,242 @@
+﻿.fundacao-page {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+/* Cabeçalho */
+.fundacao-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding-top: 20px;
+}
+
+.fundacao-label {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: #999;
+  letter-spacing: 2px;
+}
+
+.fundacao-title {
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin-top: 5px;
+  line-height: 1;
+}
+
+/* Card de história */
+.fundacao-story {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 60px 80px;
+  margin-bottom: 60px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.fundacao-story::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: var(--yellow);
+}
+
+.fundacao-story__content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+.fundacao-story__content strong {
+  color: var(--black);
+  font-weight: 800;
+}
+
+/* Grid dos fundadores */
+.fundacao-founders {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.fundacao-card {
+  height: 600px;
+  border-radius: var(--radius-lg);
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+}
+
+.fundacao-card:hover {
+  transform: translateY(-12px);
+}
+
+.fundacao-card--yellow {
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+.fundacao-card--black {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.fundacao-card--white {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.fundacao-card--yellow::before,
+.fundacao-card--black::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.15;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.fundacao-card__info {
+  z-index: 2;
+  text-align: center;
+  position: relative;
+  padding: 40px 30px 20px;
+}
+
+.fundacao-pill {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 50px;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  margin-bottom: 20px;
+}
+
+.fundacao-card--yellow .fundacao-pill {
+  background: var(--black);
+  color: var(--white);
+}
+
+.fundacao-card--black .fundacao-pill {
+  background: var(--yellow);
+  color: var(--black);
+}
+
+.fundacao-card--white .fundacao-pill {
+  background: #f0f0f0;
+  color: #888;
+}
+
+.fundacao-card h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 0.95;
+  margin-bottom: 20px;
+}
+
+.fundacao-quote {
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.85;
+  line-height: 1.4;
+  font-family: Georgia, serif;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.fundacao-card__image {
+  flex: 1;
+  width: 100%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  position: relative;
+  z-index: 1;
+}
+
+.fundacao-card__image img {
+  width: 100%;
+  height: 105%;
+
+  object-fit: cover;
+  object-position: top center;
+
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+  transition: transform 0.6s ease;
+  margin-bottom: -1px;
+}
+
+.fundacao-card:hover .fundacao-card__image img {
+  transform: scale(1.1);
+}
+
+/* Animações da página */
+.fundacao-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s ease;
+}
+
+.fundacao-animate.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fundacao-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.fundacao-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.fundacao-delay-3 {
+  transition-delay: 0.3s;
+}
+
+@media (max-width: 900px) {
+  .fundacao-story {
+    padding: 40px 30px;
+  }
+
+  .fundacao-founders {
+    grid-template-columns: 1fr;
+  }
+
+  .fundacao-card {
+    height: 500px;
+  }
+
+  .fundacao-title {
+    font-size: 2.8rem;
+  }
+}

@@ -1,5 +1,5 @@
 ﻿---
-import "../styles/base.css";
+import "../styles/global.css";
 import "../styles/components/header.css";
 
 interface Props {
@@ -7,31 +7,47 @@ interface Props {
 }
 
 const { active } = Astro.props;
+
+const linkClass = (key: string) =>
+  active === key ? "mises-nav__link is-active" : "mises-nav__link";
+
+const ctaClass =
+  active === "socio" ? "mises-nav__cta is-active" : "mises-nav__cta";
 ---
 
-<nav class="smart-nav" aria-label="Navegação principal">
-  <div class="nav-links left">
-    <a href="index.html" class={active === "index" ? "active" : ""}>Início</a>
-    <a href="fundacao.html" class={active === "fundacao" ? "active" : ""}>Fundação</a>
-    <a href="caminho.html" class={active === "caminho" ? "active" : ""}>Caminho de São José</a>
+<nav class="mises-nav" data-mises-nav>
+  <div class="mises-nav__links mises-nav__links--left">
+    <a href="index.html" class={linkClass("index")}>Início</a>
+    <a href="fundacao.html" class={linkClass("fundacao")}>Fundação</a>
+    <a href="caminho.html" class={linkClass("caminho")}>Caminho de São José</a>
   </div>
 
-  <a class="nav-brand" href="index.html" aria-label="Ir para a página inicial">
+  <a class="mises-nav__brand" href="index.html" aria-label="Ir para a página inicial">
     <img
       src="legacy/img/download-removebg-preview.png"
       alt="Logo Missão Servos"
     />
   </a>
 
-  <div class="nav-links right">
-    <a href="sobre.html" class={active === "sobre" ? "active" : ""}>Quem Somos</a>
-    <a href="eventos.html" class={active === "eventos" ? "active" : ""}>Agenda e Eventos</a>
-    <a href="socio.html" class={`btn-highlight ${active === "socio" ? "active" : ""}`}>
-      Ajude a Obra
-    </a>
+  <div class="mises-nav__links mises-nav__links--right">
+    <a href="sobre.html" class={linkClass("sobre")}>Quem Somos</a>
+    <a href="eventos.html" class={linkClass("eventos")}>Agenda e Eventos</a>
+    <a href="socio.html" class={ctaClass}>Ajude a Obra</a>
   </div>
 
-  <button class="hamburger-menu" type="button" aria-label="Abrir menu">
+  <button class="mises-nav__toggle" type="button" data-mises-nav-toggle aria-label="Abrir menu">
     <i class="fa-solid fa-bars"></i>
   </button>
 </nav>
+
+<script is:inline>
+  document.addEventListener("click", (event) => {
+    const toggle = event.target.closest("[data-mises-nav-toggle]");
+    if (!toggle) return;
+
+    const nav = toggle.closest("[data-mises-nav]");
+    if (!nav) return;
+
+    nav.classList.toggle("is-open");
+  });
+</script>

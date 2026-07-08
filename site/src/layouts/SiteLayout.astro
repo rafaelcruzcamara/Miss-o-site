@@ -1,11 +1,13 @@
 ﻿---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import "../styles/global.css";
 
 interface Props {
   title: string;
   active?: "index" | "fundacao" | "caminho" | "sobre" | "eventos" | "socio";
   pageCss?: string;
+  legacyStyles?: boolean;
   showHeader?: boolean;
   showFooter?: boolean;
 }
@@ -14,6 +16,7 @@ const {
   title,
   active,
   pageCss,
+  legacyStyles = true,
   showHeader = true,
   showFooter = true,
 } = Astro.props;
@@ -24,6 +27,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>{title}</title>
 
     <link
@@ -34,8 +38,9 @@ const {
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;800;900&display=swap"
       rel="stylesheet"
     />
 
@@ -44,20 +49,26 @@ const {
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
 
-    <link rel="stylesheet" href="legacy/zom.css" />
-    <link rel="stylesheet" href="legacy/style.css" />
-    <link rel="stylesheet" href="legacy/mobile.css" />
+    {
+      legacyStyles && (
+        <>
+          <link rel="stylesheet" href="legacy/zom.css" />
+          <link rel="stylesheet" href="legacy/style.css" />
+          <link rel="stylesheet" href="legacy/mobile.css" />
 
-    {pageCss && <link rel="stylesheet" href={`legacy/${pageCss}`} />}
+          {pageCss && <link rel="stylesheet" href={`legacy/${pageCss}`} />}
+        </>
+      )
+    }
   </head>
 
-  <body>
+  <body class="mises-layout">
     {showHeader && <Header active={active} />}
 
-    <slot />
+    <main class="mises-layout__content">
+      <slot />
+    </main>
 
     {showFooter && <Footer />}
-
-    <script is:inline src="legacy/nav.js"></script>
   </body>
 </html>

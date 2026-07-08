@@ -1,0 +1,115 @@
+﻿.mises-footer {
+  width: 100%;
+  max-width: none;
+
+  margin: 80px 0 0 0;
+  padding: 80px 40px 20px;
+
+  background-color: var(--black);
+  color: var(--white);
+
+  border-radius: 40px 40px 0 0;
+
+  position: relative;
+}
+
+.mises-footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+
+  padding-bottom: 60px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mises-footer__logo {
+  font-family: var(--font);
+  font-weight: 900;
+  font-size: 2.5rem;
+  letter-spacing: -2px;
+
+  color: var(--yellow);
+
+  margin-bottom: 15px;
+}
+
+.mises-footer__brand p {
+  opacity: 0.7;
+  line-height: 1.6;
+}
+
+.mises-footer__col h4 {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: var(--white);
+}
+
+.mises-footer__col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mises-footer__col ul li {
+  margin-bottom: 15px;
+}
+
+.mises-footer__col ul li a {
+  color: #999;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 0.95rem;
+}
+
+.mises-footer__col ul li a:hover {
+  color: var(--yellow);
+  padding-left: 5px;
+}
+
+.mises-footer__contact li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: #999;
+}
+
+.mises-footer__contact i {
+  color: var(--yellow);
+}
+
+.mises-footer__bottom {
+  max-width: 1200px;
+  margin: 20px auto 0;
+
+  display: flex;
+  justify-content: space-between;
+
+  font-size: 0.8rem;
+  color: #555;
+}
+
+@media screen and (max-width: 900px) {
+  .mises-footer__container {
+    display: flex !important;
+    flex-direction: column !important;
+
+    text-align: center;
+
+    gap: 40px !important;
+    padding: 30px 20px !important;
+  }
+
+  .mises-footer__contact li {
+    justify-content: center !important;
+  }
+
+  .mises-footer__bottom {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+}
