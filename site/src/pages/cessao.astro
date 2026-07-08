@@ -1,26 +1,11 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import SiteLayout from "../layouts/SiteLayout.astro";
+import "../styles/pages/cessao.css";
 ---
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espaço para Retiros | Missão Servos</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="legacy/style.css">
-    <link rel="stylesheet" href="legacy/mobile.css">
-    <link rel="stylesheet" href="legacy/cessao.css"> 
-    <link rel="stylesheet" href="legacy/zom.css">
-</head>
-<body>
 
-    <div class="page-wrapper">
-        <Header />
+<SiteLayout title="Cessão | Missão Servos">
+<div class="page-wrapper">
+        
 
         <header class="premium-hero animate-on-scroll">
             <img src="legacy/chacara/são jose 2.jpg" class="bg-video-image" alt="Visão Geral da Chácara">
@@ -276,7 +261,7 @@ import Footer from "../components/Footer.astro";
 
         
     </div> 
-     <Footer />
+     
     
     <div class="lightbox-modal" id="lightbox">
         <button class="lb-btn lb-close" id="lb-close"><i class="fa-solid fa-xmark"></i></button>
@@ -444,6 +429,4 @@ import Footer from "../components/Footer.astro";
 
         }); // Fim do DOMContentLoaded
     </script>
-
-</body>
-</html>
+</SiteLayout>
