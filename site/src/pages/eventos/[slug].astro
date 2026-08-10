@@ -1,0 +1,173 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { getAllEvents, getEventBySlug, getEvents } from "../../services/events";
+import type { Event } from "../../types/event";
+import "../../styles/pages/eventos.css";
+
+export async function getStaticPaths() {
+  const events = await getAllEvents();
+  return events.map((event) => ({ params: { slug: event.slug } }));
+}
+
+const event = await getEventBySlug(Astro.params.slug);
+
+if (!event) {
+  throw new Error(`Event not found: ${Astro.params.slug}`);
+}
+
+function formatDate(dateString: string) {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  if (Number.isNaN(date.getTime())) return "";
+  return date.toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+}
+
+const eventStart = formatDate(event.startsAt || event.startDate);
+const eventEnd = formatDate(event.endsAt || event.endDate);
+
+const registrationState = (() => {
+  function toDayKey(value: string | undefined): string | undefined {
+    if (!value) return undefined;
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return undefined;
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
+  const today = toDayKey(new Date().toISOString());
+  const starts = toDayKey(event.registrationStartsAt);
+  const ends = toDayKey(event.registrationEndsAt);
+
+  if (!event.registrationUrl || event.registrationUrl === "#") {
+    return { open: false, label: "Inscrição indisponível" };
+  }
+
+  if (starts && today && today < starts) {
+    return {
+      open: false,
+      label: `Inscrições abrem em ${formatDate(event.registrationStartsAt)}`,
+    };
+  }
+
+  if (ends && today && today > ends) {
+    return { open: false, label: "Inscrições encerradas" };
+  }
+
+  return { open: true, label: "Inscrever-se" };
+})();
+---
+
+<SiteLayout
+  title={`${event.title} | Missão Servos`}
+  active="eventos"
+  showHeader={false}
+>
+  <main class="event-detail-page">
+    <div class="event-detail-shell">
+      <nav class="event-detail-topbar" aria-label="Navegação do evento">
+        <button
+          type="button"
+          class="event-detail-back"
+          onClick="history.back()"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+          Voltar
+        </button>
+      </nav>
+
+      <article class="event-detail-hero">
+        <figure class="event-detail-media-card">
+          <img src={event.cover} alt={event.title} />
+          <figcaption class="event-detail-media-badge">
+            
+          </figcaption>
+        </figure>
+
+        <div class="event-detail-header-card">
+          <span class="events-kicker">Evento</span>
+          <h1>{event.title}</h1>
+          <p>{event.summary}</p>
+
+          <div class="event-detail-meta-grid">
+            <div class="event-detail-meta-box">
+              <span>Data</span>
+              <strong>{eventStart} <br> {eventEnd}</strong>
+            </div>
+            <div class="event-detail-meta-box">
+              <span>Local</span>
+              <strong>{event.location.name}</strong>
+              <p>{event.location.address}</p>
+            </div>
+          </div>
+
+          <div class="event-detail-header-actions">
+            {
+              registrationState.open ? (
+                <a
+                  class="btn-highlight"
+                  href={event.registrationUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {registrationState.label}
+                </a>
+              ) : (
+                <button
+                  class="btn-white-outline btn-disabled"
+                  type="button"
+                  disabled
+                >
+                  {registrationState.label}
+                </button>
+              )
+            }
+            <a class="btn-white-outline" href="/eventos">Ver outros eventos</a>
+          </div>
+        </div>
+      </article>
+
+      <section class="event-detail-body">
+        <article class="event-detail-card event-detail-card--primary">
+          <h2>Informações do evento</h2>
+          <dl class="event-detail-fields">
+            <div class="event-detail-field">
+              <dt>Datas</dt>
+              <dd>{eventStart} — {eventEnd}</dd>
+            </div>
+            <div class="event-detail-field">
+              <dt>Local</dt>
+              <dd>{event.location.name}</dd>
+              <dd>{event.location.address}</dd>
+              <dd>{event.location.city}, {event.location.state}</dd>
+            </div>
+            <div class="event-detail-field">
+              <dt>Inscrições</dt>
+              <dd>{event.registrationStarts} até {event.registrationEnds}</dd>
+            </div>
+          </dl>
+        </article>
+
+        <aside class="event-detail-aside">
+          <div class="event-detail-card event-detail-card--secondary">
+            <h2>Descrição</h2>
+            <p>{event.description}</p>
+          </div>
+
+          <div class="event-detail-card event-detail-card--secondary">
+            <h2>Detalhes rápidos</h2>
+            <p>{event.location.city}, {event.location.state}</p>
+            <p>{event.location.address}</p>
+          </div>
+        </aside>
+      </section>
+
+     
+    </div>
+  </main>
+</SiteLayout>

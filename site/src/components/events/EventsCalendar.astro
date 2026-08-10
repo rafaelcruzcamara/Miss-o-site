@@ -1,19 +1,24 @@
 ﻿---
-interface CalendarEvent {
-  day: string;
-  title: string;
-  type: "yellow" | "dark" | "soft";
-}
+import type { Event } from "../../types/event";
 
 interface Props {
-  events: CalendarEvent[];
+  events: Event[];
 }
 
 const { events } = Astro.props;
 
+const calendarEvents = events.map((event) => {
+  const date = new Date(event.startDate);
+  return {
+    day: String(date.getDate()),
+    title: event.title,
+    type: event.featured ? "yellow" : "dark",
+  };
+});
+
 const days = Array.from({ length: 35 }, (_, index) => {
   const day = String(index + 1);
-  const event = events.find((item) => item.day === day);
+  const event = calendarEvents.find((item) => item.day === day);
 
   return {
     day,
@@ -39,7 +44,9 @@ const days = Array.from({ length: 35 }, (_, index) => {
       </div>
 
       <div class="events-calendar__legend">
-        <span><i class="legend-dot legend-dot--yellow"></i> Evento principal</span>
+        <span
+          ><i class="legend-dot legend-dot--yellow"></i> Evento principal</span
+        >
         <span><i class="legend-dot legend-dot--dark"></i> Encontro</span>
       </div>
     </div>
@@ -57,16 +64,16 @@ const days = Array.from({ length: 35 }, (_, index) => {
     <div class="events-calendar__grid">
       {
         days.map((item) => (
-          <div class={`calendar-day ${item.event ? "calendar-day--active" : ""}`}>
+          <div
+            class={`calendar-day ${item.event ? "calendar-day--active" : ""}`}
+          >
             <strong>{item.day}</strong>
 
-            {
-              item.event && (
-                <span class={`calendar-event calendar-event--${item.event.type}`}>
-                  {item.event.title}
-                </span>
-              )
-            }
+            {item.event && (
+              <span class={`calendar-event calendar-event--${item.event.type}`}>
+                {item.event.title}
+              </span>
+            )}
           </div>
         ))
       }

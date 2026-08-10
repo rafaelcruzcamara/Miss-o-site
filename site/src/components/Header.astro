@@ -9,9 +9,7 @@ interface Props {
 const { active, variant = "default" } = Astro.props;
 
 const navClass =
-  variant === "glass-dark"
-    ? "mises-nav mises-nav--glass-dark"
-    : "mises-nav";
+  variant === "glass-dark" ? "mises-nav mises-nav--glass-dark" : "mises-nav";
 
 const linkClass = (key: string) =>
   active === key ? "mises-nav__link is-active" : "mises-nav__link";
@@ -22,12 +20,12 @@ const ctaClass =
 
 <nav class={navClass} data-mises-nav>
   <div class="mises-nav__links mises-nav__links--left">
-    <a href="index.html" class={linkClass("index")}>Início</a>
-    <a href="fundacao.html" class={linkClass("fundacao")}>Fundação</a>
-    <a href="caminho.html" class={linkClass("caminho")}>Caminho de São José</a>
+    <a href="/" class={linkClass("index")}>Início</a>
+    <a href="/fundacao" class={linkClass("fundacao")}>Fundação</a>
+    <a href="/caminho" class={linkClass("caminho")}>Caminho de São José</a>
   </div>
 
-  <a class="mises-nav__brand" href="index.html" aria-label="Ir para a página inicial">
+  <a class="mises-nav__brand" href="/" aria-label="Ir para a página inicial">
     <img
       src="legacy/img/download-removebg-preview.png"
       alt="Logo Missão Servos"
@@ -35,9 +33,9 @@ const ctaClass =
   </a>
 
   <div class="mises-nav__links mises-nav__links--right">
-    <a href="sobre.html" class={linkClass("sobre")}>Quem Somos</a>
-    <a href="eventos.html" class={linkClass("eventos")}>Agenda e Eventos</a>
-    <a href="socio.html" class={ctaClass}>Ajude a Obra</a>
+    <a href="/sobre" class={linkClass("sobre")}>Quem Somos</a>
+    <a href="/eventos" class={linkClass("eventos")}>Agenda e Eventos</a>
+    <a href="/socio" class={ctaClass}>Ajude a Obra</a>
   </div>
 
   <button

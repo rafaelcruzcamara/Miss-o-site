@@ -1,26 +1,46 @@
 ﻿---
+import type { Event } from "../../types/event";
+
 interface Props {
-  title: string;
-  description: string;
-  image: string;
-  href: string;
-  label: string;
+  event: Event;
 }
 
-const { title, image, href, label } = Astro.props;
+const { event } = Astro.props;
+const href = `/eventos/${event.slug}`;
+const label = event.label ?? event.location.name;
+
+function formatDate(dateString: string) {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  return date.toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+  });
+}
+
+const dateLabel = event.endDate
+  ? `${formatDate(event.startDate)} – ${formatDate(event.endDate)}`
+  : formatDate(event.startDate);
+
+const place = [event.location.city, event.location.state]
+  .filter(Boolean)
+  .join(" - ");
 ---
 
 <a href={href} class="event-card">
   <div class="event-card__image">
-    <img src={image} alt={title} />
+    <img src={event.cover} alt={event.title} />
   </div>
 
   <div class="event-card__content">
     <span>{label}</span>
 
-    <div>
-      <h3>{title}</h3>
-      <p>Ver detalhes</p>
+    <div class="event-card__copy">
+      <h3>{event.title}</h3>
+      <p class="event-card__meta">
+        <span>{dateLabel}</span>
+        <span>{place}</span>
+      </p>
     </div>
 
     <i class="fa-solid fa-arrow-right"></i>

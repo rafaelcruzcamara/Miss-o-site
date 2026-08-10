@@ -1,4 +1,9 @@
-﻿.events-page {
+﻿```css
+/* =========================================================
+   BASE — EVENTOS
+   ========================================================= */
+
+.events-page {
   padding: 32px 24px 90px;
   background: var(--gray-bg);
   overflow: hidden;
@@ -8,8 +13,8 @@
   display: inline-flex;
   width: fit-content;
   padding: 8px 14px;
-  border-radius: 999px;
 
+  border-radius: 999px;
   background: var(--yellow);
   color: var(--black);
 
@@ -19,7 +24,11 @@
   letter-spacing: 0.08em;
 }
 
-/* Topo */
+
+/* =========================================================
+   SPOTLIGHT
+   ========================================================= */
+
 .events-spotlight {
   max-width: var(--container);
   margin: 0 auto 70px;
@@ -27,6 +36,7 @@
   display: grid;
   grid-template-columns: 360px minmax(0, 1fr);
   gap: 24px;
+
   align-items: stretch;
 }
 
@@ -61,6 +71,7 @@
   margin: 0;
 
   color: rgba(255, 255, 255, 0.72);
+
   font-size: 1.02rem;
   line-height: 1.5;
 }
@@ -70,7 +81,6 @@
   min-width: 0;
 }
 
-/* Sem fundo/bloco atrás dos cards */
 .events-feature-track {
   height: 100%;
 
@@ -91,13 +101,15 @@
 
 .event-feature-card {
   flex: 0 0 315px;
-  scroll-snap-align: start;
 
   display: flex;
   flex-direction: column;
 
+  scroll-snap-align: start;
+
   background: #fff;
   color: var(--black);
+
   text-decoration: none;
 
   border-radius: 34px;
@@ -121,8 +133,11 @@
 }
 
 .event-feature-card__image img {
+  display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 
   transition: transform 0.35s ease;
@@ -136,7 +151,7 @@
   flex: 1;
 
   display: grid;
-  grid-template-columns: 70px 1fr;
+  grid-template-columns: 70px minmax(0, 1fr);
   gap: 14px;
 
   padding: 22px;
@@ -156,11 +171,11 @@
 .event-feature-card__date strong {
   margin-top: 6px;
 
+  color: var(--black);
+
   font-size: 2.55rem;
   font-weight: 950;
   letter-spacing: -0.08em;
-
-  color: var(--black);
 }
 
 .event-feature-card__content h2 {
@@ -178,9 +193,15 @@
   gap: 6px;
 
   color: #666;
+
   font-size: 0.82rem;
   font-weight: 800;
 }
+
+
+/* =========================================================
+   SETAS
+   ========================================================= */
 
 .events-arrow {
   position: absolute;
@@ -197,6 +218,7 @@
   color: var(--yellow);
 
   cursor: pointer;
+
   transform: translateY(-50%);
   transition: 0.2s ease;
 }
@@ -214,7 +236,11 @@
   right: 0;
 }
 
-/* Seções */
+
+/* =========================================================
+   SEÇÕES
+   ========================================================= */
+
 .events-list-section,
 .events-calendar-section {
   max-width: var(--container);
@@ -240,11 +266,460 @@
   margin: 0;
 
   color: #606060;
+
   font-size: 1.02rem;
   line-height: 1.55;
 }
 
-/* Cards de eventos */
+
+/* =========================================================
+   PÁGINA DE DETALHE
+   ========================================================= */
+
+.event-detail-page {
+  padding: 36px 24px 72px;
+  background: var(--gray-bg);
+}
+
+.event-detail-shell {
+  max-width: var(--container);
+  margin: 0 auto;
+
+  display: grid;
+  gap: 32px;
+}
+
+.event-detail-topbar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.event-detail-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 12px 18px;
+
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+
+  background: #fff;
+  color: var(--black);
+
+  font-weight: 700;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.event-detail-back:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   HERO DO EVENTO
+   ========================================================= */
+
+.event-detail-hero {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 28px;
+
+  /*
+   * IMPORTANTE:
+   * Os dois cards ficam com a mesma altura.
+   * A altura é controlada pelo próprio hero,
+   * não pela imagem.
+   */
+  align-items: stretch;
+}
+
+
+/* =========================================================
+   CARD DA IMAGEM
+   ========================================================= */
+
+.event-detail-media-card {
+  position: relative;
+
+  /*
+   * ALTURA FIXA DO CARD.
+   *
+   * A imagem NÃO pode alterar essa altura.
+   */
+  width: 100%;
+  height: 560px;
+  min-height: 560px;
+
+  margin: 0;
+
+  overflow: hidden;
+
+  background: #ddd;
+
+  border-radius: 34px;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+}
+
+
+/*
+ * A imagem ocupa exatamente o card.
+ * Não importa a proporção original.
+ */
+.event-detail-media-card img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  /*
+   * Impede qualquer comportamento da imagem
+   * de alterar o tamanho do card.
+   */
+  max-width: none;
+
+  transition: transform 0.45s ease;
+}
+
+
+/*
+ * Pequeno zoom opcional.
+ */
+.event-detail-media-card:hover img {
+  transform: scale(1.025);
+}
+
+
+/* =========================================================
+   BADGE SOBRE A IMAGEM
+   ========================================================= */
+
+.event-detail-media-badge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 28px;
+
+  display: grid;
+  gap: 12px;
+
+  color: #fff;
+
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.88) 100%
+  );
+}
+
+
+/* =========================================================
+   INFORMAÇÕES SOBRE A IMAGEM
+   ========================================================= */
+
+.event-detail-label {
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--black);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.event-detail-media-info {
+  display: grid;
+  gap: 4px;
+}
+
+.event-detail-media-info strong {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.event-detail-media-info p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+
+/* =========================================================
+   CARD DE INFORMAÇÕES
+   ========================================================= */
+
+.event-detail-header-card {
+  /*
+   * MESMA ALTURA DO CARD DA IMAGEM.
+   */
+  height: 560px;
+  min-height: 560px;
+
+  padding: 34px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  background: #fff;
+
+  border-radius: 34px;
+  overflow: hidden;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+}
+
+.event-detail-header-card h1 {
+  margin: 0;
+
+  font-size: clamp(2.5rem, 3.7vw, 4rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.event-detail-header-card > p {
+  margin: 0;
+
+  color: #4d4d4d;
+
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   META
+   ========================================================= */
+
+.event-detail-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.event-detail-meta-box {
+  padding: 22px;
+
+  display: grid;
+  gap: 10px;
+
+  background: #f7f7f7;
+
+  border-radius: 24px;
+}
+
+.event-detail-meta-box span {
+  color: #7a7a7a;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.event-detail-meta-box strong {
+  display: block;
+
+  margin: 0;
+
+  color: var(--black);
+
+  line-height: 1.4;
+}
+
+.event-detail-meta-box p {
+  margin: 0;
+
+  color: #5a5a5a;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+.event-detail-header-actions {
+  margin-top: auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.btn-highlight,
+.btn-white-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border-radius: 999px;
+
+  font-weight: 700;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-highlight {
+  padding: 16px 24px;
+
+  background: var(--yellow);
+  color: var(--black);
+}
+
+.btn-white-outline {
+  padding: 16px 24px;
+
+  background: #fff;
+  color: var(--black);
+
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.btn-disabled {
+  background: #f2f2f2;
+  color: #777;
+
+  border-color: rgba(0, 0, 0, 0.06);
+
+  cursor: not-allowed;
+}
+
+.btn-highlight:hover,
+.btn-white-outline:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.btn-disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* =========================================================
+   CORPO DO EVENTO
+   ========================================================= */
+
+.event-detail-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 1fr);
+  gap: 28px;
+}
+
+.event-detail-card {
+  padding: 28px;
+
+  background: #fff;
+
+  border-radius: 34px;
+  overflow: hidden;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+}
+
+.event-detail-card h2,
+.event-detail-card h3 {
+  margin: 0 0 18px;
+
+  font-size: 1.75rem;
+  line-height: 1.1;
+}
+
+.event-detail-card p {
+  margin: 0;
+
+  color: #4d4d4d;
+
+  line-height: 1.8;
+}
+
+.event-detail-fields {
+  display: grid;
+  gap: 18px;
+}
+
+.event-detail-field {
+  display: grid;
+  gap: 8px;
+}
+
+.event-detail-field dt {
+  color: #7d7d7d;
+
+  font-size: 0.82rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.event-detail-field dd {
+  margin: 0;
+
+  color: #262626;
+
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.event-detail-aside {
+  display: grid;
+  gap: 20px;
+}
+
+.event-detail-extra {
+  display: grid;
+  gap: 20px;
+}
+
+.event-detail-section {
+  padding: 24px;
+
+  background: #fff;
+
+  border-radius: 34px;
+
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================================================
+   CARDS DE EVENTOS
+   ========================================================= */
+
 .events-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -259,6 +734,7 @@
 
   background: #fff;
   color: var(--black);
+
   text-decoration: none;
 
   border-radius: 34px;
@@ -282,8 +758,11 @@
 }
 
 .event-card__image img {
+  display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 
   transition: transform 0.35s ease;
@@ -295,44 +774,64 @@
 
 .event-card__content {
   flex: 1;
+
   padding: 22px;
 
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 14px;
-  align-items: end;
+
+  align-items: start;
 }
 
-.event-card__content span {
+.event-card__content > span {
   grid-column: 1 / -1;
 
   width: fit-content;
+
   padding: 7px 11px;
+
   border-radius: 999px;
 
   background: rgba(255, 213, 0, 0.28);
 
   font-size: 0.7rem;
   font-weight: 900;
+
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
+.event-card__copy {
+  display: grid;
+  gap: 10px;
+}
+
 .event-card__content h3 {
-  margin: 0 0 6px;
+  margin: 0;
 
   font-size: 1.55rem;
-  line-height: 0.95;
+  line-height: 1.05;
   letter-spacing: -0.04em;
   font-weight: 950;
 }
 
-.event-card__content p {
+.event-card__meta {
   margin: 0;
 
+  display: grid;
+  gap: 6px;
+
   color: #666;
-  font-size: 0.9rem;
-  font-weight: 800;
+
+  font-size: 0.92rem;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.event-card__meta span {
+  display: block;
 }
 
 .event-card__content i {
@@ -343,11 +842,16 @@
   place-items: center;
 
   border-radius: 50%;
+
   background: var(--black);
   color: var(--yellow);
 }
 
-/* Calendário */
+
+/* =========================================================
+   CALENDÁRIO
+   ========================================================= */
+
 .events-calendar {
   padding: 34px;
 
@@ -355,21 +859,25 @@
   color: #fff;
 
   border-radius: 42px;
+
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.16);
 }
 
 .events-calendar__top {
   display: flex;
   justify-content: space-between;
-  gap: 24px;
   align-items: end;
+
+  gap: 24px;
 
   margin-bottom: 28px;
 }
 
 .events-calendar__top span {
   color: var(--yellow);
+
   font-weight: 900;
+
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
@@ -385,10 +893,11 @@
 
 .events-calendar__legend {
   display: flex;
-  gap: 18px;
   flex-wrap: wrap;
+  gap: 18px;
 
   color: rgba(255, 255, 255, 0.7);
+
   font-size: 0.88rem;
 }
 
@@ -398,6 +907,7 @@
   gap: 8px;
 
   color: rgba(255, 255, 255, 0.7);
+
   letter-spacing: 0;
   text-transform: none;
 }
@@ -405,6 +915,7 @@
 .legend-dot {
   width: 10px;
   height: 10px;
+
   border-radius: 50%;
 }
 
@@ -426,8 +937,10 @@
   margin-bottom: 10px;
 
   color: rgba(255, 255, 255, 0.45);
+
   font-size: 0.78rem;
   font-weight: 900;
+
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -440,11 +953,11 @@
   min-height: 112px;
   padding: 12px;
 
-  border: 1px solid rgba(255, 255, 255, 0.09);
-
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 .calendar-day strong {
@@ -457,11 +970,14 @@
 
 .calendar-event {
   margin-top: auto;
+
   padding: 8px 9px;
+
   border-radius: 14px;
 
   font-size: 0.74rem;
   font-weight: 900;
+
   line-height: 1.1;
 }
 
@@ -480,55 +996,11 @@
   color: #fff;
 }
 
-@media screen and (max-width: 1100px) {
-  .events-spotlight {
-    grid-template-columns: 1fr;
-  }
 
-  .events-intro-card {
-    min-height: auto;
-  }
+/* =========================================================
+   EVENTO MAIS PRÓXIMO
+   ========================================================= */
 
-  .events-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .events-feature-track {
-    padding: 0 54px;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .events-page {
-    padding: 24px 16px 70px;
-  }
-
-  .events-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .event-feature-card {
-    flex-basis: 280px;
-  }
-
-  .events-calendar {
-    padding: 22px;
-    border-radius: 30px;
-    overflow-x: auto;
-  }
-
-  .events-calendar__top {
-    align-items: start;
-    flex-direction: column;
-  }
-
-  .events-calendar__weekdays,
-  .events-calendar__grid {
-    min-width: 720px;
-  }
-}
-
-/* Nova seção inicial: evento mais próximo */
 .nearest-event-section {
   max-width: var(--container);
   margin: 0 auto 76px;
@@ -541,18 +1013,19 @@
 .nearest-event-heading h1 {
   margin: 18px 0 0;
 
+  color: var(--black);
+
   font-size: clamp(3rem, 7vw, 6.8rem);
   line-height: 0.82;
   letter-spacing: -0.08em;
   font-weight: 950;
-
-  color: var(--black);
 }
 
 .nearest-event-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(320px, 0.8fr);
   gap: 24px;
+
   align-items: stretch;
 }
 
@@ -564,6 +1037,7 @@
 
   background: var(--black);
   color: var(--white);
+
   text-decoration: none;
 
   border-radius: 36px;
@@ -587,11 +1061,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   gap: 34px;
 }
 
 .nearest-event-card__tag {
   width: fit-content;
+
   padding: 8px 13px;
 
   background: var(--yellow);
@@ -601,6 +1077,7 @@
 
   font-size: 0.74rem;
   font-weight: 950;
+
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -628,9 +1105,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   gap: 18px;
 
   color: rgba(255, 255, 255, 0.74);
+
   font-size: 0.92rem;
   font-weight: 800;
 }
@@ -648,13 +1127,18 @@
 
 .nearest-event-card__image {
   position: relative;
+
   min-height: 100%;
+
   overflow: hidden;
 }
 
 .nearest-event-card__image img {
+  display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 
   transition: transform 0.45s ease;
@@ -666,6 +1150,7 @@
 
 .nearest-event-date {
   position: absolute;
+
   left: 24px;
   bottom: 24px;
 
@@ -699,6 +1184,11 @@
   letter-spacing: -0.08em;
 }
 
+
+/* =========================================================
+   PRÓXIMOS EVENTOS
+   ========================================================= */
+
 .next-events-card {
   min-height: 460px;
   padding: 30px;
@@ -706,6 +1196,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   gap: 24px;
 
   background: #fff;
@@ -734,12 +1225,15 @@
   padding: 16px;
 
   display: grid;
-  grid-template-columns: 62px 1fr 36px;
+  grid-template-columns: 62px minmax(0, 1fr) 36px;
+
   gap: 14px;
+
   align-items: center;
 
   background: var(--gray-bg);
   color: var(--black);
+
   text-decoration: none;
 
   border-radius: 24px;
@@ -785,6 +1279,7 @@
   margin: 0;
 
   color: #666;
+
   font-size: 0.86rem;
   font-weight: 700;
 }
@@ -802,7 +1297,29 @@
   border-radius: 50%;
 }
 
-@media screen and (max-width: 1050px) {
+
+/* =========================================================
+   RESPONSIVIDADE — 1100PX
+   ========================================================= */
+
+@media screen and (max-width: 1100px) {
+
+  .events-spotlight {
+    grid-template-columns: 1fr;
+  }
+
+  .events-intro-card {
+    min-height: auto;
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .events-feature-track {
+    padding: 0 54px;
+  }
+
   .nearest-event-grid {
     grid-template-columns: 1fr;
   }
@@ -821,7 +1338,135 @@
   }
 }
 
-@media screen and (max-width: 650px) {
+
+/* =========================================================
+   RESPONSIVIDADE — DETALHE
+   ========================================================= */
+
+@media screen and (max-width: 980px) {
+
+  /*
+   * A partir daqui os cards ficam um abaixo do outro.
+   */
+  .event-detail-hero {
+    grid-template-columns: 1fr;
+  }
+
+  /*
+   * Como não estão mais lado a lado,
+   * cada um pode ter sua própria altura.
+   */
+  .event-detail-media-card {
+    height: 480px;
+    min-height: 480px;
+  }
+
+  .event-detail-header-card {
+    height: auto;
+    min-height: 0;
+  }
+
+  .event-detail-body {
+    grid-template-columns: 1fr;
+  }
+
+  .event-detail-meta-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .event-detail-header-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — 720PX
+   ========================================================= */
+
+@media screen and (max-width: 720px) {
+
+  .events-page {
+    padding: 24px 16px 70px;
+  }
+
+  .event-detail-page {
+    padding: 18px 16px 60px;
+  }
+
+  .event-detail-hero {
+    gap: 20px;
+  }
+
+  /*
+   * ALTURA FIXA DA IMAGEM NO CELULAR.
+   */
+  .event-detail-media-card {
+    height: 360px;
+    min-height: 360px;
+
+    border-radius: 28px;
+  }
+
+  .event-detail-media-card img {
+    object-position: center;
+  }
+
+  .event-detail-header-card {
+    padding: 24px;
+
+    border-radius: 28px;
+
+    gap: 20px;
+  }
+
+  .event-detail-header-card h1 {
+    font-size: clamp(2.2rem, 10vw, 3.4rem);
+  }
+
+  .event-detail-meta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-detail-header-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .event-detail-card,
+  .event-detail-section {
+    padding: 24px;
+  }
+
+  .event-detail-body {
+    gap: 20px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-feature-card {
+    flex-basis: 280px;
+  }
+
+  .events-calendar {
+    padding: 22px;
+
+    border-radius: 30px;
+
+    overflow-x: auto;
+  }
+
+  .events-calendar__top {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .events-calendar__weekdays,
+  .events-calendar__grid {
+    min-width: 720px;
+  }
+
   .nearest-event-card__content {
     padding: 30px;
   }
@@ -834,6 +1479,7 @@
   .nearest-event-date {
     width: 92px;
     height: 92px;
+
     border-radius: 22px;
   }
 
@@ -842,6 +1488,42 @@
   }
 
   .next-event-item {
-    grid-template-columns: 54px 1fr 34px;
+    grid-template-columns: 54px minmax(0, 1fr) 34px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — 500PX
+   ========================================================= */
+
+@media screen and (max-width: 500px) {
+
+  .event-detail-media-card {
+    height: 300px;
+    min-height: 300px;
+
+    border-radius: 24px;
+  }
+
+  .event-detail-header-card {
+    padding: 20px;
+  }
+
+  .event-detail-card {
+    padding: 20px;
+  }
+
+  .event-detail-media-badge {
+    padding: 20px;
+  }
+
+  .btn-highlight,
+  .btn-white-outline {
+    width: 100%;
+  }
+
+  .nearest-event-card__content {
+    padding: 24px;
   }
 }

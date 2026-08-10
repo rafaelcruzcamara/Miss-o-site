@@ -1,85 +1,64 @@
 ﻿---
-interface EventItem {
-  month: string;
-  day: string;
-  location: string;
-  title: string;
-  description: string;
-  image: string;
-  href: string;
-  tag: string;
-}
+import type { Event } from "../../types/event";
 
 interface Props {
-  events: EventItem[];
+  events: Event[];
 }
 
 const { events } = Astro.props;
+const featuredEvents = events.filter((event) => event.featured);
 
-const nearestEvent = events[0];
-const nextEvents = events.slice(1, 3);
+function formatMonth(dateString: string) {
+  const date = new Date(dateString);
+  return date.toLocaleString("pt-BR", { month: "short" }).toUpperCase();
+}
+
+function formatDay(dateString: string) {
+  const date = new Date(dateString);
+  return String(date.getDate()).padStart(2, "0");
+}
 ---
 
-<section class="nearest-event-section">
+<section class="events-spotlight">
+  <div class="events-intro-card">
+    <span class="events-kicker">Destaque</span>
+    <h1>Os próximos grandes encontros</h1>
+    <p>
+      Fique por dentro das datas, locais e informações dos eventos mais
+      relevantes da missão.
+    </p>
+  </div>
 
-  <div class="nearest-event-grid">
-    <a href={nearestEvent.href} class="nearest-event-card">
-      <div class="nearest-event-card__content">
-        <span class="nearest-event-card__tag">{nearestEvent.tag}</span>
+  <div class="events-spotlight__carousel">
+    <div class="events-feature-track">
+      {
+        featuredEvents.map((event) => (
+          <a href={`/eventos/${event.slug}`} class="event-feature-card">
+            <div class="event-feature-card__image">
+              <img src={event.cover} alt={event.title} />
+            </div>
 
-        <div>
-          <h2>{nearestEvent.title}</h2>
-          <p>{nearestEvent.description}</p>
-        </div>
-
-        <div class="nearest-event-card__footer">
-          <span>
-            <i class="fa-solid fa-location-dot"></i>
-            {nearestEvent.location}
-          </span>
-
-          <strong>
-            Ver detalhes
-            <i class="fa-solid fa-arrow-right"></i>
-          </strong>
-        </div>
-      </div>
-
-      <div class="nearest-event-card__image">
-        <img src={nearestEvent.image} alt={nearestEvent.title} />
-
-        <div class="nearest-event-date">
-          <span>{nearestEvent.month}</span>
-          <strong>{nearestEvent.day}</strong>
-        </div>
-      </div>
-    </a>
-
-    <aside class="next-events-card">
-      <div class="next-events-card__header">
-        <span class="events-kicker">Eventos</span>
-        <h3>Próximos</h3>
-      </div>
-
-      <div class="next-events-list">
-        {
-          nextEvents.map((event) => (
-            <a href={event.href} class="next-event-item">
-              <div class="next-event-date">
-                <span>{event.month}</span>
-                <strong>{event.day}</strong>
+            <div class="event-feature-card__body">
+              <div class="event-feature-card__date">
+                <span>{formatMonth(event.startDate)}</span>
+                <strong>{formatDay(event.startDate)}</strong>
               </div>
 
               <div>
-                <h4>{event.title}</h4>
-                <p>{event.location}</p>
+                <span class="event-feature-card__tag">
+                  {event.label ?? event.location.name}
+                </span>
+                <h2>{event.title}</h2>
+                <p>{event.summary}</p>
+                <span class="event-feature-card__location">
+                  <i class="fa-solid fa-location-dot" />
+                  {event.location.city} - {event.location.state}
+                </span>
               </div>
-
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-          ))
-        }
-      </div>
-    </aside>
+            </div>
+          </a>
+        ))
+      }
+    </div>
   </div>
 </section>
