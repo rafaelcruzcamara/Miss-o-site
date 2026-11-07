@@ -23,6 +23,11 @@ const events = await getEvents();
       <div class="events-grid">
         {events.map((event) => <EventCard event={event} />)}
       </div>
+      {events.length === 0 && (
+        <p class="events-empty" role="status">
+          Nenhum evento disponível no momento. Tente novamente mais tarde.
+        </p>
+      )}
     </section>
 
     <!-- <EventsCalendar events={events} /> -->

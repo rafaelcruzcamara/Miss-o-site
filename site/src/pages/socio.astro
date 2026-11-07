@@ -63,7 +63,6 @@ import "../styles/pages/socio.css";
 
     <input type="hidden" name="_next" value="https://servosdoespiritosanto.com/obrigado.html">
     <input type="hidden" name="_subject" value="Novo Benfeitor Cadastrado!">
-    <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="table">
 
     <div class="form-group">
@@ -74,51 +73,14 @@ import "../styles/pages/socio.css";
         </div>
     </div>
 
-    <div class="form-grid-3">
-        
-        <div class="form-group">
-            <label>Data de Nascimento</label>
-            <input type="text" name="nascimento" class="form-input" placeholder="DD/MM/AAAA" maxlength="10" onkeyup="mascaraData(this)" required>
-        </div>
-
-        <div class="form-group">
-            <label>Sexo</label>
-            <select name="sexo" class="form-input">
-                <option value="Masculino">Masculino</option>
-                <option value="Feminino">Feminino</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label>WhatsApp</label>
-            <input type="tel" name="whatsapp" class="form-input" placeholder="(00) 90000-0000" onkeyup="mascaraTel(this)">
-        </div>
+    <div class="form-group">
+        <label>WhatsApp</label>
+        <input type="tel" name="whatsapp" class="form-input" placeholder="(00) 90000-0000" onkeyup="mascaraTel(this)">
     </div>
 
-    <div class="double-input">
-        <div class="form-group">
-            <label>E-mail *</label>
-            <input type="email" name="email" class="form-input" placeholder="seu@email.com" required>
-        </div>
-        <div class="form-group">
-            <label>CPF</label>
-            <input type="text" name="cpf" class="form-input" placeholder="000.000.000-00" onkeyup="mascaraCPF(this)">
-        </div>
-    </div>
-
-    <div class="form-group" style="margin-top: 20px;">
-        <label>Endereço</label>
-        <div class="double-input">
-            <input type="text" name="rua" class="form-input" placeholder="Rua, Número, Bairro">
-            <input type="text" name="cep" class="form-input" placeholder="CEP" onkeyup="mascaraCEP(this)">
-        </div>
-        <div class="double-input" style="margin-top: 15px;">
-            <input type="text" name="cidade" class="form-input" placeholder="Cidade">
-            <select name="estado" class="form-input">
-                <option value="MT">Mato Grosso (MT)</option>
-                <option value="Outro">Outro Estado</option>
-            </select>
-        </div>
+    <div class="form-group">
+        <label>E-mail *</label>
+        <input type="email" name="email" class="form-input" placeholder="seu@email.com" required>
     </div>
 
     <div class="form-group" style="margin-top: 20px;">
@@ -170,58 +132,7 @@ import "../styles/pages/socio.css";
             }, 3000); 
         }
 
-        function mascaraData(val) {
-        var pass = val.value;
-        var expr = /[0123456789]/;
-
-        for (i = 0; i < pass.length; i++) {
-            // Impede entrar letras
-            var lchar = val.value.charAt(i);
-            var nchar = val.value.charAt(i + 1);
-
-            if (i == 0) {
-                // Limita primeiro digito do dia (0-3)
-                if ((lchar.search(expr) != 0) || (lchar > 3)) {
-                    val.value = "";
-                }
-            } else if (i == 1) {
-                if (lchar.search(expr) != 0) {
-                    // Remove caracter inválido
-                    var tst1 = val.value.substring(0, (i));
-                    val.value = tst1;
-                    continue;
-                }
-                // Adiciona a barra depois do dia
-                if ((nchar != '/') && (nchar != '')) {
-                    var tst1 = val.value.substring(0, (i + 1));
-                    if (nchar.search(expr) != 0)
-                        var tst2 = val.value.substring(i + 2, pass.length);
-                    else
-                        var tst2 = val.value.substring(i + 1, pass.length);
-                    val.value = tst1 + '/' + tst2;
-                }
-            } else if (i == 4) {
-                if (lchar.search(expr) != 0) {
-                    var tst1 = val.value.substring(0, (i));
-                    val.value = tst1;
-                    continue;
-                }
-                // Adiciona a barra depois do mês
-                if ((nchar != '/') && (nchar != '')) {
-                    var tst1 = val.value.substring(0, (i + 1));
-                    if (nchar.search(expr) != 0)
-                        var tst2 = val.value.substring(i + 2, pass.length);
-                    else
-                        var tst2 = val.value.substring(i + 1, pass.length);
-                    val.value = tst1 + '/' + tst2;
-                }
-            }
-        }
-        if (pass.length > 10) val.value = val.value.substring(0, 10);
-        return true;
-    }
-
-    // 2. Telefone
+    // Telefone
     function mascaraTel(input) {
         let v = input.value.replace(/\D/g, "");
         v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
@@ -229,20 +140,5 @@ import "../styles/pages/socio.css";
         input.value = v.substring(0, 15);
     }
 
-    // 3. CPF
-    function mascaraCPF(input) {
-        let v = input.value.replace(/\D/g, "");
-        v = v.replace(/(\d{3})(\d)/, "$1.$2");
-        v = v.replace(/(\d{3})(\d)/, "$1.$2");
-        v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
-        input.value = v.substring(0, 14);
-    }
-
-    // 4. CEP
-    function mascaraCEP(input) {
-        let v = input.value.replace(/\D/g, "");
-        v = v.replace(/^(\d{5})(\d)/, "$1-$2");
-        input.value = v.substring(0, 9);
-    }
     </script>
 </SiteLayout>

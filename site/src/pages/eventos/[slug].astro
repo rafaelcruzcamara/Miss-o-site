@@ -1,19 +1,22 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
-import { getAllEvents, getEventBySlug } from "../../services/events";
+import { getAllEvents } from "../../services/events";
 import type { Event } from "../../types/event";
 import "../../styles/pages/eventos.css";
 
+interface Props {
+  event: Event;
+}
+
 export async function getStaticPaths() {
   const events = await getAllEvents();
-  return events.map((event) => ({ params: { slug: event.slug } }));
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
 }
 
-const event = await getEventBySlug(Astro.params.slug);
-
-if (!event) {
-  throw new Error(`Event not found: ${Astro.params.slug}`);
-}
+const { event } = Astro.props;
 
 function formatDate(dateString: string) {
   if (!dateString) return "";
