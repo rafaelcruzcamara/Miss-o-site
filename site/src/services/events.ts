@@ -40,6 +40,14 @@ function toDateKey(value: string | undefined | null): string | undefined {
   return `${year}-${month}-${day}`;
 }
 
+function getTodayDateKey(): string {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 function isPublished(status: string | undefined): boolean {
   return status === undefined || status.toLowerCase() === "published";
 }
@@ -49,7 +57,7 @@ function eventIsVisible(event: Event): boolean {
     return false;
   }
 
-  const today = toDateKey(new Date().toISOString());
+  const today = getTodayDateKey();
   const displayStarts = toDateKey(event.displayStartsAt);
   const displayEnds = toDateKey(event.displayEndsAt);
 

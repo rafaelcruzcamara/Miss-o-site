@@ -138,9 +138,19 @@ import "../styles/pages/socio.css";
 
 
     <script is:inline>
-        function copyPix() {
-            navigator.clipboard.writeText(document.getElementById('pixKey').innerText);
-            alert("Chave PIX copiada!");
+        async function copyPix() {
+            const pixKey = document.getElementById('pixKey')?.innerText;
+            if (!pixKey || !navigator.clipboard?.writeText) {
+                alert("Não foi possível copiar a chave PIX. Copie-a manualmente.");
+                return;
+            }
+
+            try {
+                await navigator.clipboard.writeText(pixKey);
+                alert("Chave PIX copiada!");
+            } catch {
+                alert("Não foi possível copiar a chave PIX. Copie-a manualmente.");
+            }
         }
         
         // Animação Scroll

@@ -1,13 +1,11 @@
 ﻿---
 import SiteLayout from "../layouts/SiteLayout.astro";
-import EventSpotlightCarousel from "../components/events/EventSpotlightCarousel.astro";
 import EventCard from "../components/events/EventCard.astro";
 import { getEvents } from "../services/events";
 
 import "../styles/pages/eventos.css";
 
 const events = await getEvents();
-const featuredEvents = events.filter((event) => event.featured);
 ---
 
 <SiteLayout title="Agenda e Eventos | Missão Servos" active="eventos">

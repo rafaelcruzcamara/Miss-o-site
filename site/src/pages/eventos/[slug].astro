@@ -1,6 +1,6 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
-import { getAllEvents, getEventBySlug, getEvents } from "../../services/events";
+import { getAllEvents, getEventBySlug } from "../../services/events";
 import type { Event } from "../../types/event";
 import "../../styles/pages/eventos.css";
 
@@ -40,7 +40,15 @@ const registrationState = (() => {
     return `${year}-${month}-${day}`;
   }
 
-  const today = toDayKey(new Date().toISOString());
+  function getTodayDateKey(): string {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
+  const today = getTodayDateKey();
   const starts = toDayKey(event.registrationStartsAt);
   const ends = toDayKey(event.registrationEndsAt);
 
